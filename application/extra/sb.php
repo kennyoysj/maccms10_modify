@@ -4,9 +4,9 @@ return array (
   array (
     'jc' => 
     array (
-      'logo1' => 'template/dianyingim/img/logo.png',
-      'logo2' => 'template/dianyingim/img/logo.png',
-      'icon' => 'template/dianyingim/img/logo.png',
+      'logo1' => 'template/dianyingim/img/logo_transparent.png',
+      'logo2' => 'template/dianyingim/img/logo_transparent.png',
+      'icon' => 'template/dianyingim/img/logo_transparent.png',
       'pic' => 'template/dianyingim/img/loading.png',
       'gg' => '欢迎来到有间影院',
       'txt' => '<p>有间影院</p>',
