@@ -4083,8 +4083,11 @@ input[type=radio], input[type=checkbox] {
 		margin-left: -88px
 	}
 	.logo-s img {
-		width: 177px;
-		height: 50px
+		width: 120px;
+		height: 120px;
+		position: relative;
+		margin: auto;
+		bottom: -20px;
 	}
 	.logo-s {
 		bottom: 20px
