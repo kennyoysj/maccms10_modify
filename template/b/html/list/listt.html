@@ -1,0 +1,87 @@
+<div class="video-page-card">
+
+    <div class="card-box">
+
+        <div class="pic-box" style="padding-top: 0px;width: 100px;height: 62px;background: #c0c0c0;">
+
+            <div class="pic" style=" width: 100px;height: 62px;">
+
+                <a href="{:mac_url_vod_detail($vo)}" class="">
+
+                    <img class="item-lazy" src="/<?php echo $yzm['pic']['lazy'];?>" data-echo="{:mac_url_img($vo.vod_pic)}"
+
+                    style=" width: 100%;height: 115px;margin-top: -30px;border-radius: 3px;">
+
+                </a>
+
+                <span class="mask-video">
+
+                </span>
+
+                <span class="duration">
+
+                    <i class="iconfont">
+
+                        &#xe612;
+
+                    </i>
+
+                    {$vo.vod_time|date='m-d',###}
+
+                    <br>
+
+                    <br>
+
+                    {if condition="$vo.vod_serial gt 0"}更新至&nbsp;第{$vo.vod_serial}集{else/}{$vo.vod_remarks}{/if}
+
+                </span>
+
+            </div>
+
+            <div class="watch-later-video van-watchlater">
+
+                <span class="wl-tips" style="display:none;">
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="info" style=" height: 21px;">
+
+            <a href="{:mac_url_vod_detail($vo)}" title="【{$vo.vod_name}】" class="title"
+
+            style=" height: 21px;    width: 150px;">
+
+                【{$vo.vod_name}】
+
+            </a>
+
+            <div class="count up">
+
+                <a href="{:mac_url_vod_detail($vo)}" target="_blank">
+
+                    {if condition="$vo.vod_serial gt 0"}更新至&nbsp;第{$vo.vod_serial}集{else/}{$vo.vod_remarks}{/if}
+
+                </a>
+
+            </div>
+
+            <div class="count">
+
+                <i class="iconfont" style="font-size:18px;">
+
+                    &#xe604;
+
+                </i>
+
+                播放&nbsp;{$vo.vod_hits}&nbsp;·&nbsp;评分&nbsp;{$vo.vod_score}+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

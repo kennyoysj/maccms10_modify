@@ -1,0 +1,192 @@
+<div id="header">
+<!-- 顶部菜单 -->
+    <div class="z_top b-header-blur b-header-blur-black">
+        <div class="container">
+            <div class="b-header-mask-wrp">
+                <div class="b-header-mask-bg"></div>
+                <div class="b-header-mask" style="background-color: hsla(0,0%,100%,0.13);"></div>
+            </div>
+            <div class="z_header">
+                <div class="z_top_nav">
+                    <ul>
+                        <li class="home" style=" background-position: -910px -74px;"><a class="i-link" href="/"><span>主站</span></a></li>
+                        <li class="b-gc"><a class="i-link" href="{:mac_url('user/login')}"  target="_blank" title="会员中心">会员中心</a></li>
+                        {if$yzm['home']['guide1']['state']==1}<li class="b-zb"><a class="i-link" rel="nofollow"  href="<?php echo $yzm['home']['guide1']['link']?>"  target="_blank"><?php echo $yzm['home']['guide1']['title']?></a></li>{/if}
+                        {if$yzm['home']['guide2']['state']==1}<li class="b-zb"><a class="i-link" rel="nofollow"  href="<?php echo $yzm['home']['guide2']['link']?>"  target="_blank"><?php echo $yzm['home']['guide2']['title']?></a></li>{/if}
+                        {if$yzm['home']['guide3']['state']==1}<li class="b-zb"><a class="i-link" rel="nofollow"  href="<?php echo $yzm['home']['guide3']['link']?>"  target="_blank"><?php echo $yzm['home']['guide3']['title']?></a></li>{/if}
+                        {if$yzm['home']['guide4']['state']==1}<li class="b-zb"><a class="i-link" rel="nofollow"  href="<?php echo $yzm['home']['guide4']['link']?>"  target="_blank"><?php echo $yzm['home']['guide4']['title']?></a></li>{/if}
+                        {if$yzm['home']['guide5']['state']==1}<li class="b-zb"><a class="i-link" rel="nofollow"  href="<?php echo $yzm['home']['guide5']['link']?>"  target="_blank"><?php echo $yzm['home']['guide5']['title']?></a></li>{/if}
+                        <li class="b-zb"><a class="i-link" rel="nofollow"  href="<?php echo $yzm['APP_down']?>" title="app追剧更方便"><font color="#19c3ff"><i class="iconfont">&#xe711;</i>&nbsp;APP下载</font></a></li>
+                    </ul>
+                </div>
+                <div class="uns_box">
+                    <ul>
+                        <div class="logon_menu">{if$user.user_id!=''}
+                            <div id="logon_info">
+                                <div class="logon_avatar">
+                                    <a href="{:mac_url('user/index')}">
+                                        <img class="avatar" title="个人中心" src="{$obj.user_portrait|mac_default='template/b/images/touxiang.png'|mac_url_img}"><i style="font-size: 13px;color:#fff;-display: unset;" class="icon fm-iconfont fm-icon-down0"></i>
+                                    </a>
+                                </div>
+                                <div class="logon_dropdown basic_container_item" style="box-shadow: none;border: 1px solid #ccc;background-color: #fff;width: 240px;">
+                                    <div class="uhead" style="text-align:center;margin:0px 20px 0px 20px;border-bottom: 1px solid #ccc;">
+                                        <span class="utitle">{$user.user_name}</span>
+                                    </div>
+                                    <div class="ubody" style="margin: 20px;">
+                                        <a href="{:mac_url('user/info')}" class="icon fm-iconfont fm-icon-friend small"> 我的资料</a>
+                                        <a href="{:mac_url('user/favs')}" class="icon fm-iconfont fm-icon-items small"> 我的收藏</a>
+                                        <a href="{:mac_url('user/plays')}" class="icon fm-iconfont fm-icon-list small"> 我的足迹</a>
+                                        <div style="clear:both"></div>
+                                </div>
+                                <div class="ufoot" style="text-align:center;border-radius: 4px;height: 34px;line-height: 34px;background-color: #fafafa;border-top: 1px solid #e0e0e0;">
+                                        <a style="font-size: 14px" href="{:mac_url('user/logout')}">退出账号</a>
+                                </div>
+                            </div>
+                        </div>
+						<script>var leo_avatar = MAC.Cookie.Get("leo-avatar");if(leo_avatar == "" || leo_avatar == null){$("#leo-head-avatar").attr("src", "/template/new/img/icon64_maimeng.png?v={:time()}");}else{$("#leo-head-avatar").attr("src", leo_avatar+"?v={:time()}");}</script>
+						{else}
+                        <ul class="menu_nav">
+                            <li style="line-height: 42px;">
+                                <a href="javascript:void(0);" class="do_login icon_list mac_user" id="logon_info">
+                                    <img class="avatar" title="个人中心" src="{$maccms.path_tpl}/images/akari.jpg">
+                                </a>
+                            </li>
+                        </ul>{/if}</div>
+                <li class="u-i" id="history">{if$user.user_id!=''}
+				<a href="{:mac_url('user/plays')}" class="i-link">历史</a>
+                    <div class="mini-wnd history-wnd" style="margin-top: 1px;border-radius: 5px;">
+                        <div class="top-login" style="padding-top: 10px;">
+                            <img class="avatar" title="个人中心" src="{$obj.user_portrait|mac_default='template/b/images/touxiang.png'|mac_url_img}"style="WIDTH: 40PX;MARGIN-LEFT: 5px;"><a class="loginbtn" href="{:mac_url('user/index')}" style="margin: 10px 14px 20px;">ID:{$user.user_name}</a>
+                        </div>
+                        <ul class="listh history mac_history">
+                            <li class="timeline" style="width: 95%;"><span class="date">最近播放记录</span>
+                            </li>
+                            <div class="ilist"></div>
+                        </ul>
+                    </div>{else}
+				<a href="{:mac_url('user/plays')}" class="i-link">历史</a>
+                    <div class="mini-wnd history-wnd" style="margin-top: 1px;border-radius: 5px;">
+                        <div class="top-login"style="padding-top: 10px;">
+                            <p class="txt">登录后有更多功能哦~</p><a class="loginbtn" href="{:mac_url('user/login')}">登录</a>
+                        </div>
+                        <ul class="listh history mac_history">
+                            <li class="timeline" style="width: 95%;"><span class="date">最近播放记录</span>
+                            </li>
+                            <div class="ilist"></div>
+                        </ul>
+                    </div>{/if}
+                </li>
+                <li class="u-i b-post"><a class="i-link" href="{:mac_url('gbook/index')}">留 言</a>
+                    <ul class="s-menu">
+                        <li><a href="{:mac_url('gbook/index')}"><i class="icon icon-vp"></i><em>求 片</em></a></li>
+                        <li><a href="{:mac_url('gbook/index')}"><i class="icon icon-vm"></i><em>建 议</em></a></li>
+                        <li><a href="{:mac_url('gbook/index')}"><i class="icon icon-vc"></i><em>漏 洞</em></a></li>
+                    </ul>
+                </li>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 导航菜单 -->
+<div class="header">
+    <div class="container">
+        <div class="header-layer" style="height: 170px;"></div>
+            <a class="header-link" href="/" style="height: 170px;"></a>
+        <div class="h-center"><a href="{$maccms.path}" title="{$maccms.site_name}" class="logo"></a></div>
+        <div class="num">
+            <div class="menu-wrapper">
+                <ul class="nav-menu" {if condition="$maccms.aid eq 1"}style="border-bottom: 0px solid #e5e9ef;"{/if}>
+                    <li class="m-i home"><a class="i-link" href="{$maccms.path}"><em>首页</em></a></li>
+					{if$yzm['home']['top_guide']['state']==0}
+                    <li class="m-i">{maccms:type ids="1" order="asc" by="sort" id="vo1" key="key1"}<a class="i-link" href="{:mac_url_type($vo1)}"><em>{$vo1.type_name}</em><div class="v-num"><span class="addnew_1">{:mac_data_count(1,'today')}</span></div></a>{/maccms:type}
+                        <ul class="i_num">{maccms:type ids="6,7,8,9,10,11,12" order="asc" by="sort"}
+                            <li><a href="{:mac_url_type($vo)}"><b>{$vo.type_name}<em></em></b></a>
+                            </li>{/maccms:type}</ul>
+                    </li>
+                    <li class="m-i {if condition=" ($vo.type_id eq $GLOBALS[ 'type_id'] || $vo.type_id eq $GLOBALS[ 'type_pid']) "} on{/if}">{maccms:type ids="2" order="asc" by="sort" id="vo2" key="key1"}<a class="i-link" href="{:mac_url_type($vo2)}"><em>{$vo2.type_name}</em><div class="v-num"><span class="addnew_5">{:mac_data_count(2,'today')}</span></div></a>{/maccms:type}
+                        <ul class="i_num">{maccms:type ids="13,14,15,16" order="asc" by="sort"}
+                            <li><a href="{:mac_url_type($vo)}"><b>{$vo.type_name}<em></em></b></a>
+                            </li>{/maccms:type}</ul>
+                    </li>
+					{maccms:type ids="3,4,5" order="asc" by="sort"}
+                    <li class="m-i {if condition="$obj.type_id eq $vo.type_id"} on{/if}"><a class="i-link" href="{:mac_url_type($vo)}"><em>{$vo.type_name}</em><div class="v-num"><span class="addnew_{$vo.type_id}">{if condition="$vo.type_id eq 3"}{:mac_data_count(3,'today')}{elseif condition="$vo.type_id eq 4"}{:mac_data_count(4,'today')}{elseif condition="$vo.type_id eq 5"}{:mac_data_count(5,'today')}{elseif condition="$vo.type_id eq 6"}{:mac_data_count(6,'today')}{elseif condition="$vo.type_id eq 7"}{:mac_data_count(7,'today')}{elseif condition="$vo.type_id eq 8"}{:mac_data_count(8,'today')}{elseif condition="$vo.type_id eq 9"}{:mac_data_count(9,'today')}{elseif condition="$vo.type_id eq 10"}{:mac_data_count(10,'today')}{elseif condition="$vo.type_id eq 11"}{:mac_data_count(11,'today')}{elseif condition="$vo.type_id eq 12"}{:mac_data_count(12,'today')}{elseif condition="$vo.type_id eq 13"}{:mac_data_count(13,'today')}{elseif condition="$vo.type_id eq 14"}{:mac_data_count(14,'today')}{elseif condition="$vo.type_id eq 15"}{:mac_data_count(15,'today')}{elseif condition="$vo.type_id eq 16"}{:mac_data_count(16,'today')}{elseif condition="$vo.type_id eq 17"}{:mac_data_count(17,'today')}{elseif condition="$vo.type_id eq 18"}{:mac_data_count(18,'today')}{elseif condition="$vo.type_id eq 22"}{:mac_data_count(22,'today')}{elseif condition="$vo.type_id eq 23"}{:mac_data_count(23,'today')}{elseif condition="$vo.type_id eq 24"}{:mac_data_count(24,'today')}{/if}</span></div></a>
+                    </li>{/maccms:type}
+					{elseif$yzm['home']['top_guide']['state']==1}
+					{maccms:type ids="parent" order="asc" by="sort"}
+                    <li class="m-i {if condition="$obj.type_id eq $vo.type_id"} on{/if}"><a class="i-link" href="{:mac_url_type($vo)}"><em>{$vo.type_name}</em><div class="v-num"><span class="addnew_{$vo.type_id}">{if condition="$vo.type_id eq 1"}{:mac_data_count(1,'today')}{elseif condition="$vo.type_id eq 2"}{:mac_data_count(2,'today')}{elseif condition="$vo.type_id eq 3"}{:mac_data_count(3,'today')}{elseif condition="$vo.type_id eq 4"}{:mac_data_count(4,'today')}{elseif condition="$vo.type_id eq 5"}{:mac_data_count(5,'today')}{elseif condition="$vo.type_id eq 6"}{:mac_data_count(6,'today')}{else}0{/if}</span></div></a>
+                    </li>{/maccms:type}
+					{/if}
+				   	 <li class="m-i "><a class="i-link" href="http://xiantian.xyz/hjzb.php"><em>福利</em><div class="v-num"><span class="addnew_4">200</span></div></a>
+                    </li> 
+                    	 <li class="m-i "><a class="i-link" href="http://xiantian.xyz/hjzb.php"><em>花椒</em><div class="v-num"><span class="addnew_4">200</span></div></a>
+                    </li> 
+                    	 <li class="m-i "><a class="i-link" href="http://xiantian.xyz/hjzb.php"><em>虎牙</em><div class="v-num"><span class="addnew_4">490</span></div></a>
+                    </li>  
+                    	 <li class="m-i "><a class="i-link" href="http://xiantian.xyz/hjzb.php"><em>MV</em><div class="v-num"><span class="addnew_4">140</span></div></a>
+                    </li>  
+                    <li class="m-i "><a class="i-link" href="http://xiantian.xyz/hjzb.php"><em>热舞</em><div class="v-num"><span class="addnew_4">257</span></div></a>
+                    </li>  
+                    	 <li class="m-i "><a class="i-link" href="http://xiantian.xyz/hjzb.php"><em>番剧</em><div class="v-num"><span class="addnew_4">102</span></div></a>
+                    </li>  
+                     </li>  
+                    	 <li class="m-i "><a class="i-link" href="http://xiantian.xyz/hjzb.php"><em>热播</em><div class="v-num"><span class="addnew_4">20</span></div></a>
+                    </li> 
+                       </li>  
+                    	 <li class="m-i "><a class="i-link" href="http://xiantian.xyz/hjzb.php"><em>推荐</em><div class="v-num"><span class="addnew_4">45</span></div></a>
+                    </li> 
+                    	 <li class="m-i "><a class="i-link" href="http://blog.xiantian.fun/index/type/huya.html"><em>放映厅</em><div class="v-num"><span class="addnew_4">50</span></div></a>
+                    </li>    
+                    	 <li class="m-i "><a class="i-link" href="http://xiantian.xyz/cxseacher.php"><em>全网搜</em><div class="v-num"><span class="addnew_4">1000</span></div></a>
+                    </li>  
+                      </li> 
+                     <li class="m-i m-i-zt m-i-ex"><a class="i-link" href="{:mac_url('gbook/index')}"><em>留言</em></a></li>
+                    <li class="m-i m-i-square m-i-ex"><a class="i-link" href="javascript:void(0)"><em>专栏</em></a>
+                        <div class="i_num">
+                            <ul>{maccms:type ids="5" order="asc" by="sort"}
+                                <li><a href="{:mac_url_type($vo)}"><i class="icon icon-n-activity"></i><b>电影资讯</b></a></li>{/maccms:type}
+                                <li><a href="{:mac_url_topic_index()}"><i class="icon icon-n-gc"></i><b>影视专题</b></a></li><li><a href="{:mac_url('label/live')}"><i class="icon icon-n-new"></i><b>在线电视</b></a></li>
+                                <li><a href="{:mac_url('rss/baidu')}"><i class="icon icon-n-h"></i><b>网站地图</b></a></li>
+                                <li><a href="javascript:;"><i class="icon icon-n-mango"></i><b>等待添加</b></a></li>
+                            </ul>
+                            <div class="square-pmt-field">
+                                <div class="square-pmt-item" title="活动">
+                                    <a href="{:mac_url_topic_index()}">
+                                        <img src="https://ae01.alicdn.com/kf/HTB1CLdsVzDpK1RjSZFrq6y78VXa0.jpg">
+                                    </a>
+                                </div>
+                                <div class="square-pmt-item" title="话题">
+                                    <a href="{:mac_url_topic_index()}">
+                                        <img src="https://ae01.alicdn.com/kf/HTB1ZRNwVrPpK1RjSZFFq6y5PpXag.jpg">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="m-i m-i-zl m-i-ex"><a class="i-link" href="{:mac_url('label/music')}"><em>音乐</em></a></li>
+                    <li class="m-i m-i-live m-i-last animate-bounce-up"><a class="i-link i-live" href="{:mac_url('label/live')}"><em>直播</em></a></li>
+                    
+                </ul>
+				<span class="sitenav-on"><i class="icon-list"></i></span>
+
+                <div class="menu-r">
+                    <a id="mobile_p" class="mobile-p" href="#" target="_blank">
+                        <div class="mobile-p-box">
+                            <div class="mobile-p-qrcode"></div>
+                        </div>
+                    </a>
+                    <a href="/vod/search/wd/魔法禁书.html" title="美琴" class="random-p">
+                        <img src="//i2.hdslb.com/bfs/active/0105560c89d1453d3f9653e92450e0d7a9738415.gif" alt="">
+                    </a>
+                </div>
+                <div class="search">
+                    <form action="{:mac_url('vod/search')}" onSubmit="return qrsearch();" id="searchform" method="post">
+                        <input id="wd" type="text" class="search-keyword wd mac_wd" id="search-keyword" autocomplete="off" name="wd" accesskey="s" onclick="chkblk(this)" value="" {if$maccms.aid==13}{$param.wd}{/if} " placeholder="输入关键词,请少字也别错字... " value=" ">
+                        <button id="button " type="submit " class="search-submit "  target="_blank " ></button>
+                    </form>
+					<a class="link-ranking " href="{:mac_url( 'label/rank')} "><span>排行榜</span></a>
+				</div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

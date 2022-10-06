@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <title>在线播放{$obj.vod_name} {$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']} -{$maccms.site_name}</title>
+    <meta name="keywords" content="{$obj.vod_name}{$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']}免费在线观看,{$obj.vod_name}剧情介绍" />
+    <meta name="description" content="{$obj.vod_name}{$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']}免费在线观看,{$obj.vod_name}剧情介绍" />
+    {include file="public/include"}
+        <script type="text/javascript" src="{$maccms.path_tpl}js/history.js"></script>
+    <script type="text/javascript" src="{$maccms.path_tpl}js/histcookie.js"></script>
+    <script>var sitePath='',play_vid='{$obj.vod_id}',infourl='{:mac_url_vod_play($obj,['sid'=>1,'nid'=>1])}',infotit='{$obj.vod_name}',playtit='{$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']}';</script>
+    <script>var maccms={"path":"__ROOT__","mid":"{$maccms['mid']}","aid":"{$maccms['aid']}","url":"{$maccms['site_url']}","wapurl":"{$maccms['site_wapurl']}","mob_status":"{$maccms['mob_status']}"};</script>
+    <script>AddHistory();</script>
+    </head>
+  <body>
+   {include file="public/head"}
+  <div class="content">
+<div style="width:100%;height:15rem;">
+<div id="video" style="width:100%;height:100%;">
+    {$player_data} {$player_js}
+</div>
+</div>
+	
+{maccms:foreach name="obj.vod_play_list" id="vo"}
+<div class="row">
+<h2>{$vo.player_info.show}<a class="right" {if condition="$key eq 1"}style="display:block;"{else}style="display:none;"{/if}  href="javascript:;" onclick="MAC.Gbook.Report('编号【{$obj.vod_id}】名称【{$obj.vod_name}】不能观看请检查修复，页面地址' + location.href,'{$obj.vod_id}')">报错</a></h2> 
+<ul class="player gdt" style="max-height:260px;overflow: auto;overflow-x: hidden;">
+{maccms:foreach name="vo.urls" id="vo2" key="key2"}   
+<li><a href="{:mac_url_vod_play($obj,['sid'=>$vo.sid,'nid'=>$vo2.nid])}" {if condition="$param.sid eq $vo.sid && $param.nid eq $vo2.nid"}class="on"{/if}>{$vo2.name}</a></li>
+	{/maccms:foreach}
+</ul>
+</div>
+	{/maccms:foreach}
+<div class="row">
+<h2>{$obj.type.type_name}推荐</h2>
+		<ul class="pic-list mg">
+		     {maccms:vod num="6" type="current" order="desc" by="time"}
+        <li><a href="{:mac_url_vod_detail($vo)}" title="{$vo.vod_name}"><article><img src="{:mac_url_img($vo.vod_pic)}" alt="{$vo.vod_name}"><span class="s1"><i class="icon-play" style="top:0.07rem;position:relative;padding-right:3px;"></i>{if condition="$vo.vod_remarks neq ''"}{$vo.vod_remarks}{elseif condition="$vo.vod_serial gt 0"}第{$vo.vod_serial}集{else /}已完结{/if}</span><span class="s2">{$vo.vod_score}</span></article>
+        <h3><b>{$vo.vod_name}</b></h3>
+        <p>{$vo.vod_year} / {$vo.vod_area} / {$vo.vod_class}</p>
+        </a>
+        </li>
+    {/maccms:vod}
+		</ul>
+</div>
+</div>
+
+   
+ 
+    {include file="public/foot"}
+    </body>
+    </html>

@@ -1,0 +1,129 @@
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>搜索{$param.wd}{$param.actor}{$param.director}{$param.area}{$param.lang}{$param.year}{$param.class}-{$maccms.site_name}</title>
+
+    <meta name="keywords" content="$param.wd}{$param.actor}{$param.director}{$param.area}{$param.lang}{$param.year}{$param.class}-{$maccms.site_name}" />
+
+    <meta name="description" content="{$param.wd}{$param.actor}{$param.director}{$param.area}{$param.lang}{$param.year}{$param.class}-{$maccms.site_name},{$maccms.site_name}" />
+
+    {include file="public/include"}
+
+    <script src="{$maccms.path}static/js/jquery.autocomplete.js"></script>
+
+	<style>
+
+	#yzm-history {overflow-x: unset;-overflow-y: scroll;max-height: unset;}b{color: #fb7299;}
+
+	.search_tips{ margin: 0 .2333rem;}
+
+	.search_tips p{color: #757575; font-size: .68267rem; line-height: 1rem; font-size: .512rem;}
+
+	.search_tips p a{color: #00BCD4;}
+
+	</style>
+
+</head>
+
+<body>
+
+	    <div class="history-box"style="display: block;">
+
+		<div class="top">
+
+		    <div class="search-box">
+
+  		      <i></i>
+
+				<form class="search-form" method="post" target="_self" action="{:mac_url('vod/search')}">
+
+  		      <input class="1mac_wd" type="search" name="wd" maxlength="33" autocomplete="off" placeholder="{$maccms.search_placeholder|mac_default='输入搜索关键字'}"value="">
+
+				</form>
+
+  		  </div>
+
+  		  <a class="cancel" href="/">
+
+   		     <p>取消</p>
+
+   		 </a>
+
+		</div>
+
+		
+
+	            	    
+
+		<div class="hot-search" style="display: none;">
+
+  		  	<p class="title">大家都在搜</p>
+
+   		 	<div class="search-word">
+
+				{maccms:foreach name=":explode(',',$maccms.search_hot)" id="vo2" key="key2"}
+
+   		    	<a href="{:mac_url('vod/search',['wd'=>$vo2])}" class="word"><p>{$vo2}</p></a>
+
+				{/maccms:foreach}
+
+    		</div>
+
+		</div>
+
+			<section class="main">
+
+  			  <div class="main-head">
+
+					<div class="title"><p>搜索到与"<b>{$param.wd}{$param.actor}{$param.director}{$param.area}{$param.lang}{$param.year}{$param.class}</b>"相关的<b class="total"></b>条结果</p></div>
+
+				</div>
+
+ 			   <div class="main-body">
+
+  			      <div class="recom-list">
+
+				  <div class="search_tips" style="display: none;"><p>很抱歉，暂无相关视频！如需提醒管理员添加该视频请点击&nbsp;&nbsp;<a href="javascript:void(0)" onClick="MAC.Gbook.Report('请管理员添加《{$param.wd}{$param.actor}{$param.director}{$param.area}{$param.lang}{$param.year}{$param.class}》，谢谢！')">&nbsp;留言</a>&nbsp;，谢谢！</p><p>提示（如果搜索词错误也将无法搜到，可尝试简化搜索词）</p></div>
+
+						{maccms:vod num="10" paging="yes" pageurl="vod/search" order="desc" by="time"}
+
+						<li class="recom-v1">
+
+							<a href="{:mac_url_vod_detail($vo)}">
+
+									<div class="recom-image lazy-thumb" data-original="{$vo.vod_pic|mac_url_img}"></div>
+
+									<div class="recom-wrapper"><div class="recom-title">{$vo.vod_name}</div><p class="stats">{if condition="$vo.vod_serial gt 0"}更新至 第{$vo.vod_serial}集{else/}{$vo.vod_remarks}{/if}</p><p class="stats">{$vo.vod_hits}次观看 · {$vo.vod_time|date='m-d',###}更新</p></div>
+
+							</a>
+
+						</li>
+
+						{/maccms:vod}
+
+					</div>
+
+
+
+				</div>
+
+			</section>
+
+			<div class="pagebox">{include file="public/paging"}</div> 
+
+            <script>
+
+			var total ="{$__PAGING__.record_total}";if( total < 1){$(".search_tips").show();}else{$(".hot-search").show();}
+
+			$('.total').html('{$__PAGING__.record_total}');</script>
+
+{include file="public/foot"}
+
+		</div>
+
+</body>
+
+</html>

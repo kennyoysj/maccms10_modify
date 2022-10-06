@@ -1,0 +1,16 @@
+            <div class="column-rgt">
+                <div>
+{include file="jdyzm/ad"}
+            </div>
+                    <div class="section_aside_tit sort_nav">
+                        <h3>最新更新</h3>
+                        <div class="module-tab" id="mytabs3r"><span class="active">更多</span></div>
+                    </div>
+                    <div class="module-box" id="mytab3r">
+                        <ul>{maccms:vod num="15" type="all" order="desc" by="time"}
+                            {if condition="$key eq 1"}<li class="first"><a href="{:mac_url_vod_detail($vo)}" title="{$vo.vod_name} {$vo.vod_remarks}"><i>{$key}</i><div class="first-title"><b>{$vo.vod_name}</b></div><img class="item-lazy" src="/<?php echo $yzm['pic']['lazy'];?>" data-echo="{:mac_url_img($vo.vod_pic)}" alt="{$vo.vod_name}"></a></li>{else/}
+                            <li{if condition="$key lt 4"} class="hot"{/if}><i>{$key}</i><a href="{:mac_url_vod_detail($vo)}" title="{$vo.vod_name} {$vo.vod_remarks}">{$vo.vod_name}</a><span>{$vo.vod_time|date='m-d',###}</span></li>{/if}{/maccms:vod}
+                        </ul>
+                    </div>{maccms:type ids="1" order="asc" by="sort"}<a href="{:mac_url_type($vo)}" target="_blank" class="more-link" style=" display: block; height: 24px; line-height: 24px; background-color: #e5e9ef; text-align: center; border: 1px solid #e0e6ed; color: #222; border-radius: 4px; transition: .2s;margin-bottom: 23px;">查看更多&nbsp;＞</a>{/maccms:type}
+
+                    </div>

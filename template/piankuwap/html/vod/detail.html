@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+     <meta name="viewport" content="width=device-width,user-scalable=no">
+    <title>{$obj.vod_name}在线观看-{$obj.vod_name}剧情介绍-{$obj.vod_name}迅雷下载 - {$maccms.site_name}</title>
+    <meta name="keywords" content="{$obj.vod_name}在线收看,{$obj.vod_name}迅雷下载" />
+    <meta name="description" content="{$obj.vod_name}剧情:{$obj.vod_blurb}" />
+    {include file="public/include"}
+  </head>
+  <body>
+ {include file="public/head"}
+<div class="content">
+	<div class="row">
+		<div class="img">
+			<a href="{$obj.vod_name}">
+				<img src="{:mac_url_img($obj.vod_pic)}" width="100%"></a>
+		</div>
+		<div class="content-rt">
+			<h1>{$obj.vod_name}<span class="year"> ({$obj.vod_year})</span></h1>
+			<p><span>状态：</span>{if condition="$obj.vod_remarks neq ''"}{$obj.vod_remarks}{elseif condition="$obj.vod_serial gt 0"}第{$obj.vod_serial}集{else /}已完结{/if}</p>
+			<p><span>主演：</span>
+				{$obj.vod_actor|mac_url_create='actor'|mac_default='未知'}
+			</p>
+			<p><span>类型：</span>
+					{$obj.vod_class|mac_url_create='class'}
+			</p>
+			<p><span>地区：</span>
+				{$obj.vod_area|mac_url_create='area'}
+			</p>
+			<p><span>上映：</span>{$obj.vod_time|date='Y-m-d',###}({$obj.vod_area})</p>
+			<p><span>评分：</span>
+			<span style="color: green;">
+			{$obj.vod_score}
+			</span> 
+			</p>
+		</div>
+
+	</div>
+	<div class="movie-introduce">
+		<strong>简介：</strong>
+        <p class="zkjj_a" style="">{$obj.vod_blurb}<span class="zk_jj">[展开全部]</span></p><p class="sqjj_a" style="display: none;">　{$obj.vod_content|mac_filter_html}<span class="sq_jj">[收起部分]</span></p>
+	</div>
+	<script>
+		$(".albumDetailIntroTxt").click(function(){
+			$(this).text($(this).data("content"));
+	    	});
+	</script>
+	<div id="url">
+		<div class="sBox row" id="sBox">
+			<h2>在线播放<div class="hd right">
+			  <select class="py-tabs">
+			 {maccms:foreach name="obj.vod_play_list" id="vo" }	
+			 <option >{$vo.player_info.show}</option>
+			  {/maccms:foreach}   
+			 </select></div></h2>
+			<div class="player-all">
+				<ul class="player-all-ul gdt" style="max-height:200px;overflow: auto;overflow-x: hidden;">
+				   {maccms:foreach name="obj.vod_play_list" id="vo" }
+					<li {eq name="$key" value="1"}style="display:block"{else/}style="display:none"{/eq}>
+						<ul class="player">
+						   {maccms:foreach name="vo.urls" id="vo2" key="key2"}	
+							<li >
+								<a href="{:mac_url_vod_play($obj,['sid'=>$vo.sid,'nid'=>$vo2.nid])}">{$vo2.name}</a>
+							</li>
+							 {/maccms:foreach}	
+						</ul>
+					</li>
+						{/maccms:foreach}
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$('.py-tabs').change(function() {
+				var selecti = $(this).get(0).selectedIndex;
+				$(this).addClass('select').siblings().removeClass('select');
+				$('.player-all-ul>li').eq(selecti).show().siblings().hide();
+			});
+		</script>
+		{include file="vod/downlist"} 
+	</div>
+	<div class="row">
+		<h2>{$obj.type.type_name}推荐</h2>
+		<ul class="pic-list mg">
+		     {maccms:vod num="6" type="current" order="desc" by="time"}
+        <li><a href="{:mac_url_vod_detail($vo)}" title="{$vo.vod_name}"><article><img src="{:mac_url_img($vo.vod_pic)}" alt="{$vo.vod_name}"><span class="s1"><i class="icon-play" style="top:0.07rem;position:relative;padding-right:3px;"></i>{if condition="$vo.vod_remarks neq ''"}{$vo.vod_remarks}{elseif condition="$vo.vod_serial gt 0"}第{$vo.vod_serial}集{else /}已完结{/if}</span><span class="s2">{$vo.vod_score}</span></article>
+        <h3><b>{$vo.vod_name}</b></h3>
+        <p>{$vo.vod_year} / {$vo.vod_area} / {$vo.vod_class}</p>
+        </a>
+        </li>
+    {/maccms:vod}
+		</ul>
+	</div>
+</div>
+  {include file="public/foot"}
+  </body>
+ </html>

@@ -1,0 +1,1 @@
+<li{if condition="$key lt 5"} class="hot"{/if} style="width: 25%;float: left;    margin-bottom: 15px;"><div style="width: 200px;"><i>{$key}</i><a href="{:mac_url_vod_detail($vo)}" target="_blank" title="{$vo.vod_name} {$vo.vod_remarks}" style=" width: 65%;">{$vo.vod_name}</a><span>{$vo.vod_time|date='m-d',###}</span></div></li>

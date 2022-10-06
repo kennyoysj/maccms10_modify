@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>专题首页 - 精品专题 - 推荐专题 - {$maccms.site_name}</title>
+    <meta name="keywords" content="电影专题,电视剧专题,综艺专题,动漫专题,推荐专题,专题收录" />
+    <meta name="description" content="本站提供最新最全精品专题数据" /> {include file="public/include"}
+</head>
+
+<body>
+    {include file="public/head"}
+    <div id="container">
+        <div class="container" id="content">
+            <div class="zhuanti clearfix">
+                <h3>影视专题</h3>
+                <ul class="zhuanti-list">
+                    {maccms:topic num="15" paging="yes" order="desc" by="time"}
+                    <li class="video list">
+                        <a href="{:mac_url_topic_detail($vo)}" title="{$vo.topic_name}({$vo.topic_rel_vod|explode=',',###|count})">
+                            <div class="img">
+                                <div class="lazy-img"><img alt="" src="{$vo.topic_pic|mac_url_img}"></div><span class="so-imgTag_rb">{$vo.topic_rel_vod|explode=',',###|count}</span>
+                            </div>
+                        </a>
+                        <div class="info">
+                            <div class="headline clearfix"><span class="type hide">{$vo.topic_tag}</span><a title="{$vo.topic_name}({$vo.topic_rel_vod|explode=',',###|count})" href="{:mac_url_topic_detail($vo)}" class="title">{$vo.topic_name}<em class="keyword">{$vo.topic_rel_vod|explode=',',###|count}</em> （持更 ）</a></div>
+                            <div class="des hide">{$vo.topic_blurb}……</div>
+                            <div class="tags"><span title="观看" class="so-icon watch-num"><i class="icon-playtime"></i>{$vo.topic_hits}</span><span title="上传时间" class="so-icon time"><i class="icon-date"></i>{$vo.topic_time_add|date='m-d',###}</span></div>
+                        </div>
+                    </li>
+                    {/maccms:topic}
+                </ul>
+            </div>
+            <!-- 分页 -->
+            <div class="pagebox clearfix">{include file="public/paging"}</div>
+        </div>
+    </div>
+    {include file="public/foot"}
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<div class="players"style="-padding-top: 8px;">
+<link rel="stylesheet" type="text/css" href="{$maccms.path_tpl}css/player.css"/>
+<div  class="video-info"style="padding-bottom: 1px;background-color: #fff;margin-bottom: 15px;box-shadow: 0px 0px 8px #e2e2e2;">
+<div class="container-row">
+    <span class="tit"><h1 class="u-title"><a href="{:mac_url_vod_detail($obj)}"><span style="font-size: 22px;font-weight: 500;">{$obj.vod_name} {$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']}</span></a></h1></span>
+    <div class="video-data">
+        <span class="a-crumbs">{if condition="$obj.type_1.type_id neq '' "}<a href="{:mac_url_type($obj.type_1)}"><i class="u-mark u-mark-zz" style="vertical-align: -1px;border-radius: 18px;border: 0px solid #f06000;">{$obj.type_1.type_name}></i></a>{/if}<a href="{:mac_url_type($obj.type)}"><i class="u-mark u-mark-zz" style="vertical-align: -1px;border-radius: 18px;border: 0px solid #f06000;">{$obj.type.type_name}</i></a></span>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;更新时间：20{$obj.vod_time|date='y-m-d',###}</span>
+    </div>
+    <div class="video-data">
+        <span title="总播放数{$obj.vod_hits}" class="view">{$obj.vod_hits}播放&nbsp;·&nbsp;</span>
+        <span title="评分：{$obj.vod_score}" class="dm">{$obj.vod_score}评分</span>
+        <span class="copyright">&nbsp;·&nbsp;温馨提示：如果出现加载失败请<a style="color: #03A9F4;" href="javascript:void(0)" onClick="location.reload()">刷新</a>一下哦！</span></div>
+<!--播放页app下载地址-->
+        <div class="apps" style="position: absolute;top: 20px;right:  0;"><a href="<?php echo $yzm['APP_down']?>" target="_blank" style="border-radius: 8px;background-color: #00a1d6;border: 1px solid #00a1d6;text-indent: 55px;padding: 0 20px 0 22px;width: auto;float: left;text-align: center;line-height: 40px;height: 40px;overflow: hidden;font-size: 16px;color: #fff;margin: 7px 35px 7px 0;">手机APP观看</a><div class="pic-wrapper" style=" background: url(/template/b/images/vipbtn-icon.png) no-repeat;display: block;position: absolute;width: 68px;height: 62px;top: -14px;left: 0;cursor: pointer;"></div></div>
+</div>
+</div>
+<div class="play-primary"> 
+<div class="container-row m-player-open" style="box-shadow: 0px 0px 8px #e2e2e2;">
+    <div class="player-rgt">
+        <div class="play-aside play-panel">
+            <div class="slimScrollDiv"style="height:16%;-border-bottom: 1px solid #e2e2e2;">
+                 <div class="c-player-aside-wrapper" id="florilegium-box" style="width: 280px; height: 100%;">
+                     <div class="player-info c-player-info-tv" style="    border-bottom: 1px solid #e2e2e2;-padding:20px 15px 0px 25px;padding:0px">
+                           <div id="xlu" style="display: block;color: #444444;-background: #fafafa;padding: 15px 16px;"><a style="color:#ffac2b;" rel="nofollow">观影须知</a>：如果不能播放，请点击右侧的<a style="color: #f96550;" href="javascript:void(0)" onclick="location.reload()">&nbsp;刷新</a>也可以在下方<a style="color: #f96550;" href="javascript:void(0)">切换</a>其他播放来源<br><a style="color: #4caf50;"></a>本站只做影片更新请勿轻信任何视频水印广告</div>
+                      </div>
+                 </div>
+            </div>
+             <h2 style="margin: -3px 0px 7px 13px;font-weight: 500;">随机推荐</h2>
+              <div class="rec-list" style="max-height: 520px;overflow: scroll;overflow-x: hidden;">{maccms:vod num="20" type="current" order="desc" by="rnd"}{include file="list/listt"}{/maccms:vod}</div>
+        </div>
+
+<!--播放器-->
+        <div class="play-box" style="border-right: 1px solid #e2e2e2;">
+            <div class="player" id="player">
+			{if condition="$obj.vod_copyright eq 1 && $GLOBALS['config']['app']['copyright_status'] eq 1 "}
+			<div class="ui-box marg" id="playlist_0"style=" width: 100%;text-align: center;position: relative;top: 40%;color: #999;">
+ 			   <div class="down-title">{$GLOBALS['config']['app']['copyright_notice']}</div>
+			</div>
+			{else/}
+			{$player_data} {$player_js}
+			{/if}
+			</div>
+<!--播放器下方控件-->
+            <div class="play-panel">
+                <div class="container-row">
+                    <div class="play-lft">
+                        <ul>
+                            <li class="play-author">
+                                <div class="u-avt"><a href="{:mac_url_vod_detail($obj)}"><img class="u-pic" src="{$maccms.path_tpl}images/img.php?url={:mac_url_img($obj.vod_pic)}" alt="{$obj.vod_name}"></a><i class="u-vip"></i></div>
+                                <div class="u-author"><a class="u-name" href="{:mac_url_vod_detail($obj)}">{$obj.vod_name}</a><span class="u-count">评分{$obj.vod_douban_score}</span></div>
+                            <li class="play-dividing">|</li>
+                            <li class="play-info"><a href="javascript:void(0)"><i class="iconfont">&#xe950;</i>详情介绍</a>
+                                <div class="uu-pic">
+                                    <div class="extend wp">
+                                        <div class="play-extend">
+                                            <div class="play-meta"><img class="cover-preview" src="{:mac_url_img($obj.vod_pic)}" alt="{$obj.vod_name}">
+                                                <p class="u-meta-intro"><h5>{$obj.vod_name}</h5>
+                                                    <div class="tags">
+                                                    <span title="更新时间" class="so-icon time" style="margin-right: 20px;"><i class="icon-date"></i>更新时间：{$obj.vod_time|date='m-d',###}</span>
+                                                    <span title="观看" class="so-icon watch-num" style="margin-right: 20px;"><i class="icon-playtime"></i>播放：{$obj.vod_hits}</span>
+                                                    <span title="年代" class="so-icon time" style="margin-right: 20px;"><i class="icon-date"></i>年代：{$obj.vod_year}</span>
+                                                    <span title="演员" class="so-icon time" style="margin-right: 20px;"><i class="icon-pop"></i>主演：{$obj.vod_actor}</span>
+                                                    </div>
+                                                    <span class="label"><h5>简介：</h5></span><span class="details">{$obj.vod_content}</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="play-share bdsharebuttonbox" data-tag="share" data-tag="pageSharePreview"  id="bdshare"><i class="iconfont">&#xe625;</i><a href="javascript:void(0)" class="bds_more" data-cmd="more">分享</a></li>
+                            <li class="play-share"><a class="u-follow" rel="nofollow" href="#mac_comment"><em><i class="iconfont" style="font-size: 18px;">&#xe66f;</i>评论</em></a></li>
+							<!--qq群-->
+                            <li class="play-share"><a class="u-follow" rel="nofollow" href="<?php echo $yzm['qqqun']?>" target="_blank"><em><i class="iconfont" style="font-size:16px;">&#xe60e;</i>QQ群</em></a></li>
+                            <li class="play-dividing">|</li>
+                            <li class="play-count" style="float: right;"><a class="u-follow" href="{$obj.player_info.link_next}">下一集&nbsp;＞</em></a></li>
+                            <li class="play-count" style="float: right;"><a class="u-follow" href="{$obj.player_info.link_pre}">＜&nbsp;上一集</em></a></li>
+                        </ul>
+                    </div>{include file="jdyzm/playnot"}
+                </div>
+			</div>
+         </div>
+    </div>
+                            <div class="tishi" style="position: absolute;top: -1%;left: 99.8%;">
+                            		<a class="bgray-btn" href="javascript:;" onClick="MAC.Gbook.Report('编号【{$obj.vod_id}】名称【{$obj.vod_name}】不能观看请检查修复，页面地址' + location.href)">播放<br>问题<br>反馈</a>
+                            		<a id="showmore" href="javascript:void(0)" class="bgray-btn"><i>宽屏</i></a>
+                            		<a class="bgray-btn" id="refresh" href="javascript:void(0)" onclick="location.reload()">刷新</a>
+                            </div>
+
+</div>
+</div>
+</div>
+
+

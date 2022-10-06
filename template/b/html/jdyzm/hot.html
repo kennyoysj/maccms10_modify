@@ -1,0 +1,23 @@
+            <section class="section" name="【hot】最热榜+1个活动位"> 
+
+               <div class="column-rgt">
+		          <div class="r-con"><div class="online"><a href="#" target="_blank" title="视频总数">视频总数：{:mac_data_count('all')}</a><em></em><a href="#"target="_blank">今日更新：{:mac_data_count(all,'today','vod')}</a></div></div>
+                     <div name="活动位" class="pic-box"><?php echo $yzm['home']['ad']['ad_1']?></div>
+                </div>
+                  <div class="column-lft"><h3 class="sort_nav_tit"><i class="icon ico_hot"></i><span><?php echo $yzm['home']['hot']['title']?></span><b><?php echo $yzm['pc_gonggao']?></b></h3>
+
+                    <div class="sort_lst_bx" id="movie_content_div">
+
+                      <ul class="sort_lst" style=""><!--{maccms:vod num="10" type="all" order="desc" by="day"}-->
+					  {if$yzm['home']['hot']['rnd']==1}
+					  {maccms:vod num="5" type="all" order="desc" by="rnd"}
+                           <li><a href="{:mac_url_vod_detail($vo)}" title="{$vo.vod_name} {$vo.vod_remarks}"><div class="lazy-img"><img src="{:mac_url_img($vo.vod_pic)}" onerror="this.src='/<?php echo $yzm['pic']['lazy'];?>'" alt="{$vo.vod_name}"></div><div class="play_hv">{$vo.vod_time|date='m-d',###}</div><div class="play_hv2"><i class="iconfont">&#xe62d;</i></div><div class="play_hv3"></div>{if condition="$vo.vod_level gt 0"}<div class="play_hv3 xtui"></div>{elseif condition="$vo.vod_state eq 预告片"} <div class="play_hv3 xnew"></div>{elseif condition="$vo.vod_hits gt 1000"} <div class="play_hv3 xhot"></div>{/if}<div class="space-danmaku"></div></a><figcaption class="block-title"><b>{$vo.vod_name}</b><p class="otherinfo">{if condition="$vo.vod_serial gt 0"}更新至{$vo.vod_serial}{else/}{$vo.vod_remarks}{/if}</p><p class="block-clearfix">{$vo.vod_actor}</p></figcaption></li>{/maccms:vod}
+					  {else}
+ 					  {maccms:vod num="5" level="'.$yzm['home']['hot']['level'].'" order="desc" by="time"}
+                           <li><a href="{:mac_url_vod_detail($vo)}" title="{$vo.vod_name} {$vo.vod_remarks}"><div class="lazy-img"><img src="{:mac_url_img($vo.vod_pic)}" onerror="this.src='/<?php echo $yzm['pic']['lazy'];?>'" alt="{$vo.vod_name}"></div><div class="play_hv">{$vo.vod_time|date='m-d',###}</div><div class="play_hv2"><i class="iconfont">&#xe62d;</i></div><div class="play_hv3"></div>{if condition="$vo.vod_level gt 0"}<div class="play_hv3 xtui"></div>{elseif condition="$vo.vod_state eq 预告片"} <div class="play_hv3 xnew"></div>{elseif condition="$vo.vod_hits gt 1000"} <div class="play_hv3 xhot"></div>{/if}<div class="space-danmaku"></div></a><figcaption class="block-title"><b>{$vo.vod_name}</b><p class="otherinfo">{if condition="$vo.vod_serial gt 0"}更新至{$vo.vod_serial}{else/}{$vo.vod_remarks}{/if}</p><p class="block-clearfix">{$vo.vod_actor}</p></figcaption></li>{/maccms:vod}
+					  {/if}
+                      </ul>
+
+                    </div>
+                  </div>
+            </section>

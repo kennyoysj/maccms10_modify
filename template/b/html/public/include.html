@@ -1,0 +1,64 @@
+<?php include ('template/b/admin/yzm.config.php'); ?><link rel="stylesheet" type="text/css" href="{$maccms.path_tpl}css/home.css"/>
+<meta name="referrer" content="no-referrer" />
+
+<link rel="stylesheet" type="text/css" href="{$maccms.path_tpl}css/style.css"/>
+<script type="text/javascript" src="{$maccms.path_tpl}js/system.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/layer/3.1.0/layer.js"></script>
+<script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+<script>var maccms={"path":"__ROOT__","mid":"{$maccms['mid']}","url":"{$maccms['site_url']}","wapurl":"{$maccms['site_wapurl']}","mob_status":"{$maccms['mob_status']}"};</script>
+<style>
+.b-header-mask-wrp .b-header-mask-bg,#header .header{background-image: url(<?php echo $yzm['pic']['top']?>);}
+.header .logo,.partner-banner {background-image: url(/<?php echo $yzm['pic']['logo']?>)!important;}
+.z_top.b-header-blur.b-header-blur-black .z_top_nav ul li.home {background-position: -910px -74px;}
+.z_top.b-header-blur.b-header-blur-black .z_top_nav li a.i-link, .z_top.b-header-blur.b-header-blur-black .uns_box li.u-i a.i-link {color: #000;font-size: 12px;}
+/*#container{background: #fdfdfd;width: 100%;margin-bottom: 0px;background-image: url(../images/bg.jpg);background-repeat: no-repeat;background-position: center 130px;background-attachment: fixed;background-image: url(https://ws3.sinaimg.cn/large/005BYqpgly1fyvunulhgmj31hc0u075z.jpg);}*/
+.block-clearfix{-background-color: #fdfdfd;background-color: #f6f9fa;}
+.index{background-color: transparent !important;}
+div::-webkit-scrollbar{width: 2px;/*height: 4px;*/}
+div::-webkit-scrollbar-thumb{border-radius: 10px;-webkit-box-shadow: inset 0 0 5px #e2e2e2;background: #e2e2e2;}
+div::-webkit-scrollbar-track{-webkit-box-shadow: inset 0 0 5px #fafafa;border-radius: 0;background: #fafafa;}
+html::-webkit-scrollbar{width: 4px;height: 4px;}
+html::-webkit-scrollbar-thumb{border-radius: 10px;-webkit-box-shadow: inset 0 0 5px #00a4db;background: #00a4db;}
+html::-webkit-scrollbar-track{-webkit-box-shadow: inset 0 0 5px #ddd;border-radius: 10px;background: #ddd;}
+body {cursor: url(https://i.loli.net/2019/04/23/5cbedb2dae545.png), default;} a:hover{cursor:url(https://i.loli.net/2019/04/23/5cbedb246fd81.png), pointer;}
+#backTop{opacity: 1;filter: alpha(opacity=100);position: fixed;_position: absolute;z-index: 9999;bottom: 0;right: 0;display: none;height: 278px;width: 130px;background: url({$maccms.path_tpl}
+images/backtop.png) no-repeat;cursor: pointer;}
+</style>
+<script>
+            (function ($) {
+                var max_width = 1420;
+                var min_top = 300;
+                var layer_hidden = true;
+                var update_layer = function () {
+                    if (($(window).width() >= max_width) && ($(window).scrollTop() > min_top)) {
+//                        layer_hidden && $('#backTop').fadeIn(1000);
+                        layer_hidden && $('#backTop').show();
+                        layer_hidden = false;
+                    }
+                    else {
+//                        layer_hidden || $('#backTop').fadeOut(1000);
+                        layer_hidden || $('#backTop').hide();
+                        layer_hidden = true;
+                    }
+                };
+
+                $(window).resize(function () {
+                    update_layer();
+                });
+
+                $(window).scroll(function () {
+                    update_layer();
+                });
+
+                $(document).ready(function () {
+                    update_layer();
+
+                    $("#backTop,.back-top").click(function () {
+                        $("body,html").animate({scrollTop: 0}, 1000);
+                        return false;
+                    });
+                });
+            })(jQuery)
+
+</script>  

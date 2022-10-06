@@ -1,0 +1,114 @@
+
+
+<!-- 页头 -->
+<div id="header">
+    <div class="z_top b-header-blur b-header-blur-black">
+        <div class="container">
+            <div class="b-header-mask-wrp">
+                <div class="b-header-mask-bg"></div>
+                <div class="b-header-mask" style="background-color: hsla(0,0%,100%,0.13);"></div>
+            </div>
+            <div class="z_header">
+                <div class="z_top_nav">
+                    <ul>
+                        <li class="home"><a class="i-link" href="/"><span>主站</span></a></li>
+                        <li class="hbili"><a class="i-link" href="#" title="主题">主题</a></li>
+                        <li class="b-gc"><a class="i-link" href="{:mac_url('user/login')}"  target="_blank" title="会员中心">会员中心</a>
+                            <div class="i_div game"></div>
+                        </li>
+                        <li class="b-zb"><a class="i-link" rel="nofollow"  href="http://tv.jdyzm.cn"  target="_blank" title="全网影视">二站</a></li>
+                        <li class="b-zb"><a class="i-link" rel="nofollow"  href="http://yun.jdyzm.cn"  target="_blank" title="免费图床">图床</a></li>
+                        <li class="b-zb"><a class="i-link" rel="nofollow"  href="http://jdyzm.cn/yhq"  target="_blank" title="淘宝天猫内部优惠券"><font color="#fd76a2">喵淘go-淘宝优惠券</font></a></li>
+                        <li class="b-zb"><a class="i-link" rel="nofollow"  href="http://jdyzm.cn/app/yzm.apk" title="app追剧更方便"><font color="#19c3ff"><i class="iconfont">&#xe711;</i>&nbsp;APP下载</font></a></li>
+                        <li class="b-zb"><a class="i-link" rel="nofollow"  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1807126245" title="本模板100元/个域名授权"><font color="red">购买模板</font></a></li>
+
+                    </ul>
+                </div>
+                <div class="uns_box">
+                    <ul>
+                        <li class="u-i" style="display: none" id="haslogin"><a href="javascript:;" class="mac_user"><span>个人中心</span></a></li>
+                        <li id="i_menu_login_reg" class="u-i" style="display: list-item;"><a  class="i-link login" href="{:url('user/login')}"><span>登录</span></a><i class="s-line"></i><a id="i_menu_register_btn" class="i-link reg" href="{:mac_url('user/reg')}"><span>注册</span></a></li>
+                        <li class="u-i" id="history"><a href="javascript:void(0)" class="i-link">历史</a>
+                            <div class="mini-wnd history-wnd" style="">
+                                <div class="top-login">
+                                    <p class="txt">登录后有更多功能哦~</p><a class="loginbtn" href="{:mac_url('user/login')}">登录</a></div>
+                                <ul class="listh history mac_history">
+                                    <li class="timeline"><span class="date">最近播放记录</span></li>
+                                    <div class="ilist"></div>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="u-i b-post"><a class="i-link" href="{:mac_url('gbook/index')}">留 言</a>
+                            <ul class="s-menu">
+                                <li><a href="{:mac_url('gbook/index')}"><i class="icon icon-vp"></i><em>求 片</em></a></li>
+                                <li><a href="{:mac_url('gbook/index')}"><i class="icon icon-vm"></i><em>建 议</em></a></li>
+                                <li><a href="{:mac_url('gbook/index')}"><i class="icon icon-vc"></i><em>漏 洞</em></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 导航菜单 -->
+    <div class="header">
+        <div class="container">
+            <div class="header-layer" style="height: 170px;"></div><a class="header-link"  href="/" style="height: 170px;"></a>
+            <div class="h-center"><a href="{$maccms.path}" title="{$maccms.site_name}" class="logo"></a></div>
+            <div class="num">
+                <div class="menu-wrapper">
+                    <ul class="nav-menu">
+                        <li class="m-i home"><a class="i-link" href="{$maccms.path}"><em>首页</em></a></li>
+                        {maccms:type ids="1" order="asc" by="sort" id="vo1" key="key1"}
+                        <li class="m-i"><a class="i-link" href="{:mac_url_type($vo1)}"><em>{$vo1.type_name}</em><div class="v-num"><span class="addnew_1">{:mac_data_count(1,'all')}</span></div></a></li>
+                        {/maccms:type}
+                        {maccms:type ids="6,7,8,9,10,11,12" order="asc" by="sort"}
+                        <li class="m-i"><a class="i-link" href="{:mac_url_type($vo)}"><em>{$vo.type_name}</em><div class="v-num"><span class="addnew_{$vo.type_id}">{if condition="$vo.type_id eq 6"}{:mac_data_count(6,'all')}{elseif condition="$vo.type_id eq 7"}{:mac_data_count(7,'all')}{elseif condition="$vo.type_id eq 8"}{:mac_data_count(8,'all')}{elseif condition="$vo.type_id eq 9"}{:mac_data_count(9,'all')}{elseif condition="$vo.type_id eq 10"}{:mac_data_count(10,'all')}{elseif condition="$vo.type_id eq 11"}{:mac_data_count(11,'all')}{elseif condition="$vo.type_id eq 12"}{:mac_data_count(12,'all')}{/if}</span></div></a></li>
+                        {/maccms:type}
+                        <li class="m-i">{maccms:type ids="1" order="asc" by="sort" id="vo2" key="key1"}<a class="i-link" href="{:mac_url_type($vo2)}"><em>{$vo2.type_name}</em><div class="v-num"><span class="addnew_1">{:mac_data_count(1,'all')}</span></div></a>{/maccms:type}
+                            <ul class="i_num">
+                                {maccms:type ids="6,7,8,9,10,11,12" order="asc" by="sort"}
+                                <li><a href="{:mac_url_type($vo)}"><b>{$vo.type_name}<em></em></b></a></li>{/maccms:type}
+                            </ul>
+                        </li>
+                        <li class="m-i">{maccms:type ids="2" order="asc" by="sort" id="vo2" key="key1"}<a class="i-link" href="{:mac_url_type($vo2)}"><em>{$vo2.type_name}</em><div class="v-num"><span class="addnew_2">{:mac_data_count(2,'all')}</span></div></a>{/maccms:type}
+                            <ul class="i_num">
+                                {maccms:type ids="13,14,15,16" order="asc" by="sort"}
+                                <li><a href="{:mac_url_type($vo)}"><b>{$vo.type_name}<em></em></b></a></li>{/maccms:type}
+                            </ul>
+                        </li>
+                        {maccms:type ids="3,4" order="asc" by="sort" id="vo3" key="key1"}
+                        <li class="m-i"><a class="i-link" href="{:mac_url_type($vo3)}"><em>{$vo3.type_name}</em><div class="v-num">{if condition="$vo3.type_id eq 3"}<span class="addnew_3">{:mac_data_count(3,'all')}</span>{elseif condition="$vo3.type_id eq 4"}<span class="addnew_4">{:mac_data_count(4,'all')}</span>{/if}</div></a></li>{/maccms:type}
+                        {maccms:type ids="5" order="asc" by="sort" id="vo3" key="key1"}<li class="m-i m-i-zl m-i-ex"><a class="i-link" href="{:mac_url_type($vo3)}"><em>资讯</em></a></li>{/maccms:type}
+                        <li class="m-i m-i-zt m-i-ex"><a class="i-link" href="{:mac_url_topic_index()}"><em>专题</em></a></li>
+                        <li class="m-i m-i-square m-i-ex"><a class="i-link" href="javascript:void(0)"><em>专栏</em></a>
+                            <div class="i_num">
+                                <ul>
+                                    {maccms:type ids="5" order="asc" by="sort"}<li><a href="{:mac_url_type($vo)}"><i class="icon icon-n-activity"></i><b>电影资讯</b></a></li>{/maccms:type}
+                                    <li><a href="{:mac_url_topic_index()}"><i class="icon icon-n-gc"></i><b>影视专题</b></a></li>
+                                    <li><a href="{:mac_url('label/live')}"><i class="icon icon-n-new"></i><b>在线电视</b></a></li>
+                                    <li><a href="{:mac_url('rss/baidu')}"><i class="icon icon-n-h"></i><b>网站地图</b></a></li>
+                                    <li><a href="javascript:;"><i class="icon icon-n-mango"></i><b>等待添加</b></a></li>
+                                </ul>
+                                <div class="square-pmt-field">
+                                    <div class="square-pmt-item" title="活动"><a href="{:mac_url_topic_index()}" ><img src="//ww2.sinaimg.cn/large/87c01ec7gy1fly4invnmxj206o02c747.jpg"></a></div>
+                                    <div class="square-pmt-item" title="话题"><a href="{:mac_url_topic_index()}" ><img src="//ww3.sinaimg.cn/large/87c01ec7gy1fly4iyd2hqj206o02ca9y.jpg"></a></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="m-i m-i-live m-i-last animate-bounce-up"><a class="i-link i-live" href="{:mac_url('label/live')}"><em>直播</em></a></li>
+                    </ul><span class="sitenav-on"><i class="icon-list"></i></span>
+                    <div class="menu-r">
+                        <a id="mobile_p" class="mobile-p" href="#" target="_blank"><div class="mobile-p-box"><div class="mobile-p-qrcode"></div></div></a>
+                        <a href="javascript:;" title="干杯！世界杯" class="random-p"><img src="//ww3.sinaimg.cn/large/87c01ec7gy1ft00qwpaf2g205r03cq46.gif" alt=""></a>
+                    </div>
+                    <div class="search">
+                        <form action="{:mac_url('vod/search')}" onSubmit="return qrsearch();" id="searchform"  method="post">
+                            <input id="wd" name="wd" type="text" class="search-keyword" id="search-keyword" autocomplete="off" accesskey="s" value="{$param.wd}" placeholder="输入关键词,请少字也别错字..." value="">
+                            <button id="button" type="submit" class="search-submit"></button>
+                        </form><a class="link-ranking" href="{:mac_url('label/rank')}"><span>排行榜</span></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

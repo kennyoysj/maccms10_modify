@@ -1,0 +1,40 @@
+
+	    <div class="tou">
+			<div class="tou-left">
+				<img class="face" src="{$obj.user_portrait|mac_default='static/images/touxiang.png'|mac_url_img}" alt="会员头像">
+			</div>
+		</div>
+		
+		<div class="menber-info">
+		  <div class="info-box"><p class="m-points">{$obj.user_name}</p><p class="text-small">用户名</p></div>
+		  <div class="info-box"><p class="m-points">{$obj.user_points}</p><p class="text-small">我的积分</p></div>
+		  <div class="info-box"><a href="{:url('user/popedom')}"><p>{if condition="$obj.group_id lt 3"}{$user.group.group_name}{else}<i class="iconfont user_vip">&#xe62d;</i>{$obj.group.group_name}{/if}</p><p class="text-small">{if condition="$obj.group_id lt 3"}永久有效{else}{$obj.user_end_time|date='Y-m-d',###}到期{/if}</p></a></div>
+		</div>
+		
+		<ul>
+		<div class="menber-tab" id="mytab_h1_1">
+		  <li class="tab-h active"><span>视频相关</span></li>
+		  <li class="tab-h"><span>会员相关</span></li>
+		</div>
+		</ul>
+		<div class="menber-body" id="mytab_b1_1">
+		<ul class="tab-b" style="display: block;">
+			<li><a href="{:url('user/favs')}"><i class="iconfont lishi">&#xe634;</i>我的收藏<i class="iconfont ico-right">&#xe631;</i></a></li>
+			<li><a href="{:url('user/plays')}"><i class="iconfont lishi">&#xe632;</i>观看记录<i class="iconfont ico-right">&#xe631;</i></a></li>
+			<li><a href="{:url('user/downs')}"><i class="iconfont lishi">&#xe633;</i>下载记录<i class="iconfont ico-right">&#xe631;</i></a></li>
+		</ul>
+		<ul class="tab-b">
+			<li><a href="{:url('user/ajax_info')}"><i class="iconfont yonghu">&#xe636;</i>账号资料<i class="iconfont ico-right">&#xe631;</i></a></li>
+			<li><a href="{:url('user/upgrade')}"><i class="iconfont huiyuan">&#xe62d;</i>升级会员<i class="iconfont ico-right">&#xe631;</i></a></li>
+			<li><a href="{:url('user/buy')}"><i class="iconfont xiazai">&#xe62e;</i>充值中心<i class="iconfont ico-right">&#xe631;</i></a></li>
+			<li><a href="{:url('user/orders')}"><i class="iconfont xiazai">&#xe638;</i>充值记录<i class="iconfont ico-right">&#xe631;</i></a></li>
+			<li><a href="{:url('user/cash')}"><i class="iconfont xiazai">&#xe639;</i>我要提现<i class="iconfont ico-right">&#xe631;</i></a></li>
+		</ul>
+		</div>
+		<!--ul>
+            <li><a href="{:url('user/plog')}"><i class="iconfont congzhi">&#xe637;</i>积分记录<i class="iconfont ico-right">&#xe631;</i></a></li>
+			<li><a href="{:url('user/reward')}"><i class="iconfont congzhi">&#xe630;</i>推荐记录<i class="iconfont ico-right">&#xe631;</i></a></li>
+		</ul-->
+		<ul class="logout-ul">
+			<li class="logout-item" ><a class="logout-link" href="{:url('user/logout')}" >退出账号</a></li>
+		</ul>

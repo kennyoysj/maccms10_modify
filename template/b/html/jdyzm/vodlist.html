@@ -1,0 +1,55 @@
+<div class="playlistall" style="margin-top: 15px;">
+
+       <div class="container">
+
+                <div class="playbox playlist clearfix" name="{$vo.player_info.from}">
+
+                                <div class="uu-pic" style="visibility: unset;opacity: 1;position: unset;">
+
+                                    <div class="extend wp">
+
+                                        <div class="play-extend">
+
+                                            <div class="play-meta"><img class="cover-preview" src="{:mac_url_img($obj.vod_pic)}" alt="{$obj.vod_name}" style="float: left;width: 120px;height: 156px;margin-right: 20px;border-radius: 4px;">
+
+                                                <h5 style="font-weight: 400;font-size: 18px;">{$obj.vod_name}</h5>
+
+                    <p style="position: absolute;top:10%;right:12%;"><t><a href="javascript:void(0)"  class="mac_ulog" data-type="2" data-mid="{$maccms.mid}" data-id="{$obj.vod_id}" style="color: #fff;"><i class="i-link i-save"></i><i class="iconfont">&#xe60d;</i>收藏</a></t><t style="border: 1px solid #e5e9ef;padding: 5px 15px;background-color: #fff0;"><a href="javascript:void(0)" id="addQrcode">手机观看</a><div id="qbox" style="margin-left: 75%;z-index: 888;top: 28%;"><img src="http://qr.liantu.com/api.php?text=<?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>" alt="{$obj.vod_name}" style="width:  120px;height: 120px;"></div></t></z>
+
+                   <h3 style="border-bottom: 0px solid #cccccc59;">
+
+			<div class="module-tab pull-right" id="tabDate">{maccms:foreach name="obj.vod_play_list" id="vo" by="num"}<span class="{if condition="$param.sid eq $key"}active{/if}">{$vo.player_info.show}</span>{/maccms:foreach}</div> </h3>
+
+                    <div id="tabDatelist">{maccms:foreach name="obj.vod_play_list" id="vo"}
+
+                        <ul class="list_{$key}" {if condition="$param.sid eq $vo.sid"} style="display: block;"{else} style="display: none;"{/if}>
+
+				<div id="vlink_{$key}" style="overflow-y: scroll;overflow-x: hidden;max-height: 125px;max-width: 990px;">
+
+                            <p><li> {maccms:foreach name="vo.urls" id="vo2" key="key2"}<a class="{if condition="$param.sid eq $vo.sid && $param.nid eq $vo2.nid"}active{/if}" href='{:mac_url_vod_play($obj,['sid'=>$vo.sid,'nid'=>$vo2.nid])}'>{$vo2.name}</a>{/maccms:foreach} </li></p>
+
+                    </div> </ul>{/maccms:foreach} 
+
+                    </div>
+<style>
+.module-tab.pull-right {border-bottom: 1px solid #cccccc59; height: 33px;width: 100%;float: left;}
+.module-tab.pull-right span {line-height: 15px;}
+.module-tab.pull-right span a {min-width:44px;max-width: 55px; height: 25px;line-height: 15px;margin: 0 5px 5px 0;-background: #99999936; -color: #000;
+</style>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+							</div>
+
+                <script>Wnew(8);</script>
+
+{include file="jdyzm/like"}
+
+        </div>
+

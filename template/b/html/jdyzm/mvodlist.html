@@ -1,0 +1,52 @@
+<div class="playlistall" style="background: hsla(0, 0%, 100%, .9);border-top: 1px solid #e5e9ef;margin-top: 15px;">
+
+       <div class="container">
+
+                <div class="playbox playlist clearfix" id="play_{$key}" name="{$vo.player_info.from}" style="border-bottom: 1px solid #eaeaea;">
+
+                                <div class="uu-pic" style="visibility: unset;opacity: 1;position: unset;">
+
+                                    <div class="extend wp">
+
+                                        <div class="play-extend">
+
+                                            <div class="play-meta"><img class="cover-preview" src="{$maccms.path_tpl}images/img.php?url={:mac_url_img($obj.vod_pic)}" alt="{$obj.vod_name}" style="float: left;width: 120px;height: 156px;margin-right: 20px;border-radius: 4px;">
+
+                                                <p class="u-meta-intro">
+
+                                        <h5 class="u-title"><a href="{:mac_url_vod_detail($obj)}" style="padding: 0px 15px 0px 0;"><span style="font-weight: 400;font-size: 18px;">{$obj.vod_name} {$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']}</span></a>{if condition="$obj.type_1.type_id neq '' "}<a href="{:mac_url_type($obj.type_1)}"><i class="u-mark u-mark-zz" style="vertical-align: 0px;border-radius: 18px;border: 0px solid #f06000;padding: 8px;">{$obj.type_1.type_name}</i></a>{/if}<a href="{:mac_url_type($obj.type)}"><i class="u-mark u-mark-zz" style="vertical-align: 0px;border-radius: 18px;border: 0px solid #f06000;padding: 8px;">{$obj.type.type_name}</i></a></h5>
+
+             <p style="position: absolute;top:10%;right:5%;"><t><a href="javascript:void(0)"  class="mac_ulog" data-type="2" data-mid="{$maccms.mid}" data-id="{$obj.vod_id}" style="color: #fff;"><i class="i-link i-save"></i><i class="iconfont">&#xe60d;</i>收藏</a></t><t style="border: 1px solid #e5e9ef;padding: 5px 15px;background-color: #fff0;"><a href="javascript:void(0)" id="addQrcode">手机观看</a><div id="qbox" style="margin-left: 75%;z-index: 888;top: 28%;"><img src="http://qr.liantu.com/api.php?text=<?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>" alt="{$obj.vod_name}" style="width:  120px;height: 120px;"></div></t></z>
+
+        <div class="tags" style="padding: 5px;">
+
+			<span title="更新时间" class="so-icon time" style="margin-right: 20px;"><i class="icon-date"></i>更新时间：{$obj.vod_time|date='m-d',###}</span>
+
+			<span title="观看" class="so-icon watch-num" style="margin-right: 20px;"><i class="icon-playtime"></i>播放：{$obj.vod_hits}</span>
+
+			<span title="年代" class="so-icon time" style="margin-right: 20px;"><i class="icon-date"></i>年代：{$obj.vod_year}</span>
+
+			<span title="演员" class="so-icon time" style="margin-right: 20px;"><i class="icon-pop"></i>主演：{$obj.vod_actor}</span>
+
+		</div>
+
+            <span class="label"><h5>简介：</h5></span><span class="details">{$obj.vod_content}</span>
+
+			</p>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                <script>Wnew(8);</script>
+
+{include file="jdyzm/like"}
+
+        </div>
+

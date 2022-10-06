@@ -1,0 +1,24 @@
+	<div class="i-head-nav">
+		<div class="head-nav" id="header-nav-yzm">
+			<div class="nav swiper-wrapper">
+				<a class="link swiper-slide{if condition="$maccms.aid eq 7"} active{/if}" href="{:mac_url('label/week')}"><p>最新更新</p><e>{:mac_data_count(4,'today','vod')}</e></a>
+				<a class="link swiper-slide{if condition="$maccms.aid eq 1"} active{/if}" href="/"><p>推荐</p></a>
+				{maccms:type ids="parent" order="asc" by="sort"}
+				<a class="link swiper-slide{if condition="$obj.type_id eq $vo.type_id"} active{/if}" href="{:mac_url_type($vo)}"><p>{$vo.type_name}</p></a>
+				{/maccms:type}
+				<a class="link swiper-slide{if condition="$maccms.aid eq 4"} active{/if}" href="{:mac_url('gbook/index')}"><p>留言</p></a>
+			</div>
+		</div>
+		<div class="more"><svg aria-hidden="true"> <use xlink:href="#icon-xialaxiao"></use></svg></div>
+	</div>
+	<div class="nav-box">
+		<div class="nav-box-zone">
+			<a class="link {if condition="$maccms.aid eq 1"} active{/if}" href="/"><p>首页</p></a>
+			{maccms:type type="all" order="asc" by="sort"}
+			<a class="link{if condition="$obj.type_id eq $vo.type_id"} active{/if}" href="{:mac_url_type($vo)}"><p>{$vo.type_name}</p></a>
+			{/maccms:type} 
+			<a class="link {if condition="$maccms.aid eq 4"} active{/if}" href="{:mac_url('gbook/index')}"><p>留言</p></a>
+		</div>
+		<div class="more"><svg aria-hidden="true"><use xlink:href="#icon-shouqixiao"></use></svg></div>
+	</div>
+	

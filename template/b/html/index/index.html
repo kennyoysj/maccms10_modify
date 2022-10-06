@@ -1,0 +1,128 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+    <title>{$maccms.site_name}</title>
+    <meta name="keywords" content="{$maccms.site_keywords}" />
+    <meta name="description" content="{$maccms.site_description}" />
+ {include file="public/include"}
+</head>
+<!--
+
+
+
+ *　　　　　　　　┏┓　　　┏┓+ +
+
+ *　　　　　　　┏┛┻━━━┛┻┓ + +
+
+ *　　　　　　　┃　　　　　　　┃ 　
+
+ *　　　　　　　┃　　　━　　　┃ ++ + + +
+
+ *　　　　　　 ████━████+
+
+ *　　　　　　　┃　　　　　　　┃ +
+
+ *　　　　　　　┃　　　┻　　　┃
+
+ *　　　　　　　┃　　　　　　　┃ + +
+
+ *　　　　　　　┗━┓　　　┏━┛
+
+ *　　　　　　　　　┃　　　┃　　　　　　　　　　　
+
+ *　　　　　　　　　┃　　　┃ + + + +
+
+ *　　　　　　　　　┃　　　┃　　　　　　　
+
+ *　　　　　　　　　┃　　　┃ + 　　　　神兽镇楼、不宕机、无BUG　
+
+ *　　　　　　　　　┃　　　┃
+
+ *　　　　　　　　　┃　　　┃　　+　　　　　　　　　
+
+ *　　　　　　　　　┃　 　　┗━━━┓ + +
+
+ *　　　　　　　　　┃ 　　　　　　　┣┓
+
+ *　　　　　　　　　┃ 　　　　　　　┏┛
+
+ *　　　　　　　　　┗┓┓┏━┳┓┏┛ + + + +
+
+ *　　　　　　　　　　┃┫┫　┃┫┫
+
+ *　　　　　　　　　　┗┻┛　┗┻┛+ + + +
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->
+
+<body>
+{include file="jdyzm/head"}
+
+ <div id="container" class="index">
+
+   <div class="container">
+
+<!-- 幻灯片推荐 -->
+
+{include file="jdyzm/banner"}
+
+<!-- 热门推荐 -->
+{if$yzm['home']['hot']['state']==1}
+{include file="jdyzm/hot"}
+{/if}
+<!-- 新番更新 -->
+{if$yzm['home']['week']['state']==1}
+{include file="jdyzm/week"}
+{/if}
+<!-- 视频列表 -->
+{if$yzm['home']['show1']['state']==1}
+{include file="jdyzm/show1"}
+{/if}
+{if$yzm['home']['show2']['state']==1}
+{include file="jdyzm/show2"}
+{/if}
+{if$yzm['home']['show3']['state']==1}
+{include file="jdyzm/show3"}
+{/if}
+{if$yzm['home']['show4']['state']==1}
+{include file="jdyzm/show4"}
+{/if}
+ <!-- 悬浮列表 -->
+{if$yzm['home']['xuanfu']['state']==1}
+{include file="jdyzm/tiplist"}
+{/if}
+<script type="text/javascript" src="{$maccms.path_tpl}js/appdown.js"></script>   
+
+ </div>
+
+{include file="public/foot"}
+
+
+ </div>
+
+
+
+
+
+</body>
+
+</html>
+
+
+
+ 

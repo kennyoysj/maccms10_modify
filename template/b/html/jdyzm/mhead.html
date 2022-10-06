@@ -1,0 +1,107 @@
+<!-- 页头 -->
+<div id="header">
+    <div class="z_top b-header-blur b-header-blur-black" style=" height: 50px;">
+        <div class="container">
+            <div class="b-header-mask-wrp">
+                <div class="b-header-mask" style="background-color: hsla(0,0%,100%,0.13);"></div>
+            </div>
+            <div class="z_header">
+                <div class="z_top_nav">
+                    <ul style=" margin-top: 2px;">
+                        <li class="home" style=" background-position: -910px -74px;"><a class="i-link" href="/"><span>主站</span></a></li>
+                        <li class="b-gc"><a class="i-link" href="{:mac_url('user/login')}"  target="_blank" title="会员中心">会员中心</a></li>
+                        {if$yzm['home']['guide1']['state']==1}<li class="b-zb"><a class="i-link" rel="nofollow"  href="<?php echo $yzm['home']['guide1']['link']?>"  target="_blank"><?php echo $yzm['home']['guide1']['title']?></a></li>{/if}
+                        {if$yzm['home']['guide2']['state']==1}<li class="b-zb"><a class="i-link" rel="nofollow"  href="<?php echo $yzm['home']['guide2']['link']?>"  target="_blank"><?php echo $yzm['home']['guide2']['title']?></a></li>{/if}
+                        {if$yzm['home']['guide3']['state']==1}<li class="b-zb"><a class="i-link" rel="nofollow"  href="<?php echo $yzm['home']['guide3']['link']?>"  target="_blank"><?php echo $yzm['home']['guide3']['title']?></a></li>{/if}
+                        {if$yzm['home']['guide4']['state']==1}<li class="b-zb"><a class="i-link" rel="nofollow"  href="<?php echo $yzm['home']['guide4']['link']?>"  target="_blank"><?php echo $yzm['home']['guide4']['title']?></a></li>{/if}
+                        {if$yzm['home']['guide5']['state']==1}<li class="b-zb"><a class="i-link" rel="nofollow"  href="<?php echo $yzm['home']['guide5']['link']?>"  target="_blank"><?php echo $yzm['home']['guide5']['title']?></a></li>{/if}
+                        <li class="b-zb"><a class="i-link" rel="nofollow"  href="<?php echo $yzm['APP_down']?>" title="app追剧更方便"><font color="#19c3ff"><i class="iconfont">&#xe711;</i>&nbsp;APP下载</font></a></li>
+                    </ul>
+                </div>
+                <div class="uns_box">
+                    <ul>
+                        <div class="logon_menu">{if$user.user_id!=''}
+                            <div id="logon_info">
+                                <div class="logon_avatar">
+                                    <a href="{:mac_url('user/index')}">
+                                        <img class="avatar" title="个人中心" src="{$obj.user_portrait|mac_default='template/b/images/touxiang.png'|mac_url_img}"><i style="font-size: 13px;color:#fff;-display: unset;" class="icon fm-iconfont fm-icon-down0"></i>
+										</a>
+                                </div>
+                                <div class="logon_dropdown basic_container_item" style="box-shadow: none;border: 1px solid #ccc;background-color: #fff;width: 240px;">
+                                    <div class="uhead" style="text-align:center;margin:0px 20px 0px 20px;border-bottom: 1px solid #ccc;">
+                                        <span class="utitle">{$user.user_name}</span>
+                                    </div>
+                                    <div class="ubody" style="margin: 20px;">
+                                        <a href="{:mac_url('user/info')}" class="icon fm-iconfont fm-icon-friend small"> 我的资料</a>
+                                        <a href="{:mac_url('user/favs')}" class="icon fm-iconfont fm-icon-items small"> 我的收藏</a>
+                                        <a href="{:mac_url('user/plays')}" class="icon fm-iconfont fm-icon-list small"> 我的足迹</a>
+                                        <div style="clear:both"></div>
+                                </div>
+                                <div class="ufoot" style="text-align:center;border-radius: 4px;height: 34px;line-height: 34px;background-color: #fafafa;border-top: 1px solid #e0e0e0;">
+                                        <a style="font-size: 14px" href="{:mac_url('user/logout')}">退出账号</a>
+                                </div>
+                            </div>
+                        </div>
+						<script>var leo_avatar = MAC.Cookie.Get("leo-avatar");if(leo_avatar == "" || leo_avatar == null){$("#leo-head-avatar").attr("src", "/template/new/img/icon64_maimeng.png?v={:time()}");}else{$("#leo-head-avatar").attr("src", leo_avatar+"?v={:time()}");}</script>
+						{else}
+                        <ul class="menu_nav">
+                            <li style="line-height: 42px;">
+                                <a href="javascript:void(0);" class="do_login icon_list mac_user" id="logon_info">
+                                    <img class="avatar" title="个人中心" src="{$maccms.path_tpl}/images/akari.jpg">
+                                </a>
+                            </li>
+                        </ul>{/if}</div>
+                <li class="u-i" id="history">{if$user.user_id!=''}
+				<a href="{:mac_url('user/plays')}" class="i-link">历史</a>
+                    <div class="mini-wnd history-wnd" style="margin-top: 1px;border-radius: 5px;">
+                        <div class="top-login" style="padding-top: 10px;">
+                            <img class="avatar" title="个人中心" src="{$obj.user_portrait|mac_default='template/b/images/touxiang.png'|mac_url_img}"style="WIDTH: 40PX;MARGIN-LEFT: 5px;"><a class="loginbtn" href="{:mac_url('user/index')}" style="margin: 10px 14px 20px;">ID:{$user.user_name}</a>
+                        </div>
+                        <ul class="listh history mac_history">
+                            <li class="timeline" style="width: 95%;"><span class="date">最近播放记录</span>
+                            </li>
+                            <div class="ilist"></div>
+                        </ul>
+                    </div>{else}
+				<a href="javascript:void(0)" class="i-link">历史</a>
+                    <div class="mini-wnd history-wnd" style="margin-top: 1px;border-radius: 5px;">
+                        <div class="top-login"style="padding-top: 10px;">
+                            <p class="txt">登录后有更多功能哦~</p><a class="loginbtn" href="{:mac_url('user/login')}">登录</a>
+                        </div>
+                        <ul class="listh history mac_history">
+                            <li class="timeline" style="width: 95%;"><span class="date">最近播放记录</span>
+                            </li>
+                            <div class="ilist"></div>
+                        </ul>
+                    </div>{/if}
+					</li>
+                        <li class="u-i b-post" style=" display: block;text-align: center;font-size: 14px;background-color:#d8527f;border-radius: 0 0 6px 6px;height: 54px;line-height: 48px;"><a class="i-link" href="{:mac_url('gbook/index')}">留 言</a>
+                            <ul class="s-menu" style=" top: 53px;">
+                                <li><a href="{:mac_url('gbook/index')}"><i class="icon icon-vp"></i><em>求 片</em></a></li>
+                                <li><a href="{:mac_url('gbook/index')}"><i class="icon icon-vm"></i><em>建 议</em></a></li>
+                                <li><a href="{:mac_url('gbook/index')}"><i class="icon icon-vc"></i><em>漏 洞</em></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+				<div class="search">
+                        <form action="{:mac_url('vod/search')}" onSubmit="return qrsearch();" id="searchform"  method="post">
+                            <input id="wd" name="wd" type="text" class="mac_wd search-keyword" id="search-keyword" autocomplete="on" accesskey="s" value=""{if$maccms.aid==13}{$param.wd}{/if}" placeholder="输入关键词..." value="">
+                            <button id="button" type="submit" class="search-submit" ></button>
+                        </form></div>
+            </div>
+        </div>
+    </div>
+    </div>
+<style>
+#container{width: 100%;}
+.container{-width: 1280px;margin: 0 auto;}
+.search{position: absolute;top: 4px;right: 230px;z-index: 10000;}
+.search #searchform{background-color: rgba(255,255,255,0.88);display: block;height: 32px;border-radius: 21px;transition: .2s background-color;border: 1px solid #e0e0e0;margin-top: 2px;}
+.search .search-keyword{float: left;width: 151px;color: #222;font-size: 12px;overflow: hidden;height: 32px;line-height: 32px;padding: 0 12px;border: 0;box-shadow: none;background-color: transparent;}
+.search button.search-submit{display: block;position: absolute;right: 0;width: 48px;min-width: 0;cursor: pointer;height: 32px;background: url(/template/b/images/icons.png) -653px -720px;margin: 0;padding: 0;border: 0;}
+.column-lft{-overflow: hidden;zoom: 1;width: 900px;}
+.playlist ul li a{-width: calc((100% - 80px)/8);}
+.column-rgt{-margin-right: 40px;}
+.z_top .i-link{padding: 0 10px;}
+</style>	                   

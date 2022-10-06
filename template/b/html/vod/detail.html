@@ -1,0 +1,332 @@
+<!doctype html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>{$obj.vod_name}详情介绍-{$obj.vod_name}在线观看-{$obj.vod_name}迅雷下载 - {$maccms.site_name}</title>
+
+    <meta name="keywords" content="{$obj.vod_name}在线收看,{$obj.vod_name}迅雷下载" />
+
+    <meta name="description" content="{$obj.vod_name}剧情:{$obj.vod_blurb}" />
+
+{include file="public/include"}
+
+<style>
+
+.drama-box{width: 100%;margin-bottom: 0px;}
+
+#header{position: absolute;width: 100%;}
+
+.b-header-mask-wrp{background-color: hsla(0,0%,100%,0.01);}
+
+.playlist ul li a{height: 37px; white-space: nowrap; line-height: 38px; overflow: hidden; display: block; text-align: center; color: #6d757a; float: left; position: relative; margin: 7px 8px 0 0; width: calc((100% - 90px)/8); background-color: #f4f5f7; border: 1px solid #f4f5f7; border-radius: 4px;}
+
+.column-lft{background: #fff;overflow: hidden;width: 859px;-webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,.07);box-shadow: 0 1px 2px 0 rgba(0,0,0,.07);border-radius: 4px;}
+
+.column-rgt{float:right;overflow:hidden;width:250px;background: #fff;-webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,.07);box-shadow: 0 1px 2px 0 rgba(0,0,0,.07);border-radius: 4px;padding: 20px;}
+
+#content{padding: 11px 0;background: #f4f5f7;}
+
+html{margin: 0;padding: 0;border: 0;font: 12px/1.5 "Microsoft YaHei",Arial,Helvetica,sans-serif;background: #f4f5f7;transition: all .3s;}
+
+.sname a{font-size: 12px;display: inline-block;vertical-align: middle;margin-right: 0px;height: 20px;padding: 0 4px;line-height: 20px;color: #fff;border: 1px solid #fff;border-radius: 3px;}
+
+.z_top.b-header-blur.b-header-blur-black .z_top_nav li a.i-link, .z_top.b-header-blur.b-header-blur-black .uns_box li.u-i a.i-link{color: #fff;font-size: 12px;}
+
+</style>
+
+</head>
+
+<body>
+
+{include file="jdyzm/mhead"}
+
+    <div id="container">
+
+        <div class="drama-box"style="background: #000;">
+
+            <div id="thumb" style="opacity: 0.5;"><img src="{:mac_url_img($obj.vod_pic)}" alt="{$obj.vod_name}"></div>
+
+            <!--当前位置-->
+
+            <!--h3 class="position"><a href='{$maccms.path}'>首页</a>  »  <a href="{:mac_url_type($obj.type_1)}">{$obj.type_1.type_name}</a>  »  <a href="{:mac_url_type($obj.type)}">{$obj.type.type_name}</a>  »  <a href='{:mac_url_vod_detail($obj)}'>{$obj.vod_name}</a> 在线观看</h3-->
+
+            <!--影片详细介绍-->
+
+            <div class="infobox clearfix">
+
+                <div class="thumb"><img src="{:mac_url_img($obj.vod_pic)}" alt="{$obj.vod_name}" title="{$obj.vod_name}"><em>{if condition="$vo.vod_serial gt 0"}更新至{$vo.vod_serial}{else/}{$vo.vod_remarks}{/if}</em></div>
+
+                <div class="drama">
+
+                    <div class="drama-tit">
+
+                        <h3>{$obj.vod_name}</h3>
+
+                        <div class="sname">分类：{$obj.vod_class|mac_url_create='class'}<a href="{:mac_url_type($obj.type)}">{$obj.type.type_name}</a></div>
+
+                        <div class="score"><i>豆瓣</i><span class="text">{$obj.vod_douban_score}</span></div>
+
+                    </div>
+
+                    <div class="drama-data">
+
+                        <div>
+
+                            <label class="intro">导演：{$obj.vod_director}</label>
+
+                        </div>
+
+                        <div>
+
+                            <label>地区：{$obj.vod_area}</label>
+
+                            <label>语言：{$obj.vod_lang}</label>
+
+                        </div>
+
+                        <div>
+
+                            <label>分类：<a href="{:mac_url_type($obj.type)}">{$obj.type.type_name}</a></label>
+
+                            <label>类型：{$obj.vod_class|mac_url_create='class'}
+
+                            </label>
+
+                        </div>
+
+                        <div>
+
+                            <label>时间：{$obj.vod_time|date='Y-m-d',###}</label>
+
+                            <label>年代：{$obj.vod_year|mac_url_create='year'}</label>
+
+                        </div>
+
+                        <div style="width: 820px;">
+
+                            <label class="intro">剧情：{$obj.vod_blurb|mac_substring=180}...
+                            </label>
+                                                    </div>
+
+                        <div style="display:none"><span class="mac_hits hits" data-mid="{$maccms.mid}" data-id="{$obj.vod_id}" data-type="hits"></span></div>
+
+                    </div>
+
+                    <div class="drama-bottom">
+
+                        <div class="save" ><a href="{:mac_url_vod_play($obj,['sid'=>1,'nid'=>1])}" ;" data-type="2" data-mid="{$maccms.mid}" data-id="{$obj.vod_id}"style="border-radius: 8px;background-color: #00a1d6;border: 1px solid #00a1d6;text-indent: 55px;padding: 0 20px 0 22px;"></i>立即播放</a><div class="pic-wrapper"style=" background: url({$maccms.path_tpl}images/vipbtn-icon.png) no-repeat;display: block;position: absolute;width: 68px;height: 62px;top: -14px;left: 0;cursor: pointer;"></div></div>
+
+                        <div class="save" ><a href="javascript:void(0)"  class="mac_ulog" data-type="2" data-mid="{$maccms.mid}" data-id="{$obj.vod_id}" style="border-radius: 8px;background-color: #f36392;border: 1px solid #f36392;"><i class="i-link i-save"></i>收藏</a></div>
+
+ 
+                    </div>
+
+                </div>
+
+            </div>
+
+        <div class="notice-box"><span class="snvd">【<b>温馨提示</b>】：【<b>DVD</b>-普通清晰版】【<b>BD</b>-高清无水印】【<b>HD</b>-高清版】【<b>TS</b>-抢先非清晰版】 - 其中，<b>BD</b>和<b>HD</b>版本不太适合网速过慢的用户观看。</span></div>
+
+        </div>
+
+		</div>
+
+
+
+        <div class="container" id="content">
+
+            <div class="column-rgt">
+
+
+
+                    <?php echo $yzm['home']['ad']['ad_2']?>
+
+
+                    <div class="section_aside_tit sort_nav">
+
+                        <h3>热播榜</h3>
+
+                        <div class="module-tab pull-right" id="mytabs3r"><span class="active">最新</span><span>周榜</span><span>总榜</span></div>
+
+                    </div>
+
+                    <div class="module-box" id="mytab3r">
+
+                        <ul>{maccms:vod num="9" type="current" order="desc" by="time"}
+
+                            {if condition="$key eq 1"}<li class="first"><a href="{:mac_url_vod_detail($vo)}" title="{$vo.vod_name} {$vo.vod_remarks}"><i>{$key}</i><div class="first-title"><b>{$vo.vod_name}</b></div><img class="item-lazy" src="/<?php echo $yzm['pic']['lazy'];?>" data-echo="{:mac_url_img($vo.vod_pic)}" alt="{$vo.vod_name}"></a></li>{else/}
+
+                            <li{if condition="$key lt 4"} class="hot"{/if}><i>{$key}</i><a href="{:mac_url_vod_detail($vo)}" title="{$vo.vod_name} {$vo.vod_remarks}">{$vo.vod_name}</a><span>{$vo.vod_time|date='m-d',###}</span></li>{/if}{/maccms:vod}{maccms:type ids="1" order="asc" by="sort"}<a href="{:mac_url_type($vo)}" target="_blank" class="more-link" style=" display: block; height: 24px; line-height: 24px; background-color: #e5e9ef; text-align: center; border: 1px solid #e0e6ed; color: #222; border-radius: 4px; transition: .2s;">查看更多 ＞</a>{/maccms:type}
+
+                        </ul>
+
+                        <ul class="dn">{maccms:vod num="6" type="current" order="desc" by="hits_week"}
+
+                            {if condition="$key eq 1"}<li class="first"><a href="{:mac_url_vod_detail($vo)}" title="{$vo.vod_name} {$vo.vod_remarks}"><i>{$key}</i><div class="first-title"><b>{$vo.vod_name}</b></div><img class="item-lazy" src="/<?php echo $yzm['pic']['lazy'];?>" data-echo="{:mac_url_img($vo.vod_pic)}" alt="{$vo.vod_name}"></a></li>{else/}
+
+                            <li{if condition="$key lt 4"} class="hot"{/if}><i>{$key}</i><a href="{:mac_url_vod_detail($vo)}" title="{$vo.vod_name} {$vo.vod_remarks}">{$vo.vod_name}</a><span>{$vo.vod_time|date='m-d',###}</span></li>{/if}{/maccms:vod}
+
+                        </ul>
+
+                        <ul class="dn">{maccms:vod num="6" type="current" order="desc" by="hits"}
+
+                            {if condition="$key eq 1"}<li class="first"><a href="{:mac_url_vod_detail($vo)}" title="{$vo.vod_name} {$vo.vod_remarks}"><i>{$key}</i><div class="first-title"><b>{$vo.vod_name}</b></div><img class="item-lazy" src="/<?php echo $yzm['pic']['lazy'];?>" data-echo="{:mac_url_img($vo.vod_pic)}" alt="{$vo.vod_name}"></a></li>{else/}
+
+                            <li{if condition="$key lt 4"} class="hot"{/if}><i>{$key}</i><a href="{:mac_url_vod_detail($vo)}" title="{$vo.vod_name} {$vo.vod_remarks}">{$vo.vod_name}</a><span>{$vo.vod_time|date='m-d',###}</span></li>{/if}{/maccms:vod}
+
+                        </ul>
+
+                    </div>
+
+                </div>  
+
+            <div class="column-lft">
+			{if condition="$obj.vod_copyright eq 1 && $GLOBALS['config']['app']['copyright_status'] eq 1 "}
+<div class="ui-box marg" id="playlist_0">
+    <div class="down-title">
+        {$GLOBALS['config']['app']['copyright_notice']}
+    </div>
+</div>
+{else/}
+
+                <!--在线播放地址-->
+    
+                {maccms:foreach name="obj.vod_play_list" id="vo" key="key"}
+
+                <div class="playbox playlist clearfix" id="play_{$key}" name="{$vo.player_info.from}">
+
+                    <h3><label class="{$vo.player_info.from}"></label><strong>【{$vo.player_info.tip}】</strong><p class="more red"><span id="vlink_{$key}_s1"><em class="over">倒序↑</em></span><span id="vlink_{$key}_s2"><em onclick="Order(0,'vlink_{$key}',{$key})">顺序↓</em></span></p></h3>
+
+                    <div id="vlink_{$key}"style="overflow-y: scroll;overflow-x: hidden;max-height: 152px;-min-height: 152px;">
+
+                        <ul class="rec-list">{maccms:foreach name="vo.urls" id="vo2" key="key2"}
+
+                            <li><a title='{$vo2.name}' href='{:mac_url_vod_play($obj,['sid'=>$vo.sid,'nid'=>$vo2.nid])}'>{$vo2.name}</a></li>{/maccms:foreach}
+
+                        </ul>
+
+                    </div>
+
+                </div>
+                 
+                {/maccms:foreach}
+
+
+
+                
+
+                <script>Wnew(8);</script>
+
+                <!--迅雷下载地址-->
+
+                <link rel="stylesheet" type="text/css" href="{$maccms.path_tpl}css/xunlei.css"/>
+
+                <script type="text/javascript" src="{$maccms.path_tpl}js/down.js"></script>
+
+                {maccms:foreach name="obj.vod_down_list" id="vo" key="key"}
+
+                <div class="ui-box marg playbox" id="downlist_{$key}">
+
+                    <div class="down-title">
+
+                        <h2 style="border-bottom: 1px solid #cccccc59;padding: 10px 10px;">{$vo.player_info.show}下载地址</h2><!--span>资源版本：[BD：超清无水印]  [HD：高清版]  [DVD：普通清晰版]  [TS：抢先非清晰版] - <i>手机观看需安装迅雷手机版即可在线播放！</i></span-->
+                        <div class="downtools">
+
+                            <input id="allcheck{$key}" type="checkbox" name="checkall"><em>全选</em><a href="javascript:void(0);" target="_self" class="thunder_down_all">迅雷批量下载</a><a href="javascript:void(0);" target="_self" class="xf_down_all">旋风批量下载</a><span class="xuanfu">※ 若点击迅雷下载无反应，请手动复制框内下载地址到迅雷软件即可边下边播 ※</span>
+
+                        </div>
+                    </div>
+
+                    <div class="down_list" style="overflow-y: scroll;overflow-x: hidden;max-height: 300px;-min-height: 152px;">
+
+                        <ul id="downul">
+
+                            {maccms:foreach name="vo.urls" id="vo2" key="key2"}
+
+                            <li>
+
+                                <input type="checkbox" name="down_url_list_{$key}" class="down_url" value="{$vo2.url}" file_name="{$vo2.name}" />
+
+                                <p><strong class="down_part_name"><span class="filename">{$vo2.name}</span><span class="filesize"></span></strong>
+
+                                    <input type="text" class="thunder_url" value="{$vo2.url}" title="鼠标左键单击可全选后手动复制该条迅雷地址进行分享或其它操作" onclick="this.select()" />
+
+                                </p><span><label class="thunder_down">迅雷下载</label><label class="qqdl">旋风下载</label><label class="kk">看看播放</label></span></li>
+
+                            {/maccms:foreach}
+
+                        </ul>
+
+                        <div class="downtools">
+
+                            <input id="allcheck{$key}" type="checkbox" name="checkall"><em>全选</em><a href="javascript:void(0);" target="_self" class="thunder_down_all">迅雷批量下载</a><a href="javascript:void(0);" target="_self" class="xf_down_all">旋风批量下载</a><span class="xuanfu">※ 若点击迅雷下载无反应，请手动复制框内下载地址到迅雷软件即可边下边播 ※</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                {/maccms:foreach}
+				{/if}
+			</div>
+                <div class="column-lft">
+
+                <!--猜你喜欢-->
+
+                <div class="favbox clearfix">
+
+                    <h3><div class="favbox-title">除了"<strong>{$obj.vod_name}</strong>"你可能还喜欢以下{$obj.type.type_name}：</div><div class="module-tab" id="mytabs8r"><span class="active">最新</span><span>随机</span><span>精选</span><span>榜单</span></div></h3>
+
+                    <div class="hobby" id="mytab8r">
+
+                        <ul>{maccms:vod num="10" type="current" order="desc" by="time"}
+
+                              {include file="list/lists"}{/maccms:vod}
+
+                        </ul>
+
+                        <ul class="dn">{maccms:vod num="10" ids="'.$obj['vod_rel_vod'].'" order="desc" by="time"}
+
+                                   {include file="list/lists"}{/maccms:vod}
+
+                        </ul>
+
+                        <ul class="dn">{maccms:vod num="10" type="current" order="desc" by="time" level="all"}
+
+                                     {include file="list/lists"}{/maccms:vod}
+
+                        </ul>
+
+                        <ul class="dn">{maccms:vod num="10" type="current" order="desc" by="hits"}
+
+                                       {include file="list/lists"}{/maccms:vod}
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <div class="contenttext clearfix">
+
+                    <div id="detail-desc">{$obj.vod_content}</div>
+
+                </div>
+
+                {include file="jdyzm/liuyan"}
+				</div>
+
+				{include file="jdyzm/history"}
+
+				</div>
+
+{include file="public/foot"}
+
+</body>
+
+</html>

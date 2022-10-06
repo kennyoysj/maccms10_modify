@@ -1,0 +1,32 @@
+<!doctype html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>在线播放{$obj.vod_name} {$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']} - 高清资源 - {$maccms.site_name}</title>
+
+    <meta name="keywords" content="{$obj.vod_name}{$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']}免费在线观看,{$obj.vod_name}剧情介绍" />
+
+    <meta name="description" content="{$obj.vod_name}{$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']}免费在线观看,{$obj.vod_name}剧情介绍" />
+
+{include file="public/include"}
+</head>
+
+<body>
+<div id="playerdata" vodid="{$obj.vod_id}" vodsid="{$param.nid}" vodpic="{$obj.vod_pic}" vodname="{$obj.vod_name}" voduser="{$user.user_name}" vodgroup="{$user.group_id}" vodcolor="fff" style="display:none"></div>
+{include file="jdyzm/head"}
+
+{include file="jdyzm/play"}
+
+{include file="jdyzm/history"}
+
+{include file="public/foot"}
+
+{include file="jdyzm/deng"}
+
+</body>
+
+</html>

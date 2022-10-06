@@ -1,0 +1,17 @@
+{if condition="$__PAGING__.page_total gt 1"}
+<div class="pages">
+ {if condition="$__PAGING__.page_current eq 1"}   
+{else /}
+<a href="{$__PAGING__.page_url|mac_url_page=$__PAGING__.page_prev}" class="a1"><</a>
+{/if}    
+{maccms:foreach name="$__PAGING__.page_num" id="num"}
+<a href="{$__PAGING__.page_url|mac_url_page=$num}" class="{if condition="$__PAGING__['page_current'] eq $num"}page-active{/if}">{$num}</a>
+{/maccms:foreach}
+<a href="{$__PAGING__.page_url|mac_url_page=$__PAGING__.page_next}" class="a1">></a></div>
+{/if}
+<style>
+a.page-active,a.page-active:hover{
+     background: #2aa581;
+    color: #fff;
+}
+</style>

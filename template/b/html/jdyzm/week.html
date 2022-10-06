@@ -1,0 +1,37 @@
+<section class="section" name="【0】新番更新+榜单">
+                <div class="column-lft" id="week" >
+         			<div class="sort_nav ">
+       						        <h3 class="sort_nav_tit"><i class="icon icon_t icon-dvbox"></i><span>新番节目表</span></h3>
+               						<div class="tab-title" id="mytabsweek">
+									<li class="item"><a href="javascript:void(0);">最新</a></li>
+									<li class="item "><a href="javascript:void(0);">一</a></li>
+									<li class="item "><a href="javascript:void(0);">二</a></li>
+									<li class="item "><a href="javascript:void(0);">三</a></li>
+									<li class="item "><a href="javascript:void(0);">四</a></li>
+									<li class="item"><a href="javascript:void(0);">今天</a></li>
+									<li class="item "><a href="javascript:void(0);">六</a></li>
+									<li class="item "><a href="javascript:void(0);">日</a></li>
+									</div>				    
+									<div class="tab-cont" id="mytabweek"><li class="item cur"><ul class="tab-content">
+									<div id="loader" style="width: 387;margin: 0 auto;">
+									<img src="/template/b/images/bgm-loading.png">
+									</div></ul></li>
+									
+									
+						    </div>
+                    </div>
+
+                </div>
+                <div class="column-rgt">
+                    <div class="section_aside_tit sort_nav">
+                        <h3>热播榜</h3>
+                        <div class="module-tab"><a class="aMore" href="{:mac_url( 'label/rank')} target="_blank""><span class="more">更多<i class="icon"></i></span></a></div>                    </div>
+                    <div class="module-box" id="mytab6r">
+                        <ul>{maccms:vod num="7" type="all" order="desc" by="hits_day"}
+                            {include file="list/lists2"}{/maccms:vod}                        </ul>
+                        {maccms:type ids="4" order="asc" by="sort"}{include file="jdyzm/more"}{/maccms:type}
+                    </div>
+                </div>
+</section>
+
+

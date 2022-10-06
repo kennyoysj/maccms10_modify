@@ -1,0 +1,262 @@
+        <div class="players"style="padding-top: 20px;">
+
+            <div class="play-primary">
+
+                <div class="container-row" style="-max-width: 1280px;box-shadow: 0px 0px 8px #e2e2e2;">
+
+                    <div class="player-rgt">
+
+                        <!--播放器-->
+
+                        <div class="play-box" style="border-right: 1px solid #e2e2e2;">
+
+                            <div id="player"style="height: 650px;">{$player_data} {$player_js}</div>
+
+<!--播放器下方控件-->
+
+            <div class="play-panel">
+
+                <div class="container-row">
+
+                    <div class="play-lft">
+
+                        <ul>
+
+                            <li class="play-author">
+
+                                <div class="u-avt"><a href="{:mac_url_vod_detail($obj)}"><img class="u-pic" src="{$maccms.path_tpl}images/img.php?url={:mac_url_img($obj.vod_pic)}" alt="{$obj.vod_name}"></a><i class="u-vip"></i></div>
+
+                                <div class="u-author"><a class="u-name" href="{:mac_url_vod_detail($obj)}">{$obj.vod_name}  {$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']}</a><span class="u-count">评分{$obj.vod_douban_score}</span></div>
+
+                            <li class="play-dividing">|</li>
+
+                            <li class="play-info"><a href="javascript:void(0)"><i class="iconfont">&#xe950;</i>详情介绍</a>
+
+                                <div class="uu-pic">
+
+                                    <div class="extend wp">
+
+                                        <div class="play-extend">
+
+                                            <div class="play-meta"><img class="cover-preview" src="{:mac_url_img($obj.vod_pic)}" alt="{$obj.vod_name}">
+
+                                                <p class="u-meta-intro"><h5>{$obj.vod_name}</h5>
+
+                 <div class="tags">
+
+			<span title="更新时间" class="so-icon time" style="margin-right: 20px;">
+
+				<i class="icon-date">
+
+				</i>
+
+				更新时间：{$obj.vod_time|date='m-d',###}
+
+			</span>
+
+			<span title="观看" class="so-icon watch-num" style="margin-right: 20px;">
+
+				<i class="icon-playtime">
+
+				</i>
+
+				播放：{$obj.vod_hits}
+
+			</span>
+
+			<span title="年代" class="so-icon time" style="margin-right: 20px;">
+
+				<i class="icon-date">
+
+				</i>
+
+				年代：{$obj.vod_year}
+
+			</span>
+
+			<span title="演员" class="so-icon time" style="margin-right: 20px;">
+
+				<i class="icon-pop">
+
+				</i>
+
+				主演：{$obj.vod_actor}
+
+			</span>
+
+		</div>
+
+
+
+<span class="label"><h5>简介：</h5></span><span class="details">{$obj.vod_content}</span></p>
+
+
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </li>
+
+                           <!--li class="play-mobile"><a href="javascript:void(0)" id="addQrcode"><i class="iconfont">&#xe711;</i>手机观看</a><div id="qbox"><img src="{$maccms.path_tpl}images/app-qrcode-100x100.png?large=true&data={$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['url']}" alt="{$obj.vod_name}"></div></li>
+
+                            <li class="play-info"><a  href="javascript:;" onClick="MAC.Gbook.Report('编号【{$obj.vod_id}】名称【{$obj.vod_name}】不能观看请检查修复，页面地址' + location.href)"><i class="iconfont" style="font-size: 16px;">&#xe640;</i>反馈报错</a></li>
+
+                            <li class="play-fav"><a id="refresh" href="javascript:void(0)" onclick="location.reload()"><i class="iconfont" style=" font-size: 17px;line-height: 26px;display: block;color: #444;    width: 17px;">&#xe67c;</i><em style=" color: #878787;">刷新</em></a></li-->
+
+                            <li class="play-share bdsharebuttonbox" data-tag="share" data-tag="pageSharePreview"  id="bdshare"><i class="iconfont">&#xe625;</i><a href="javascript:void(0)" class="bds_more" data-cmd="more">分享</a></li>
+
+                            <li class="play-share"><a class="u-follow" rel="nofollow" href="#mac_comment"><em><i class="iconfont" style="font-size: 18px;">&#xe66f;</i>评论</em></a></li>
+
+                            <li class="play-share"><a class="u-follow" rel="nofollow" href="https://jq.qq.com/?_wv=1027&k=5hURr5g" target="_blank"><em><i class="iconfont" style="font-size:16px;">&#xe60e;</i>QQ群</em></a></li>
+
+                            <li class="play-dividing">|</li>
+
+                        </ul>
+
+
+
+                    </div>
+
+                    <div class="player-lists">
+
+			<div class="playListstitle">
+
+                  <div class="playListsPath">无法播放？切换播放源：{maccms:foreach name="obj.vod_play_list" id="vo"}<a class="{$vo.player_info.from}{if condition="$vo.sid eq $param.sid"} active{/if}" {maccms:foreach name="vo.urls" id="vo2" }href="{:mac_url_vod_play($obj,['sid'=>$vo.sid,'nid'=>$param.nid])} " {/maccms:foreach} style="min-width:44px;max-width: 55px; height: 25px;line-height: 25px;margin: 0 5px 5px 0;-background: #99999936;    -color: #000;">{$vo.player_info.show}</a>{/maccms:foreach}</div></div>
+
+                  </div> 
+
+                 {maccms:foreach name="obj.vod_play_list" id="vo" key="key"}{if condition="$vo.sid eq $param.sid"}					
+
+                    <div class="playlist" style="float: right;position: absolute;top: 3%;left: 72%;width: 333px;">
+
+                     <a style="float: left;max-width: 80px;font-size: 12px;margin-top: 6px;color: #fff;background-color: #878787;border: 1px solid #878787;border-radius: 4px;padding: 0px 5px;line-height: 20px;margin-right: 10px;">版本选择</a>
+
+                    <div id="vlink_{$key}">
+
+                        <ul style=" padding: 3px 0;">{maccms:foreach name="vo.urls" id="vo2" key="key2"}
+
+                            <li style="float: left;"><a class="{if condition="$param.sid eq $vo.sid && $param.nid eq $vo2.nid"}active{/if}"title='{$vo2.name}' href='{:mac_url_vod_play($obj,['sid'=>$vo.sid,'nid'=>$vo2.nid])}' style="float: none;display: inline;padding: 2px 10px;line-height: 20px;">{$vo2.name}</a></li>{/maccms:foreach}
+
+                        </ul>
+
+                      </div>
+
+                    </div>{/if}
+
+                {/maccms:foreach}
+
+
+
+                </div>
+
+            </div>
+
+
+                        </div>
+
+                   </div>
+
+
+
+                        <!--ul class="player-list player-hasele-3">
+
+                                <p style="float: left;width: 100%;display: block;padding: 0px 0;text-align: center;color: hsla(0, 0%, 100%, 0.4);margin-top: -10px;"><em>©京都一只喵</em></p>
+
+                            <li>
+
+                                <a id="refresh" href="javascript:void(0)" onclick="location.reload()"style="float: left;width: 33%;"><i class="iconfont">&#xe67c;</i></a>
+
+                                <a id="showmore" href="javascript:void(0)"style="float: left;width: 33%;margin-top: -6px;"><i class="iconfont" style="color: hsla(0, 0%, 100%, 0.4);">&#xe692;</i></a></li>
+
+                            <li><a id="refresh" href="javascript:void(0)" onclick="location.reload()"><i class="iconfont">&#xe67c;</i><em>刷新</em></a></li>
+
+                        </ul-->
+
+<div class="tishi" style="position: absolute;top: -1%;left: 99.8%;">
+
+		<a class="bgray-btn" href="javascript:;" onClick="MAC.Gbook.Report('编号【{$obj.vod_id}】名称【{$obj.vod_name}】不能观看请检查修复，页面地址' + location.href)">播放<br>问题<br>反馈</a>
+		<a id="showmore" href="javascript:void(0)" class="bgray-btn"><i>宽屏</i></a>
+		<a class="bgray-btn" id="refresh" href="javascript:void(0)" onclick="location.reload()">刷新</a>
+
+</div>
+		    </div>
+
+                 </div>
+
+            </div>
+
+
+
+<style>
+
+#buffer {display: none;}
+#showmore {display: none;}
+
+.bgray-btn{transition: all 0.3s;cursor: pointer;margin: 10px 0;background-color: #fff;text-align: center;padding: 7px 5px;display: block;left: 100%;font-size: 12px;line-height: 12px;margin-left: 10px;width: 20px;border-radius: 4px;border: 1px solid #e5e9ef;color: #99a2aa;}
+
+.z_top.b-header-blur.b-header-blur-black .z_top_nav li a.i-link, .z_top.b-header-blur.b-header-blur-black .uns_box li.u-i a.i-link{font-size: 12px;}
+
+.player-info .u-mark{vertical-align: -1px;border-radius: 18px;border: 0px solid #aaa;color: #aaa;}
+
+.play-primary{-background-image: url(https://ws1.sinaimg.cn/large/bb42de05ly1fw4i8ko0urj20qo0f0gm6.jpg);background-size: 100% 100%;background-color: #2220;}
+
+.player-lists{width: 97%;position: relative;padding-left: 16px;}
+
+.playListstitle{border-bottom: 0px solid #222;border-top: 1px solid #99999938;}
+
+.playListsPath{margin: 5px 0 0 5px;color: #03A9F4;}
+
+.video-page-card .card-box .info{width: 66px;}
+
+.video-page-card{padding: 14px 5px 0px 15px;}
+
+.video-page-card .card-box .info .title{color: #222;margin-bottom: 2px;}
+
+.player-info .u-title a{color: #333;}
+
+.player-close{position: absolute;top: 50%;margin-top: -25px;width: 13px;height: 50px;left: 0;overflow: hidden;background: #3a3a3a;-top: 96%;background: #cccccc7a;}
+
+.playListsPath a.active, .playListsPath a:hover{color: #fff;background: linear-gradient(to right,#ffffff 0,#f18aad 0%,#d8527f 100%);}
+
+.playListsPath a{background: #9999992e;color: #999;}
+
+.playListstitle:after{background: #03A9F4;}
+
+.play-author .u-follow, .play-count .u-follow{border: 0px solid #f06000;color: #888;}
+
+.play-author .u-follow:hover,.play-count .u-follow:hover{background-color:#888}
+
+#container{-width: 100%;-margin-bottom: 60px;-margin-top: 23px;}
+.playlist ul li {position: relative;float: left;}
+
+.playlist ul li a{margin-right: 10px;width: 63px;height: 28px;border: 1px solid #e5e9ef;border-radius: 4px;-width: calc((100% - 80px)/8);background-color: #fff;}
+
+.playlist ul li a:visited{color: #999;background: #fff0;border: 1px solid #e5e9ef;}
+
+.playlist ul li a.active{color: #fff;background: #00a1d6;border: 1px solid #00a1d6;}
+
+.z_top .i-link{padding: 0 10px;}
+
+.MacPlayer{background: #fff;-box-shadow: 0 0 8px #e2e2e2;}
+
+/*滚动条样式*/
+
+.rec-list::-webkit-scrollbar{width: 1px;/*height: 4px;*/}
+
+.rec-list::-webkit-scrollbar-thumb{border-radius: 10px;-webkit-box-shadow: inset 0 0 5px #e2e2e2;background: #e2e2e2;}
+
+.rec-list::-webkit-scrollbar-track{-webkit-box-shadow: inset 0 0 5px #fafafa;border-radius: 0;background: #fafafa;}
+
+.module-box::-webkit-scrollbar{width: 0px;/*height: 4px;*/}
+
+.module-box::-webkit-scrollbar-thumb{border-radius: 10px;-webkit-box-shadow: inset 0 0 0px #e2e2e2;background: #e2e2e2;}
+
+.module-box::-webkit-scrollbar-track{-webkit-box-shadow: inset 0 0 0px #fafafa;border-radius: 0;background: #fafafa;}
+
+</style> 
+

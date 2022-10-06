@@ -1,0 +1,12 @@
+		<div class="tou"><img class="face" src="{$obj.user_portrait|mac_default='static/images/touxiang.png'|mac_url_img}" alt="会员头像"><p>{$obj.user_name}<br />{$obj.group.group_name}</p></div>
+		<ul>
+			<li class="hover"><a href="{:url('user/index')}">我的资料</a></li>
+			<li><a href="{:url('user/favs')}">我的收藏</a></li>
+			<li><a href="{:url('user/plays')}">播放记录</a></li>
+			<li><a href="{:url('user/downs')}">下载记录</a></li>
+			<li><a href="{:url('user/buy')}">在线充值</a></li>
+			<li><a href="{:url('user/upgrade')}">升级会员</a></li>
+			<li><a href="{:url('user/orders')}">充值记录</a></li>
+			<li><a href="{:url('user/logout')}">退出登录</a></li>
+		</ul>
+	</div>

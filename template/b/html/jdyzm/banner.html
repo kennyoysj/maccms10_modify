@@ -1,0 +1,88 @@
+            <section class="section" id="banner" name="【top】轮播+6个推荐">
+
+			<!-- 幻灯片 -->
+
+<style>
+
+ul{margin: 0;padding: 0;list-style: none;}
+
+.carousel-content{width:440px;height: 220px;position: relative;display: inline-block;float:left;border-radius: 4px;overflow: hidden;position: relative;margin: 15px 0 17px 0;}
+
+.carousel{width: 100%;height: 100%;overflow: hidden;}
+
+.carousel li{top:0;left:0;position: absolute;display: none;}
+
+.carousel li,.carousel li img{width: auto;height: 100%;}
+
+.img-index{position: absolute;text-align: center;bottom: 8px;right: 8px;font-size: 0;}
+
+.img-index li{float: left;width: 10px;height: 10px;line-height: 18px;text-align: center;border-radius: 10px;background-color: #fff;-font-size: 12px;cursor: pointer;margin: 0 5px;color: #fff0;}
+
+.img-index li.index{background-position: -855px -727px;width: 18px;height: 18px;background-color: transparent;transition: none;background-image: url(/template/b/images/icons.png);margin-top: -4px;}
+
+.img-index li:hover{background-color: rgb(0, 161, 214);}
+
+.carousel-prev,.carousel-next{position: absolute;display: inline-block;top: 40%;cursor: pointer;}
+
+.carousel-prev{left: 0;}
+
+.carousel-next{right: 0;}
+
+.caption{position: absolute;z-index: 2;font-size: 14px;color: #fff;bottom: 6px;padding: 0px 20px;}
+
+.pic{width: 440px;height: 220px;position: relative;}
+
+</style>
+
+               
+
+	<div class="carousel-content"style="background-color: #f5f5f5;">
+
+		<ul class="carousel">{maccms:vod num="'.$yzm['home']['banner']['value'].'"  level="'.$yzm['home']['banner']['level'].'" order="desc" by="time"}
+
+      	   	<li><a href="{:mac_url_vod_detail($vo)}" target="_blank"  title="{$vo.vod_name} {$vo.vod_remarks}"><div class="pic" style="background: url({$vo.vod_pic_slide}) no-repeat center rgba(0,0,0,0);background-size: cover;"></div></a><p class="caption">〓{$vo.vod_name}〓 {$vo.vod_remarks}</p></li>{/maccms:vod}
+
+		</ul>
+
+		<ul class="img-index"></ul>
+
+		<!--div class="carousel-prev"><img src="{$maccms.path_tpl}images/1.png"></div>
+
+		<div class="carousel-next"><img src="{$maccms.path_tpl}images/2.png"></div-->
+
+	</div>
+
+                 
+
+            <!-- 6个推荐 -->
+
+                <div class="slader-r" style=" width: 720px;">
+
+                    <ul>{maccms:vod num="8" level="'.$yzm['home']['banner']['right'].'" order="desc" by="time"}
+
+                       <div class="groom-module home-card">
+
+                       	<a href="{:mac_url_vod_detail($vo)}" target="_blank" title="{$vo.vod_name} {$vo.vod_remarks}">
+
+                       			<!--div class="lazy-img"><img src="{:mac_url_img($vo.vod_pic)}" onerror="this.src='/<?php echo $yzm['pic']['lazy'];?>'" alt="{$vo.vod_name}"></div-->
+<div class="lazy-img"><img src="{:mac_url_img($vo.vod_pic)}" onerror="this.src='/<?php echo $yzm['pic']['lazy'];?>'" alt="{$vo.vod_name}"></div>                           	
+
+		            		<div class="card-mark">
+
+                            	<p class="title">{$vo.vod_name}</p>
+
+                            	<p class="author">UP：{if condition="$vo.vod_serial gt 0"}更新至 第{$vo.vod_serial}集{else/}{$vo.vod_remarks}{/if}</p>
+
+                            	<p class="play"><span class="pull-left"><i class="iconfont">&#xe732;</i>{$vo.vod_hits}</span><span class="pull-right"><i class="iconfont">&#xe612;</i>{$vo.vod_time|date='m-d',###}</span></span></p>
+
+		                	</div>
+
+                       	</a>
+
+					   </div>{/maccms:vod}
+
+					</ul>
+
+                </div>
+
+            </section>

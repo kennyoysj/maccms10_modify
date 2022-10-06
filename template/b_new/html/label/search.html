@@ -1,0 +1,103 @@
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>搜索</title>
+
+    <meta name="keywords" content="在线搜索" />
+
+    <meta name="description" content="在线搜索" />
+
+    {include file="public/include"}
+
+    <script src="{$maccms.path}static/js/jquery.autocomplete.js"></script>
+
+	<style>#yzm-history {overflow-x: unset;-overflow-y: scroll;max-height: unset;}</style>
+
+</head>
+
+<body>
+
+	    <div class="history-box"style="display: block;">
+
+		<div class="top">
+
+		    <div class="search-box">
+
+  		      <i></i>
+
+				<form class="search-form" method="post" target="_self" action="{:mac_url('vod/search')}">
+
+  		      <input class="1mac_wd" type="search" name="wd" maxlength="33" autocomplete="off" placeholder="{$maccms.search_placeholder|mac_default='输入搜索关键字'}"value="">
+
+				</form>
+
+  		  </div>
+
+  		  <a class="cancel" href="javascript:history.back(-1);">
+
+   		     <p>取消</p>
+
+   		 </a>
+
+		</div>
+
+		<div class="hot-search">
+
+  		  	<p class="title">大家都在搜</p>
+
+   		 	<div class="search-word">
+
+				{maccms:foreach name=":explode(',',$maccms.search_hot)" id="vo2" key="key2"}
+
+   		    	<a href="{:mac_url('vod/search',['wd'=>$vo2])}" class="word"><p>{$vo2}</p></a>
+
+				{/maccms:foreach}
+
+    		</div>
+
+		</div>
+
+            <!--div class="rank-top" >
+
+                <a class="backIcon" id="close-history"><img src="{$maccms.path_tpl}img/back.png"></a>
+
+                <div class="titleWords">
+
+                    <p>历史记录</p>
+
+                </div>
+
+            </div-->
+
+			<section class="main">
+
+  			  <div class="main-head">
+
+					<div class="title"><p>观看记录</p></div>
+
+					<a class="more-link" href="{:url('user/plays')}"><svg class="more-icon" aria-hidden="true" style=" margin-top: .0814933rem;"> <use  xlink:href="#icon-gengduo"></use></svg><div class="word"><p>查看更多</p></div></a>
+
+				</div>
+
+ 			   <div class="main-body">
+
+  			  <div class="recom-list">
+
+				<div id="yzm-history"></div>			
+
+				</div>
+
+				</div>
+
+			</section>
+
+{include file="public/foot"}
+
+		</div>
+
+</body>
+
+</html>

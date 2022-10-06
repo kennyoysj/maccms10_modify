@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>会员中心 - {$maccms.site_name}</title>
+	<meta name="keywords" content="会员中心">
+	<meta name="description" content="会员中心">
+	{include file="user/include" /}
+</head>
+<body id="uindex">
+{include file="user/head" /}
+<!-- 会员中心 -->
+<div id="member" class="fn-clear">
+	<div id="left" class="dl-bl">
+	    <div id="ui-nav" class="m-nav">
+			<a href="javascript:MAC.GoBack()" class="btn-left"><i class="iconfont ico-right">&#xe635;</i></a>
+			<a href="{$maccms.path}" class="btn-right">主页</a>
+			<span class="mb-title">个人中心</span>
+	    </div>
+	{include file="user/left_nav" /}
+	</div>
+</div>
+{include file="user/foot" /}
+</body>
+</html>

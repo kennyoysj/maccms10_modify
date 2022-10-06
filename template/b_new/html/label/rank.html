@@ -1,0 +1,91 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>热播排行榜  - {$maccms.site_name}</title>
+    <meta name="keywords" content="{$obj.type_key} - {$maccms.site_keywords}" />
+    <meta name="description" content={$obj.type_des} - {$maccms.site_description}" />
+    {include file="public/include"}
+</head>
+<body>
+	<div class="rank-top">
+    <a class="backIcon" href="/">
+        <img src="{$maccms.path_tpl}img/back.png">
+    </a>
+    <div class="titleWords">
+        <p>
+            排行榜
+        </p>
+    </div>
+    </div>
+		<div class="i-head-nav rank">
+		<div class="head-nav" id="header-nav-yzm">
+			<div class="nav swiper-wrapper" id="mytab_h1_1">
+				<a class="link tab-h swiper-slide active"><p>全部</p></a>{maccms:type ids="parent" order="asc" by="sort" id="vo" key="key1"}
+				{if condition="$vo.type_id neq 5" }<a class="link tab-h swiper-slide"><p>{$vo.type_name}</p></a>{/if}{/maccms:type}
+			</div>
+			</div>
+		</div>
+		<div id="mytab_b1_1">
+		<div class="rank-board tab-b">
+        {maccms:vod num="20"  type="all" order="desc" by="hits"}
+        <a class="rank-item" href="{:mac_url_vod_detail($vo)}">
+            <div class="rank-num">
+			{if condition="$key lt 4"}
+			<img src="{$maccms.path_tpl}img/rank{$key}.png">
+			{else}
+			<p>{$key}</p>
+			{/if}
+			</div>
+            <div class="rank-pic lazy-thumb" data-original="{$vo.vod_pic|mac_url_img}"></div>
+            <div class="rank-info">
+                <div class="title"><p>{$vo.vod_name}</p></div>
+                <div class="author"><img src="{$maccms.path_tpl}img/ico_up.png" alt="">
+                    <p>{if condition="$vo.vod_serial gt 0"}更新至 第{$vo.vod_serial}集{else/}{$vo.vod_remarks}{/if}</p>
+                </div>
+                <div class="data">
+                    <div class="play"><img src="{$maccms.path_tpl}img/ico_play.png" alt="">
+                        <p>{$vo.vod_hits}</p>
+                    </div>
+                    <div class="time"><img src="{$maccms.path_tpl}img/ico_danmu.png" alt="">
+                        <p>{$vo.vod_time|date='m-d',###}</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+		{/maccms:vod}
+        </div>
+		{maccms:type ids="parent" order="asc" by="sort" id="vo1" key="key1"}
+		
+        <div class="rank-board tab-b">
+        {maccms:vod num="20"  type="'.$vo1['type_id'].'" order="desc" by="hits" id="vo2" key="key2"}
+        <a class="rank-item" href="{:mac_url_vod_detail($vo2)}">
+            <div class="rank-num">
+			{if condition="$key2 lt 4"}
+			<img src="{$maccms.path_tpl}img/rank{$key2}.png">
+			{else}
+			<p>{$key2}</p>
+			{/if}
+			</div>
+            <div class="rank-pic lazy-thumb" data-original="{$vo2.vod_pic|mac_url_img}"></div>
+            <div class="rank-info">
+                <div class="title"><p>{$vo2.vod_name}</p></div>
+                <div class="author"><img src="{$maccms.path_tpl}img/ico_up.png" alt="">
+                    <p>{if condition="$vo2.vod_serial gt 0"}更新至 第{$vo2.vod_serial}集{else/}{$vo2.vod_remarks}{/if}</p>
+                </div>
+                <div class="data">
+                    <div class="play"><img src="{$maccms.path_tpl}img/ico_play.png" alt="">
+                        <p>{$vo2.vod_hits}</p>
+                    </div>
+                    <div class="time"><img src="{$maccms.path_tpl}img/ico_danmu.png" alt="">
+                        <p>{$vo2.vod_time|date='m-d',###}</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+		{/maccms:vod}
+        </div>
+		{/maccms:type}
+        </div>
+    {include file="public/foot"}
+</body>
+</html>

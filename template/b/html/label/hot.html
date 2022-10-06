@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{$maccms.site_name}</title>
+    {include file="public/include"}
+</head>
+<body>
+{include file="public/head"}
+
+<section class="typebox clearfix">
+
+    <ul class="sel_list">{maccms:type ids="1,2,3,4" order="asc" by="sort"}
+
+        <li>
+
+            <dl>
+
+                {switch name="style_div" } {case value="1"}<dt class="yellow">{$vo.type_name}</dt>{/case} {case value="2"}<dt class="blue">{$vo.type_name}</dt>{/case} {case value="3"}<dt class="green">{$vo.type_name}</dt>{/case} {default /}<dt class="red">{$vo.type_name}</dt>
+                {/switch}
+
+                <dd>
+
+                    <p class="style_div  clearfix"><span class="s_tit">类&nbsp;型：</span>
+                        {maccms:foreach name=":explode(',',$vo.type_extend.class)" id="vo2" key="key2"}
+
+                        <span><a href="{:mac_url_type($vo,['class'=>$vo2],'show')}" title="{$vo2}">{$vo2}</a></span>
+                        {/maccms:foreach}
+
+                    </p>
+
+                    <p class="style_div clearfix"><span class="s_tit">地&nbsp;区：</span>
+                        {maccms:foreach name=":explode(',',$vo.type_extend.area)" id="vo2" key="key2"}
+
+                        <span><a href="{:mac_url_type($vo,['area'=>$vo2],'show')}" title="{$vo2}">{$vo2}</a></span>
+                        {/maccms:foreach}
+
+                    </p>
+
+                    <p class="style_div clearfix"><span class="s_tit">年&nbsp;代：</span>
+                        {maccms:foreach name=":explode(',',$vo.type_extend.year)" id="vo2" key="key2"}
+
+                        <span><a href="{:mac_url_type($vo,['year'=>$vo2],'show')}" title="{$vo2}">{$vo2}</a></span>
+                        {/maccms:foreach}
+
+                    </p>
+
+                </dd>
+
+            </dl>
+
+        </li>{/maccms:type}
+
+    </ul>
+
+</section>
+{include file="public/foot"}

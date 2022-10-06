@@ -1,0 +1,55 @@
+<div class="header">
+<div class="menu_header">
+<div class="menu_nav">
+<div class="logo"><a href="{$maccms.path}"><img src="{$maccms.path_tpl}image/logo.png" alt="{$maccms.site_name}"></a></div>
+<div class="right menu_right">
+		<ul>
+	<li><span onclick="NightMode()" id="dark"><i class="icon-moon"></i></span>
+<script type="text/javascript">
+if(mdark == "1") {
+$("#dark").html("<i class=\"icon-sunny\"></i>");
+}
+</script>
+	</li>
+<li><span id="so-zk"><i class="icon-search"></i></span></li>
+<li class="history" id="Tab_top_0" onmouseover="showTop(0);WriteHistory();" onmouseout="hideTop();"><span id="his-zk"><i class="icon-time"></i></span></li>
+</ul>
+	<div class="hisBox">
+				<div class="looked-box" id="List_top_0" onmouseover="showTop(0);" onmouseout="hideTop();" style="display: none;">
+					<div class="list1">
+						观看历史
+					</div>
+					<div class="widget-record">
+						<div class="list">
+							<ul class="item" id="history">
+								<li class="kong">没有观看历史</li>
+							</ul>
+						</div>
+						<div class="info">
+							<span class="count"><a href="javascript:void(0)" onclick="DelHistory(-1); return false;" title="清空所有观看记录" target="_self">清空所有记录</a></span><span class="clock"><a href="javascript:void(0)" title="关闭" onclick="hideTop();" target="_self">关闭</a></span>
+						</div>
+					</div>
+				</div>
+			
+			</div>
+</div>
+</div>
+<div class="search" id="search">
+<form name="search"  id="search" method="get" action="{:mac_url('vod/search')}" onsubmit="return qrsearch();">
+<input class="input zanpian_wd"  name="wd" type="text" id="keyword" placeholder="输入关键词" value="{$param.wd}" autocomplete="off"><div class="clear"></div><input class="imgbt" type="submit" value="搜索"></form></div>
+</div>
+<div class="menu_bottom">
+<ul class="over-auto">
+<li  {if condition="$maccms.aid eq 1"}class="active"{/if}><a href="{$maccms.path}">首页</a></li>
+{maccms:type num="10" order="asc" by="sort" ids="parent" }
+<li {if condition="($vo.type_id eq $GLOBALS['type_id'] || $vo.type_id eq $GLOBALS['type_pid'])"}class="active"{/if}><a href="{:mac_url_type($vo)}">{$vo.type_name}</a></li>
+{/maccms:type}
+<li><a href="{:mac_url('gbook/index')}">留言</a></li>
+</ul>
+</div>
+</div>
+<script>
+	function close_ad(){
+	document.getElementById("ad").style.display="none";
+}
+</script>

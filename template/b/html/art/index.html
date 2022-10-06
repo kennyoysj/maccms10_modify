@@ -1,0 +1,189 @@
+{include file="jdyzm/head"}
+
+<style>
+
+    .article_tink{
+
+        width: 100%;height: 100px;margin-top:10px ;background-color: #1ABC9C;border-radius: 6px;
+
+    }
+
+    .article_tink .fm-icon-hot{
+
+        color: #fff;
+
+        font-size: 36px;
+
+        font-weight: bolder;
+
+        line-height: 100px;
+
+        padding-left: 40px;
+
+    }
+
+    .article-rank-title{
+
+        width: 96%;
+
+        padding: 8px 0px 8px 10px;
+
+        margin-bottom: 10px;
+
+        border-radius: 5px;
+
+        text-align: left;
+
+    }
+
+    .article-rank-title .fm-icon-hot{
+
+        margin-right: 10px;
+
+    }
+
+    .article-rank-title span{
+
+        display: inline-table;margin-top: -6px;
+
+    }
+
+    #hotart a:nth-child(1){
+
+        border: 1px solid #1ABC9C;
+
+        background-color: #1ABC9C;
+
+        color: #ffffff;
+
+    }
+
+    #hotart a:nth-child(2){
+
+        border: 1px solid #E67E22;
+
+        background-color: #E67E22;
+
+        color: #ffffff;
+
+    }
+
+    #hotart a:nth-child(3){
+
+        border: 1px solid #FF6FA2;
+
+        background-color: #FF6FA2;
+
+        color: #ffffff;
+
+    }
+
+</style>
+
+<div class="main_container" style="background-color: #fff;">
+
+    <div class="left_container">
+
+        {include file="art/banner"}
+
+        {maccms:art num="15" paging="yes" half="8" type="all" order="desc" by="time"}
+
+        <div class="article_box_new">
+
+            <a title="{$vo.art_name}" href="{:mac_url_art_detail($vo)}">
+
+                <img data-original="{$vo.art_pic|mac_url_img}" alt="{$vo.art_name}" class="lazy img2"/></a>
+
+                <div class="info2">
+
+                    <div class="title2">
+
+                        <a title="{$vo.art_name}" href="{:mac_url_art_detail($vo)}">{$vo.art_name}</a>
+
+                    </div>
+
+                    <div class="sub_info">
+
+                        <span>{$vo.art_time_hits|mac_friend_date}</span>
+
+                        <span>{$vo.art_hits}人看过</span>
+
+                    </div>
+
+                    <div class="content">
+
+                        {$vo.art_blurb}...       
+
+                    </div>
+
+                </div>            
+
+        </div>
+
+        {/maccms:art}
+
+        {include file="public/paging"}
+
+    </div>
+
+    <div class="right_container">
+
+        <!--article rank-->
+
+        <div style="padding-top:10px;" id="hotart">
+
+            {maccms:type ids="child" order="asc" by="sort" flag="art" id="mucho" num="3"}
+
+                <a href="{:mac_url_type($mucho,[],'show')}" class="fm-btn {if$mucho.type_id==$obj.type_id} disabled{/if} article-rank-title"><i class="icon fm-iconfont fm-icon-hot"></i><span>热门{$mucho.type_name} ></span></a>
+
+            {/maccms:type}
+
+        </div>
+
+        <h3 class="index_main_title" >本周最火</h3>
+
+        <ul class="right_list_style_1" style="padding:0px;margin-top:20px;box-shadow: none;">
+
+            {maccms:art num="10" type="all" order="desc" by="hits"}
+
+            <li>
+
+                <div class="item3">
+
+                    <a title="{$vo.art_name}" href="{:mac_url_art_detail($vo)}" target="_blank">
+
+                        <img style="max-height: 65px;" src="{$vo.art_pic|mac_url_img}" alt="{$vo.art_name}">
+
+                    </a>
+
+                </div>
+
+                <div class="item4">
+
+                    <div class="top_info">
+
+                        <a title="{$vo.art_name}" href="{:mac_url_art_detail($vo)}" class="basic_link_color"
+
+                           target="_blank">{$vo.art_name}</a>
+
+                    </div>
+
+                    <div class="sub_info">
+
+                        <span>{$vo.art_time_add|mac_friend_date}发布 | {$vo.art_hits}浏览</span>
+
+                    </div>
+
+                </div>
+
+            </li> 
+
+            {/maccms:art}
+
+        </ul>
+
+    </div>
+
+</div><!-- end - main_container -->
+<script src="//www.dongman.fm/Public/v2/js/unslider.js"></script>
+{include file="public/foot"}

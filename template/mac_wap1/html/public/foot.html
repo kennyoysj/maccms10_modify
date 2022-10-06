@@ -1,0 +1,15 @@
+
+<div id="_js_goTop" class="goTop"><i class="iconfont icon-fold"></i></div>
+<footer class="footer">
+	<div class="footerText">
+		<p>版权所有：{$maccms.site_name}官方所有 © 2016-2019</p>
+	</div>
+</footer>
+<nav class="mnav">
+<a href="{$maccms.path}" {if condition="$maccms.aid eq 1"}class="active"{/if}><span class="iconfont icon-home" tapmode onclick="showDefault('loading')"></span><p>首页</p></a>
+{maccms:type ids="5" order="asc" by="sort"}<a href="{:mac_url_type($vo)}" {if condition="$obj.type_id eq $vo.type_id"}class="active"{/if}><span class="iconfont icon-copy" tapmode onclick="showDefault('loading')"></span><p>{$vo.type_name}</p></a>{/maccms:type}
+<a href="{:mac_url('label/live')}" {if condition="$maccms.aid eq 7"}class="active"{/if}><span class="iconfont icon-discover" tapmode onclick="showDefault('loading')"></span><p>直播</p></a>
+<a href="{:mac_url('user/index')}"><span class="iconfont icon-people" tapmode onclick="showDefault('loading')"></span><p>会员</p></a></nav>
+
+
+

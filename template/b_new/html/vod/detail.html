@@ -1,0 +1,79 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{$obj.vod_name}详情介绍-{$obj.vod_name}在线观看-{$obj.vod_name}迅雷下载 - {$maccms.site_name}</title>
+    <meta name="keywords" content="{$obj.vod_name}在线收看,{$obj.vod_name}迅雷下载" />
+    <meta name="description" content="{$obj.vod_name}剧情:{$obj.vod_blurb}" />
+    {include file="public/include"}
+</head>
+<body>
+    <div class="detail-header">
+	<a class="logo" href="/"><img src="{$maccms.path_tpl}img/logo.png"></a>
+	<div class="tool-bar clearfix">
+		<a class="search" href="{:mac_url('label/search')}"><svg class="soso-big" aria-hidden="true"><use xlink:href="#icon-sousuo-big"></use></svg></a>
+		<a  class="user" href="{:mac_url('user/index')}"><img src="{$user.user_portrait|mac_default='template/b/images/touxiang.png'|mac_url_img}"></a>
+	</div>
+	</div>
+<div class="head-top-mini"></div>
+	<div class="main-info">
+		<div class="flex-box">
+			<div class="left"><div class="pic lazy-thumb"data-original="{$obj.vod_pic|mac_url_img}"></div></div>
+			<div class="center"><div class="title">{$obj.vod_name}</div><div class="about"><span>{$obj.type.type_name} | {$obj.vod_area}</span></div><div class="updata">更新时间：{$obj.vod_time|date='Y-m-d',###}</div><div class="style">类型：{$obj.vod_class}</div></div>
+			<div class="right"><div class="review"><div class="score">{$obj.vod_score}</div><div class="play">{$obj.vod_hits}</div></div></div>
+		</div>
+		<div class="intro"><div class="collpase">展开</div><div class="intro-in">{$obj.vod_content|mac_filter_html|mac_substring=70}...</div><div class="intro-none">{$obj.vod_content|mac_filter_html}</div></div>
+	</div>
+	<div class="to-play">
+		<section class="main">
+			<div class="main-head">
+				<div class="title"><p>{if condition="$obj.vod_serial gt 0"}已更新至&nbsp;第<font color="#fb7299" style="font-weight: bold;">{$obj.vod_serial}</font>集{else/}{$obj.vod_remarks}{/if}</p></div>
+				<a class="more-link" href="{:mac_url_vod_play($obj,['sid'=>1,'nid'=>1])}"><div class="word"><p>立即播放</p></div></a>
+			</div>
+			<div class="main-body">
+				<div class="form-list"id="ord_list_1">
+					<ul class="swiper-wrapper froms"id="mytab_h_1">
+					{maccms:foreach name="obj.vod_play_list" id="vo"}
+					<li class="swiper-slide{eq name="$key" value="1"} active{/eq}"><a href="javascript:void(0);">{$vo.player_info.show}</a></li>
+					{/maccms:foreach}
+					</ul>
+				</div>
+				<div class="detail vod-list" id="mytab_b_1">
+				{maccms:foreach name="obj.vod_play_list" id="vo" key="key"}
+				<div class="v_list" id="vod_{$key}" {eq name="$key" value="1"}style="display:block"{else/}style="display:none"{/eq}>
+					<ul class="{if$obj.type_1.type_name=='电影'||$obj.type.type_name=='电影'||$obj.type_1.type_name=='综艺'||$obj.type.type_name=='综艺'} long{/if}" style="display: block;">
+					{maccms:foreach name="vo.urls" id="vo2" key="key2"}
+					<li ><a href="{:mac_url_vod_play($obj,['sid'=>$vo.sid,'nid'=>$vo2.nid])}" rel="nofollow">{$vo2.name}</a></li>
+					{/maccms:foreach}
+					</ul>
+				</div>
+				{/maccms:foreach}
+				</div>
+			</div>
+		</section>
+	</div>
+	 <section class="main">
+    <div class="main-head">
+		<div class="title"><p>猜你喜欢</p></div>
+	</div>
+    <div class="main-body">
+		{maccms:vod num="6"  type="current" order="desc" by="time"}
+		<div class="item-content">
+			<a class="item-link{if condition="($obj.type_id eq 4 or $obj.type_id eq 3)" }{else} long{/if}" href="{:mac_url_vod_detail($vo)}">
+				<div class="item-imgContainer lazy-thumb" data-original="{$vo.vod_pic|mac_url_img}">
+					<div class="info">
+						<div class="playicon"><svg aria-hidden="true"> <use  xlink:href="#icon-bofangshu"></use></svg></div>
+						<div class="play"><p>{$vo.vod_hits}</p></div>
+						<div class="danmuicon"><svg aria-hidden="true"> <use  xlink:href="#icon-danmushu"></use></svg></div>
+						<div class="view"><p>{$vo.vod_time|date='m-d',###}</p></div>
+					</div>
+				</div>
+				<div class="title"><p>【{if condition="$vo.vod_serial gt 0"}更新至 第{$vo.vod_serial}集{else/}{$vo.vod_remarks}{/if}】{$vo.vod_name}</p></div>
+			</a>
+		</div>
+		{/maccms:vod}
+	</div>
+</section>
+
+    {include file="public/foot"}
+</body>
+</html>

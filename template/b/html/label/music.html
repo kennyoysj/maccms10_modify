@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>在线音乐 - {$maccms.site_name}</title>
+	<meta name="keywords" content="{$maccms.site_keywords}" />
+    <meta name="description" content="{$maccms.site_description}" />
+    {include file="public/include"}  
+<script type="text/javascript">
+function changeFrameHeight(){
+    var ifm= document.getElementById("myiframe"); 
+    ifm.height=document.documentElement.clientHeight;
+
+}
+
+window.onresize=function(){  
+     changeFrameHeight();  
+
+} 
+function changeFrameHeight(that){
+        //电脑屏幕高度-iframe上面其他组件的高度
+        //例:我这里iframe上面还有其他一些div组件，一共的高度是120，则减去120
+        $(that).height(document.documentElement.clientHeight - 60);
+        
+    }</SCRIPT>
+</head>
+<body>
+
+<div class="qy-animation-head">
+{include file="public/head"}
+<div class="top-item-box">
+<div class="ui-cnt fn-clear">
+<iframe width="100%" height="100%" onload="changeFrameHeight(this)" scrolling="yes" frameborder="no" border="0" marginwidth="0" marginheight="0" allowtransparency="yes" src="/music/" hspace="0" vspace="0" name="tv"></iframe></div></div>
+  
+
+{include file="public/foot"}
+</body>
+</html>

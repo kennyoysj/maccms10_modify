@@ -1,0 +1,48 @@
+{notempty name="obj[vod_down_from]"}
+<div class="wrap row">
+ <h2>资源下载</h2>
+
+    <div class="down-link" id="donLink">
+        <div class="hd">
+            <ul class="nav-tabs tab-title">
+                {maccms:foreach name="obj.vod_down_list" id="vo" key="key"}
+                <li class="title">
+                   {$vo.player_info.show}<span class="badge"  style="margin-left: 5px;"></span>
+                </li>
+                {/maccms:foreach}
+            </ul>
+        </div>
+        <div class="down-list tab-content">
+            {maccms:foreach name="obj.vod_down_list" id="vo" key="key"}
+             <ul class="gdt content" style="max-height:200px;overflow: auto;">
+                {maccms:foreach name="vo.urls" id="vo2" key="key2"}
+                <li class="down-list2">
+                    <p class="down-list3">
+                        <a href="{$vo2.url}" title="{$vo2.name}"
+                        class="folder" >
+                            {$vo2.name}
+                        </a>
+                    </p>
+                    <span>
+                        <a href="{$vo2.url}" >
+                            本地下载
+                        </a>
+                    </span>
+                </li>
+                 {/maccms:foreach}
+            </ul>
+            {/maccms:foreach}
+        </div>
+    </div>
+</div>
+	
+{/notempty}
+
+
+<script type="text/javascript">
+		loadTab();
+		jQuery(".sBox").slide({
+			trigger: "click"
+		});
+	</script>
+

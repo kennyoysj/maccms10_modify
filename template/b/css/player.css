@@ -1,0 +1,70 @@
+
+.bgray-btn{transition: all 0.3s;cursor: pointer;margin: 10px 0;background-color: #fff;text-align: center;padding: 7px 5px;display: block;left: 100%;font-size: 12px;line-height: 12px;margin-left: 10px;width: 20px;border-radius: 4px;border: 1px solid #e5e9ef;color: #99a2aa;}
+
+.z_top.b-header-blur.b-header-blur-black .z_top_nav li a.i-link, .z_top.b-header-blur.b-header-blur-black .uns_box li.u-i a.i-link{font-size: 12px;}
+
+.player-info .u-mark{vertical-align: -1px;border-radius: 18px;border: 0px solid #aaa;color: #aaa;}
+
+.play-primary{-background-image: url(https://ws1.sinaimg.cn/large/bb42de05ly1fw4i8ko0urj20qo0f0gm6.jpg);background-size: 100% 100%;background-color: #2220;}
+
+.player-lists{width: 97%;position: relative;padding-left: 16px;}
+
+.playListstitle{border-bottom: 0px solid #222;border-top: 1px solid #99999938;}
+
+.playListsPath{margin: 5px 0 0 5px;color: #03A9F4;}
+
+.video-page-card .card-box .info{width: 66px;}
+
+.video-page-card{padding: 10px 8px 0px 13px;}
+
+.video-page-card .card-box .info .title{color: #222;margin-bottom: 2px;}
+
+.player-info .u-title a{color: #333;}
+
+.player-close{position: absolute;top: 50%;margin-top: -25px;width: 13px;height: 50px;left: 0;overflow: hidden;background: #3a3a3a;-top: 96%;background: #cccccc7a;}
+
+.playListsPath a.active, .playListsPath a:hover{color: #fff;background: linear-gradient(to right,#ffffff 0,#f18aad 0%,#d8527f 100%);}
+
+.playListsPath a{background: #9999992e;color: #999;}
+
+.playListstitle:after{background: #03A9F4;}
+
+.play-author .u-follow, .play-count .u-follow{border: 0px solid #f06000;color: #888;}
+
+.play-author .u-follow:hover,.play-count .u-follow:hover{background-color:#888}
+
+#container{-width: 100%;-margin-bottom: 60px;-margin-top: 23px;}
+
+.playlist ul li a{margin-right: 10px;width: 63px;height: 28px;border: 1px solid #e5e9ef;border-radius: 4px;-width: calc((100% - 80px)/8);background-color: #fff;}
+
+.playlist ul li a:visited{color: #999;background: #fff0;border: 1px solid #e5e9ef;}
+
+.playlist ul li a.active{color: #fff;background: #00a1d6;border: 1px solid #00a1d6;}
+
+.z_top .i-link{padding: 0 10px;}
+
+.MacPlayer{background: #fff;-box-shadow: 0 0 8px #e2e2e2;}
+
+        #xlu{
+            display: block;
+            
+            /*渐变背景*/
+            background-image: -webkit-linear-gradient(left, #3498db, #f47920 10%, #d71345 20%, #f7acbc 30%,
+            #ffd400 40%, #3498db 50%, #f47920 60%, #d71345 70%, #f7acbc 80%, #ffd400 90%, #3498db);
+            color: transparent; /*文字填充色为透明*/
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;          /*背景剪裁为文字，只将文字显示为背景*/
+            background-size: 200% 100%;            /*背景图片向水平方向扩大一倍，这样background-position才有移动与变化的空间*/
+            /* 动画 */
+            animation:xlu-animation 4s infinite linear;
+        }
+        @keyframes xlu-animation {
+            0% { background-position: 0 0;   /*background-position 属性设置背景图像的起始位置。*/}
+            100% {background-position: -100% 0;}
+        }
+    /*滚动条样式*/
+.long,.module-box::-webkit-scrollbar{width: 0px;/*height: 4px;*/}
+.long,.module-box::-webkit-scrollbar-thumb{border-radius: 10px;-webkit-box-shadow: inset 0 0 0px #e2e2e2;background: #e2e2e2;}
+.long,.module-box::-webkit-scrollbar-track{-webkit-box-shadow: inset 0 0 0px #fafafa;border-radius: 0;background: #fafafa;}
+.video-info .video-data .a-crumbs a{color: #999;}
+.video-info .video-data{    margin: 8px 0;font-size: 12px;height: 16px;color: #999;display: -ms-flexbox;display: flex;-ms-flex-align: center;align-items: center;text-overflow: ellipsis;white-space: nowrap;}

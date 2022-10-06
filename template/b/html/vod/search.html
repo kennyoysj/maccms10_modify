@@ -1,0 +1,167 @@
+<!doctype html>
+
+<html>
+
+
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>{$param.wd}{$param.actor}{$param.director}{$param.area}{$param.lang}{$param.year}{$param.class}搜索结果 - {$maccms.site_name}</title>
+
+    <meta name="keywords" content="{$param.wd}{$param.actor}{$param.director}{$param.area}{$param.lang}{$param.year}{$param.class}搜索结果" />
+
+    <meta name="description" content="{$param.wd}{$param.actor}{$param.director}{$param.area}{$param.lang}{$param.year}{$param.class}搜索结果" /> {include file="public/include"}
+
+</head>
+
+
+
+<body>
+
+    {include file="jdyzm/head"}
+
+    <div id="container">
+
+        <div class="container" id="content">
+
+            <!--搜索结果-->
+
+            <div class="typebox board clearfix" style="-margin-bottom: 0px;"><span class="re-info"><p style="font-size: 16px;">搜索“<b style="color: #00a1d6;">{$param.wd}{$param.actor}{$param.director}{$param.area}{$param.lang}{$param.year}{$param.class}</b>”共找到&nbsp;<b class="total" style="color: #c76574;"></b>&nbsp;部相关影片!</p></span>			<a href="javascript:;" tapmode onClick="MAC.Gbook.Report('请管理员添加《{$param.wd}{$param.actor}{$param.director}{$param.area}{$param.lang}{$param.year}{$param.class}》，谢谢！')"style="-float: right;">未找到？<span style="color: #03a9f4;">点我求片</span></a>
+</div>
+
+			
+
+<div class="searchbox board clearfix"><ul>{maccms:vod num="8" paging="yes" pageurl="vod/search" order="desc" by="time"}<li class="search list">
+
+	<a href="{:mac_url_vod_detail($vo)}"
+
+	target="_blank" title="{$vo.vod_name}" class="img-anchor">
+
+		<div class="img">
+
+			<div class="lazy-img">
+
+				<img class="item-lazy" src="/<?php echo $yzm['pic']['lazy'];?>" onerror="this.src='/<?php echo $yzm['pic']['lazy'];?>'"  data-echo="{:mac_url_img($vo.vod_pic)}" alt="{$vo.vod_name}" style="margin-top: -50px;">
+
+			</div>
+
+			<span class="so-imgTag_rb">
+
+				{if condition="$vo.vod_serial gt 0"}更新至{$vo.vod_serial}{else/}{$vo.vod_remarks}{/if}
+
+			</span>
+
+			<div class="watch-later-trigger watch-later">
+
+			</div>
+
+		</div>
+
+		<!---->
+
+	</a>
+
+	<div class="info">
+
+		<div class="headline clearfix">
+
+			<span class="type avid">
+
+				尔氡氡酱 cms.xiantian.fun
+
+			</span>
+
+			<span class="type hide">
+
+				{$vo.type.type_name}
+
+			</span>
+
+			<a title="{$vo.vod_name}" href="{:mac_url_vod_detail($vo)}"
+
+			target="_blank" class="title">{$vo.vod_name}
+
+			</a>
+
+		</div>
+
+		<div class="type hide">
+
+			{$vo.vod_blurb}...
+
+		</div>
+
+		<div class="tags">
+
+			<span title="更新时间" class="so-icon time">
+
+				<i class="icon-date">
+
+				</i>
+
+				更新时间：{$vo.vod_time|date='m-d',###}
+
+			</span>
+
+			<span title="观看" class="so-icon watch-num">
+
+				<i class="icon-playtime">
+
+				</i>
+
+				播放：{$vo.vod_hits}
+
+			</span>
+
+			<span title="年代" class="so-icon time">
+
+				<i class="icon-date">
+
+				</i>
+
+				年代：{$vo.vod_year|mac_url_create='year'}
+
+			</span>
+
+			<span title="演员" class="so-icon time">
+
+				<i class="icon-pop">
+
+				</i>
+
+				主演：{$vo.vod_actor|mac_url_create='actor'}
+
+			</span>
+
+		</div>
+
+	</div> 
+
+</li>{/maccms:vod}</ul></div>
+
+  {include file="list/solist"}         
+
+            <div class="pagebox clearfix">{include file="public/paging"}</div>
+
+            <script>
+
+        $('.total').html('{$__PAGING__.record_total}');
+
+        </script>
+
+        </div>
+
+    </div>
+
+    {include file="public/foot"}
+
+	{include file="jdyzm/adjs"}
+
+</body>
+
+
+
+</html>
+

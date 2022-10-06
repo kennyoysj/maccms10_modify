@@ -1,0 +1,157 @@
+<!-- 页脚 -->
+<div class="footer bili-footer report-wrap-module">
+<div id="footer"></div>
+	<div class="footer-wrp">
+		<div class="footer-cnt clearfix report-wrap-module">
+			<ul class="boston-postcards">
+				<li class="link">
+					<div class="tips">
+						{$maccms.site_name}
+					</div>
+					<div class="cards">
+						<a target="_blank" href="#">
+							关于我们
+						</a>
+					</div>
+					<div class="cards">
+						<a target="_blank" href="{:mac_url('gbook/index')}">
+							联系我们
+						</a>
+					</div>
+					<div class="cards">
+						<a target="_blank" href="{:mac_url('gbook/index')}">
+							加入我们
+						</a>
+					</div>
+					<div class="cards">
+						<a target="_blank" href="{:mac_url('gbook/index')}">
+							求片留言
+						</a>
+					</div>
+					<div class="cards">
+						<a target="_blank" href="{:mac_url('rss/index')}">
+							RSS订阅
+						</a>
+					</div>
+					<div class="cards">
+						<a target="_blank" href="#">
+							Investor Relations
+						</a>
+					</div>
+				</li>
+				<li class="links">
+					<div class="tips">
+						友情链接
+					</div>{maccms:link num="10" type="all" order="desc" by="id"}
+					<div class="cards">
+						<a target="_blank" href="{$vo.link_url}">
+							{$vo.link_name}
+						</a>
+					</div>{/maccms:link}
+					<div class="cards">
+						<a target="_blank" href="#">
+							帮助中心
+						</a>
+					</div>
+					<div class="cards">
+						<a target="_blank" href="{:mac_url('gbook/index')}">
+							侵权申诉
+						</a>
+					</div>
+				
+				</li>
+				<li class="over">
+					<div class="block right">
+						<a href="/">
+							<div class="phone">
+								<div class="pic" id="footer-mobile-app">
+								</div>
+								<em style="bottom: -12px;">
+									客户端下载<br>(Android)
+								</em>
+								<div class="qrcode-box-wrp">
+									<div class="qrcode-box qrcode-app">
+										<div class="qrcode-box-arrow">
+										</div>
+									</div>
+								</div>
+							</div>
+						</a>
+						<a target="_blank" href="#">
+							<div class="weibo">
+								<div class="pic" id="footer-mobile-app">
+								</div>
+								<em>
+									新浪微博
+								</em>
+								<div class="qrcode-box-wrp">
+									<div class="qrcode-box qrcode-app">
+										<div class="qrcode-box-arrow">
+										</div>
+									</div>
+								</div>
+							</div>
+						</a>
+						<a id="weixin">
+							<div class="weixin">
+								<div class="pic">
+								</div>
+								<em>
+									官方微信
+								</em>
+								<div class="qrcode-box-wrp bigvip-qrcode">
+									<div class="qrcode-box qrcode-weixin">
+										<div class="qrcode-box-arrow">
+										</div>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+				</li>
+			</ul>
+			<div class="partner">
+				<div class="block left" style="padding-top:14px;">
+					<div class="partner-banner">
+					</div>
+					<a id="jvs-cert" href="https://webcert.cnmstl.net/cert/grade?sn=d3ec53ae63a84350945198bab0251d59"
+					target="_blank" style="display: block; max-width: 132px;">
+						<div id="jvs-certifyOuter" class="jvs-certifyOuter" style="width: 100%; position: relative;">
+							<img id="certify-img1" class="                                                                                                                                                                                  "
+							crossorigin="anonymous" src="//backup.hdslb.com/bfs/mainfront/websafe.png"
+							style="position: absolute; left: 0px; top: 0px; display: block; width: 100%; height: auto; opacity: 1; max-height: none; border: none;">
+							<img id="certify-img2" class="                                                                                                                                                                                  act"
+							crossorigin="anonymous" src="//backup.hdslb.com/bfs/mainfront/confirm.png"
+							style="position: absolute; left: 0px; top: 0px; display: block; max-height: none; width: 100%; height: auto; opacity: 0; border: none;">
+						</div>
+					</a>
+				</div>
+				<div class="block left" style="margin: 0px 68px 0 115px;line-height:24px;float: none;">
+					<p>
+						互联网ICP备案：
+						<a href="#" target="_blank">
+							{$maccms.site_icp}
+						</a>
+						| 侵权处理邮箱：<a class="yumi" href="mailto:{$maccms.site_email}">{$maccms.site_email}</a> | 违法不良信息举报电话：110 |{$maccms.site_tj}
+
+            <p><?php echo $yzm['foottitle']?></p>
+            <p>若本站收录的节目无意侵犯了贵司权利，请给我们来信，我们会及时处理和删除，谢谢！Copyright &#169; 2018-2020 <a class="yumi" href="{$maccms.site_url}" target="_blank">{$maccms.site_name}</a> </p>
+					<p>
+						<a href="http://report.12377.cn:13225/toreportinputNormal_anis.do" target="_blank">
+							网上有害信息举报专区：
+							<img src="//static.hdslb.com/images/12377.png" width="16" height="16"
+							style="vertical-align: sub;">
+							中国互联网违法和不良信息举报中心
+						</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script type="text/javascript" src="{$maccms.path_tpl}js/appdown.js"></script>
+<script type="text/javascript" src="{$maccms.path_tpl}js/jdyzm_pc.js"></script>
+<script type="text/javascript" src="{$maccms.path_tpl}js/pace.min.js"></script>
+<div id="backTop"><a href="javascript:;"></a></div>
+</div></div>
+

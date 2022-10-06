@@ -1,0 +1,57 @@
+           <div class="column-rgt">
+
+                        <h3 style=" font-weight: 700;font-size: 18px;line-height: 30px;height: 16px;margin: 14px 0;margin-left: 15px;">每日热播</h3>
+
+                 <div class="module-box" id="mytab3r" style="overflow-y: scroll;overflow-x: hidden;max-height: 550px;margin-top: -15px;    width: 121%;">
+
+                        <ul>{maccms:vod num="8" type="current" order="desc" by="hits_day"}
+
+                            {include file="list/listt"}{/maccms:vod}
+
+                        </ul>
+
+                 </div>
+
+            </div>
+
+            <div class="column-lft">
+
+                <!--猜你喜欢-->
+
+                <div class="favbox clearfix">
+
+                    <h3><div class="favbox-title">除了"<strong>{$obj.vod_name}</strong>"你可能还喜欢以下{$obj.type.type_name}：</div><div class="module-tab" id="mytabs8r"><span class="active">最新</span><span>随机</span><span>精选</span><span>榜单</span></div></h3>
+
+                    <div class="hobby" id="mytab8r">
+
+                        <ul class="sort_lst">{maccms:vod num="10" type="current" order="desc" by="time"}
+
+                             {include file="list/lists"}{/maccms:vod}
+
+                        </ul>
+
+                        <ul class="dn">{maccms:vod num="10" ids="'.$obj['vod_rel_vod'].'" order="desc" by="time"}
+
+                            {include file="list/listsno"}{/maccms:vod}
+
+                        </ul>
+
+                        <ul class="dn">{maccms:vod num="10" type="current" order="desc" by="time" level="all"}
+
+                            {include file="list/listsno"}{/maccms:vod}
+
+                        </ul>
+
+                        <ul class="dn">{maccms:vod num="10" type="current" order="desc" by="hits"}
+
+                            {include file="list/listsno"}{/maccms:vod}
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                {include file="jdyzm/liuyan"}
+
+            </div>

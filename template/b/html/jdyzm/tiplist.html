@@ -1,0 +1,49 @@
+<div class="elevator-module" id="sideBar">
+<style>
+.elevator-module{position:fixed;z-index:10;left:50%;top:248px;margin-left:610px;transition:top .3s}
+@media screen and (max-width:1400px){.elevator-module{margin-left:590px}}
+.elevator-module.edit-state{z-index:10001}
+.elevator-module .nav-bg{opacity:0;top:-15px;right:0;height:100%;padding-bottom:20px;width:60px;position:absolute;background:hsla(0,0%,100%,.8);border-radius:4px;overflow:hidden;transition:all .3s cubic-bezier(.68,-.55,.27,1.55)}
+.elevator-module .nav-list{position:relative;background-color:#f6f9fa;border:1px solid #e5e9ef;overflow:hidden;border-radius:4px}
+.elevator-module .nav-list .item{width:48px;height:32px;line-height:32px;text-align:center;transition:background-color .3s,color .3s;cursor:pointer;-ms-user-select:none;user-select:none}
+.elevator-module .nav-list .item p{width: 24px;white-space: nowrap;overflow: hidden;margin-left:12px;}
+.elevator-module .nav-list .item.select{position:absolute;z-index:1;background-color:#00a1d6;color:#fff}
+.elevator-module .nav-list .item.on,.elevator-module .nav-list .item:hover{background-color:#00a1d6;color:#fff}
+.elevator-module .nav-list .customize{height:38px;line-height:20px;padding:8px 0;border-top:1px solid #e5e9ef}
+.elevator-module .nav-list .customize:hover{color:#fff}
+.elevator-module .nav-list .customize:hover .icon{background-position:-727px -151px}
+.elevator-module .nav-list .customize .icon{display:block;margin:0 auto 4px;background-position:-663px -151px;height:18px;width:18px}
+.elevator-module .s-line{position:relative;border-left:1px solid #ddd;border-right:1px solid #ddd;height:9px;width:30px;margin:0 auto}
+.elevator-module .back-top{width: 48px;position:relative;display:block;cursor:pointer;height:48px;background-position:-648px -72px;background-color:#f6f9fa;border:1px solid #e5e9ef;overflow:hidden;border-radius:4px}
+.elevator-module .back-top:hover{background-color:#00a1d6;background-position:-714px -72px;border-color:#00a1d6}
+.elevator-module .app-download{position:relative;width:50px;height:70px}
+.elevator-module .app-download .app-icon{position:absolute;left:-15px;width:80px;height:80px;background-image:url(//s1.hdslb.com/bfs/static/jinkela/home/asserts/app-download.png)}
+.elevator-module .app-download .app-tips-icon{display:none;position:absolute;left:-110px;top:-20px;width:106px;height:44px;background-image:url(//s1.hdslb.com/bfs/static/jinkela/home/asserts/app-download-tips.png)}
+</style>
+	<div class="nav-bg">
+		<div class="tips-img"></div>
+	</div>
+	<div class="nav-list">
+		<a rel="nofollow" href="#1"><p class="item sortable">番剧</p></a>
+		<a rel="nofollow" href="#2"><p class="item sortable">动漫</p></a>
+		<a rel="nofollow" href="#3"><p class="item sortable">剧场</p></a>
+		<a rel="nofollow" href="#4"><p class="item sortable">TV剧</p></a>
+		{maccms:type ids="6,7,8,9,10,11,12,13,14,15,16,17,18,23,24" order="asc" by="sort"}
+		<a href="{:mac_url_type($vo)}"><div class="item" href="{:mac_url_type($vo)}"><p>{$vo.type_name}</p></div></a>
+        {/maccms:type}
+		<a href="{:mac_url('label/live')}"><div class="item"><p>直播</p></div></a>
+		<div class="item customize"><i class="icon"></i>列表</div>		
+	</div>
+	<div class="s-line"></div>
+    <div class="back-top icon"></div>
+	<div class="app-download">
+		<a href="https://www.lanzous.com/b522505/" target="_blank">
+			<div id="elevator-mobile-app" class="app-icon">
+			</div>
+			<div class="app-tips-icon"></div>
+		</a>
+	</div>
+</div>
+    <div class="back-top icon" id="backTop" onclick="pageScroll()"></div>
+
+

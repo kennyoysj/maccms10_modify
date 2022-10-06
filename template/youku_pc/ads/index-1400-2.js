@@ -1,0 +1,1 @@
+document.write("<div class=\"yk-pannel cleafix\" style=\"width:100%;\" >\n   <div class=\"yk-pannel-box\" >\n       <a href = \".\/detail/5930.html\" target=\"_blank\"><img src=\"http://images.33su.cn/18-8-19/71431166.jpg\" style=\"width: 1400px;height: 100px;\" alt=\"媚者无疆\"></a>\n   </div>\n</div>");

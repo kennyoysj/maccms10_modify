@@ -1,0 +1,18 @@
+<div class="header">
+	    {include file="jdyzm/head-title"}
+	<div class="i-head-nav">
+		<div class="head-nav" id="header-nav-yzm">
+			<div class="nav swiper-wrapper">
+				<a class="link swiper-slide{if condition="$maccms.aid eq 1"} active{/if}" href="/"><p>首页</p></a>
+				{maccms:type order="asc" by="sort" mid="2" ids="5"}
+				<a class="link swiper-slide{if condition="($vo.type_id eq $GLOBALS['type_id'])"} active{/if}" href="{:mac_url_type($vo)}"><p>{$vo.type_name}</p></a>
+				{/maccms:type}
+				{maccms:type ids="current" order="asc" by="sort"}
+				<a class="link swiper-slide {if condition="($vo.type_id eq $GLOBALS['type_id'] || $vo.type_id eq $GLOBALS['type_pid'])"} active{/if}" href="{:mac_url_type($vo)}"><p>{$vo.type_name}</p></a>
+				{/maccms:type}
+			</div>
+		</div>
+	</div>
+
+</div>
+<div class="head-top"></div>

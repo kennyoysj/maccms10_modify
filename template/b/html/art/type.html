@@ -1,0 +1,104 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{$obj.type_title} - {$maccms.site_name}</title>
+    <meta name="keywords" content="{$obj.type_key}" />
+    <meta name="description" content="{$obj.type_des}" />
+    {include file="public/include"}
+</head>
+{include file="art/head"}
+<div class="container"style="padding-top: 15px;">
+    <div class="left_container">
+
+        {maccms:art num="5" paging="yes" half="8" type="current" order="desc" by="time"}
+
+        <div class="article_box_new board">
+
+            <a title="{$vo.art_name}" href="{:mac_url_art_detail($vo)}">
+
+                <img src="{$vo.art_pic|mac_url_img}" alt="{$vo.art_name}" class="lazy img2"/></a>
+
+                <div class="info2">
+
+                    <div class="title2">
+
+                        <a title="{$vo.art_name}" href="{:mac_url_art_detail($vo)}">{$vo.art_name}</a>
+
+                    </div>
+
+                    <div class="sub_info">
+
+                        <span>{$vo.art_time_hits|mac_friend_date}</span>
+
+                        <span>{$vo.art_hits}人看过</span>
+
+                    </div>
+
+                    <div class="content">
+
+                        {$vo.art_blurb|mac_substring=70}...       
+
+                    </div>
+
+                </div>            
+
+        </div>
+
+        {/maccms:art}
+
+        <div class="pagebox clearfix board">{include file="public/paging"}</div>
+
+    </div>
+
+    <div class="right_container board">
+
+        <!--article rank-->
+
+        <h3 class="index_main_title" >本周最火</h3>
+
+        <ul class="right_list_style_1" style="padding:0px;margin-top:20px;box-shadow: none;">
+
+            {maccms:art num="10" type="all" order="desc" by="hits"}
+
+            <li>
+
+                <div class="item3">
+
+                    <a title="{$vo.art_name}" href="{:mac_url_art_detail($vo)}" target="_blank">
+
+                        <img style="max-height: 65px;" src="{$vo.art_pic|mac_url_img}" alt="{$vo.art_name}">
+
+                    </a>
+
+                </div>
+
+                <div class="item4">
+
+                    <div class="top_info">
+
+                        <a title="{$vo.art_name}" href="{:mac_url_art_detail($vo)}" class="basic_link_color"
+
+                           target="_blank">{$vo.art_name}</a>
+
+                    </div>
+
+                    <div class="sub_info">
+
+                        <span>{$vo.art_time_add|mac_friend_date}发布 | {$vo.art_hits}浏览</span>
+
+                    </div>
+
+                </div>
+
+            </li> 
+
+            {/maccms:art}
+
+        </ul>
+
+    </div>
+
+</div><!-- end - main_container -->
+
+{include file="public/foot"}
+</html>

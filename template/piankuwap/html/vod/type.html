@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <title>{$obj.type_title} - {$maccms.site_name}</title>
+    <meta name="keywords" content="{$obj.type_key}"/>
+    <meta name="description" content="{$obj.type_des}"/>
+    {include file="public/include"} 
+
+</head>
+<body>
+{include file="public/head"}
+<div class="content">
+<div class="case"><div class="left">排序：
+<a  href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>'time' ],'show')}"  class="mr15  {if condition="$param.by eq '' || $param.by eq 'time'"}on{/if}" > 按时间</a>
+ <a  href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>'hits' ],'show')}"  class="mr15 {if condition="$param.by eq 'hits'"}on{/if}"> 按人气</a>
+            <a  href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>'score' ],'show')}" class="mr15  {if condition="$param.by eq 'score'"}on{/if}"> 按评分</a>
+</div>
+<div class="right zk"><span class="sx_name" id="sx_name" data-a="0">＋展开筛选</span></div>
+</div>
+<div class="list-box" id="list-box">    
+<dl class="c1">
+<dt>类型 :</dt>
+<dd>
+ <a href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>'','order'=>$param['order'],'by'=>$param['by'] ],'show')}" {if condition="$param['class'] eq ''"} class="current1"{/if} >全部</a>
+       
+         {empty name="$obj.type_extend.area"}
+		{maccms:foreach name=":explode(',',$obj.parent.type_extend.class)" id="vo2" key="key2"}
+         <a href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$vo2,'order'=>$param['order'],'by'=>$param['by'] ],'show')}" {if condition="$param['class'] eq $vo2"} class="current1" {/if}>{$vo2}</a>
+       
+       {/maccms:foreach}
+	    {else /}
+	     {maccms:foreach name=":explode(',',$obj.type_extend.class)" id="vo2" key="key2"}
+         <a  href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$vo2,'order'=>$param['order'],'by'=>$param['by'] ],'show')}" {if condition="$param['class'] eq $vo2"} class="current1" {/if}>{$vo2}</a>
+         {/maccms:foreach}
+		{/empty}
+</dd>
+</dl>
+<dl class="c2">
+<dt>年代 :</dt>
+<dd>
+<a href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>'','level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}" {if condition="$param['year'] eq ''"} class="current2"{/if} >全部</a>
+        {empty name="$obj.type_extend.year"}
+		{maccms:foreach name=":explode(',',$obj.parent.type_extend.year)" id="vo2" key="key2"}
+         <a href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$vo2,'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}" {if condition="$param['year'] eq $vo2"} class="current2" {/if}>{$vo2}</a>
+       
+       {/maccms:foreach}
+	    {else /}
+	     {maccms:foreach name=":explode(',',$obj.type_extend.year)" id="vo2" key="key2"}
+         <a  href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$vo2,'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}" {if condition="$param['year'] eq $vo2"} class="current2" {/if}>{$vo2}</a>
+         {/maccms:foreach}
+		{/empty}
+</dd>
+</dl>
+<dl class="c3">
+<dt>地区 :</dt>
+<dd>
+<a href="{:mac_url_type($obj,['area'=>'','lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}" {if condition="$param['area'] eq ''"} class="current3"{/if} >全部</a>
+         {empty name="$obj.type_extend.area"}
+		{maccms:foreach name=":explode(',',$obj.parent.type_extend.area)" id="vo2" key="key2"}
+         <a href="{:mac_url_type($obj,['area'=>$vo2,'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}" {if condition="$param['area'] eq $vo2"} class="current3" {/if}>{$vo2}</a>
+       
+       {/maccms:foreach}
+	    {else /}
+	      {maccms:foreach name=":explode(',',$obj.type_extend.area)" id="vo2" key="key2"}
+         <a  href="{:mac_url_type($obj,['area'=>$vo2,'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}" {if condition="$param['area'] eq $vo2"} class="current3" {/if}>{$vo2}</a>
+         {/maccms:foreach}
+		{/empty}
+</dd>
+</dl>  
+<dl class="c4">
+<dt>语言 :</dt>
+<dd>
+ <a href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>'','year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}" {if condition="$param['lang'] eq ''"} class="current4"{/if} >全部</a>
+        {empty name="$obj.type_extend.lang"}
+{maccms:foreach name=":explode(',',$obj.parent.type_extend.lang)" id="vo2" key="key2"}
+         <a href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$vo2,'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}" {if condition="$param['lang'] eq $vo2"} class="current4" {/if}>{$vo2}</a>
+       
+       {/maccms:foreach}
+	    {else /}
+	      {maccms:foreach name=":explode(',',$obj.type_extend.lang)" id="vo2" key="key2"}
+         <a  href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$vo2,'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}" {if condition="$param['lang'] eq $vo2"} class="current4" {/if}>{$vo2}</a>
+         {/maccms:foreach}
+		{/empty}
+</dd>
+</dl>
+</div>
+<script>zk();</script>
+<ul class="pic-list clearfix">
+{maccms:vod num="36" paging="yes" pageurl="vod/type" type="current" order="desc" by="time"}	
+        <li><a href="{:mac_url_vod_detail($vo)}" title="{$vo.vod_name}"><article><img src="{:mac_url_img($vo.vod_pic)}" alt="{$vo.vod_name}"><span class="s1"><i class="icon-play" style="top:0.07rem;position:relative;padding-right:3px;"></i>{if condition="$vo.vod_remarks neq ''"}{$vo.vod_remarks}{elseif condition="$vo.vod_serial gt 0"}第{$vo.vod_serial}集{else /}已完结{/if}</span><span class="s2">{$vo.vod_score}</span></article>
+        <h3><b>{$vo.vod_name}</b></h3>
+        <p>{$vo.vod_year} / {$vo.vod_area} / {$vo.vod_class}</p>
+        </a>
+        </li>
+    {/maccms:vod}
+</ul>
+ {include file="public/page"}
+</div>
+{include file="public/foot"}
+</body>
+</html>

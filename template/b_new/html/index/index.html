@@ -1,0 +1,86 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+    <title>{$maccms.site_name}</title>
+    <meta name="keywords" content="{$maccms.site_keywords}" />
+    <meta name="description" content="{$maccms.site_description}" />
+    {include file="public/include"}
+</head>
+<body>
+    {include file="jdyzm/head"}
+    {include file="jdyzm/banner"}
+<section class="main">
+    <div class="main-head">
+		<div class="title"><p>热门推荐</p></div>
+		<a class="more-link paihang" href="{:mac_url('label/rank')}"><svg class="more-icon" aria-hidden="true"> <use  xlink:href="#icon-gengduo"></use></svg><div class="word"><p>排行榜</p></div><svg class="paihang-icon" aria-hidden="true"> <use  xlink:href="#icon-paihangbang1"></use></svg></a>
+	</div>
+    <div class="main-body">
+		{maccms:vod num="8" type="all" order="desc" by="time"}
+		<div class="item-content">
+			<a class="item-link" href="{:mac_url_vod_detail($vo)}">
+				<div class="item-imgContainer lazy-thumb" data-original="{$vo.vod_pic|mac_url_img}">
+					<div class="info">
+						<div class="playicon"><svg aria-hidden="true"> <use  xlink:href="#icon-bofangshu"></use></svg></div>
+						<div class="play"><p>{$vo.vod_hits}</p></div>
+						<div class="danmuicon"><svg aria-hidden="true"> <use  xlink:href="#icon-danmushu"></use></svg></div>
+						<div class="view"><p>{$vo.vod_time|date='m-d',###}</p></div>
+					</div>
+				</div>
+				<div class="title"><p>【{if condition="$vo.vod_serial gt 0"}更新至 第{$vo.vod_serial}集{else/}{$vo.vod_remarks}{/if}】{$vo.vod_name}</p></div>
+			</a>
+		</div>
+		{/maccms:vod}
+	</div>
+</section>
+<!--瀑布流显示-->
+{maccms:type ids="1,2,3,4" order="asc" by="sort" id="vo1" key="key1"}
+<section class="main" name="{$vo1.type_name}">
+    <div class="main-head">
+		<div class="title"><p>热门{$vo1.type_name}</p></div>
+		<a class="more-link" href="{:mac_url_type($vo1)}"><svg class="more-icon" aria-hidden="true"> <use  xlink:href="#icon-gengduo"></use></svg><div class="word"><p>查看更多</p></div></a>
+	</div>
+    <div class="main-body">
+		{maccms:vod num="6" type="'.$vo1['type_id'].'" order="desc" by="time" id="vo2" key="key2"}
+		<div class="item-content">
+			<a class="item-link" href="{:mac_url_vod_detail($vo2)}">
+				<div class="item-imgContainer lazy-thumb" data-original="{$vo2.vod_pic|mac_url_img}">
+					<div class="info">
+						<div class="playicon"><svg aria-hidden="true"> <use  xlink:href="#icon-bofangshu"></use></svg></div>
+						<div class="play"><p>{$vo2.vod_hits}</p></div>
+						<div class="danmuicon"><svg aria-hidden="true"> <use  xlink:href="#icon-danmushu"></use></svg></div>
+						<div class="view"><p>{$vo2.vod_time|date='m-d',###}</p></div>
+					</div>
+				</div>
+				<div class="title"><p>【{if condition="$vo2.vod_serial gt 0"}更新至 第{$vo2.vod_serial}集{else/}{$vo2.vod_remarks}{/if}】{$vo2.vod_name}</p></div>
+			</a>
+		</div>
+		{/maccms:vod}
+	</div>
+</section>
+{/maccms:type}
+<section class="main">
+    <div class="main-head">
+		<div class="title"><p>资讯</p></div>{maccms:type ids="5" order="asc" by="sort" }
+		<a class="more-link" href="{:mac_url_type($vo)}"><svg class="more-icon" aria-hidden="true"> <use  xlink:href="#icon-gengduo"></use></svg><div class="word"><p>查看更多</p></div></a>{/maccms:type}
+	</div>
+    <div class="main-body">
+		{maccms:art num="8" type="all" order="desc" by="time"}
+		<li class="artlist_item">  
+    		<div class="artlist_txt">	
+	 		    <h4 class="artlist_title"><a href="{:mac_url_art_detail($vo)}">{$vo.art_blurb}</a></h4>
+	  	   <p class="artty"><span class="name_text28 pic_text text_right">{$vo.type.type_name}</span><span>{$vo.art_time|mac_friend_date}</span><span class="artyd">{$vo.art_hits}阅读</span></p>
+    	</div>
+		<div class="artlist_img">
+			<a class="artlist_thumb lazy-thumb" href="{:mac_url_art_detail($vo)}" title="{$vo.art_name}" data-original="{$vo.art_pic|mac_url_img}">						
+	   	 </a>
+		</div> 		
+		</li>
+		{/maccms:art}
+	</div>
+</section>
+    {include file="public/foot"}
+
+ </body>
+</html>

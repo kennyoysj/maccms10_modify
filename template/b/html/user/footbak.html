@@ -1,0 +1,81 @@
+<!-- // sign-content end --></div>
+<script>function fuckyou(){
+ window.close(); //关闭当前窗口(防抽)
+ window.location="about:blank"; //将当前窗口跳转置空白页
+}
+ function ck() {
+ console.profile();
+ console.profileEnd();
+ //我们判断一下profiles里面有没有东西，如果有，肯定有人按F12了，没错！！
+ if(console.clear) { console.clear() };
+ if (typeof console.profiles =="object"){
+ return console.profiles.length > 0;
+ }
+}
+function hehe(){
+if( (window.console && (console.firebug || console.table && /firebug/i.test(console.table()) )) || (typeof opera == 'object' && typeof opera.postError == 'function' && console.profile.length > 0)){
+ fuckyou();
+}
+if(typeof console.profiles =="object"&&console.profiles.length > 0){
+fuckyou();
+}
+}
+hehe();
+window.onresize = function(){
+if((window.outerHeight-window.innerHeight)>200)
+//判断当前窗口内页高度和窗口高度，如果差值大于200，那么呵呵
+ fuckyou();
+}</script>
+
+<div class="footerp">
+<div class="ftBoxp">
+<!--友情连接开始--> 
+<div class="areap ftLinkp">
+	<ul>
+		<span class="ftQQp">QQ:{$maccms.site_qq}</span><span class="ftYQp">友情连接：</span>{maccms:link num="10" type="all" order="desc" by="id"}
+		<li><a href="{$vo.link_url}" target="_blank">{$vo.link_name}</a></li>{/maccms:link}
+	</ul>
+</div>
+<div id="widget-WeChat" class="widget-WeChat"></div>
+<a target="_blank" href="http://jdyzm.cn/yhq" class="xlxba"></a>
+<div class="rollto"><a href="javascript:;"></a></div>
+
+<!--友情连接结束-->
+<div class="footerp_nav"style="color: #fff;">
+<!--{maccms:type ids="1,2,3,4" order="asc" by="sort"}<a href="{:mac_url_type($vo)}" title="{$vo.type_name}">{$vo.type_name}</a>-{/maccms:type}-->
+<a rel="nofollow" href="{:mac_url('rss/index')}" target="_blank"style="color: #fff;">RSS订阅</a>-
+<a rel="nofollow" href="{:mac_url('rss/baidu')}" target="_blank"style="color: #fff;">百度蜘蛛</a>-
+<a rel="nofollow" href="{:mac_url('rss/google')}" target="_blank"style="color: #fff;">谷歌地图</a>-
+<a rel="nofollow" href="{:mac_url('rss/bing')}" target="_blank"style="color: #fff;">必应爬虫</a>-
+<a rel="nofollow" href="{:mac_url('rss/sogou')}" target="_blank"style="color: #fff;">搜狗蜘蛛</a>-
+<a rel="nofollow" href="{:mac_url('rss/so')}" target="_blank"style="color: #fff;">奇虎地图</a>-
+<a rel="nofollow" href="{:mac_url('rss/sm')}" target="_blank"style="color: #fff;">神马爬虫</a>-
+<a rel="nofollow" href="{:mac_url('gbook/index')}" title="给我留言" target="_blank"style="color: #fff;">给我留言</a>
+</div>
+
+<p>
+	本网站提供新影视资源均系收集各大网站，本网站只提供web页面浏览服务，并不提供影片资源存储，也不参与任何视频录制、上传
+</p>
+<p>
+	若本站收集的节目无意侵犯了贵司版权，请给 <a class="yumi" href="mailto:{$maccms.site_email}"style="color: #fff;">{$maccms.site_email}</a> 邮箱地址来信，我们将在第一时间删除相应资源
+</p>
+<p>{$maccms.site_icp}-1 </p>
+<p>
+	Copyright &#169; 2018-2019 <a class="yumi" href="http://{$maccms.site_url}"style="color: #fff;">{$maccms.site_url}</a>. All Rights Reserved .
+</p>
+
+</div>
+
+</div>
+
+ <script>
+    $('body').show();
+    $('.version').text(NProgress.version);
+    NProgress.start();
+    setTimeout(function() { NProgress.done(); $('.fade').removeClass('out'); }, 1000);
+
+    $("#b-0").click(function() { NProgress.start(); });
+    $("#b-40").click(function() { NProgress.set(0.4); });
+    $("#b-inc").click(function() { NProgress.inc(); });
+    $("#b-100").click(function() { NProgress.done(); });
+  </script>

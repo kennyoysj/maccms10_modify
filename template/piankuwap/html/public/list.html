@@ -1,0 +1,14 @@
+{maccms:type ids="parent" order="asc" by="sort" id="vo1" key="key1" flag="vod"}
+<h2 class="index-h2">{$vo1.type_name}<span class="right change"><div class="huan" data-typeid="{$vo1['type_id']}"><i class="icon-sync huan" data-typeid="{$vo1['type_id']}"></i>换一换</div></span></h2>
+<div class="indexShowBox">
+<ul class="pic-list pic-list-nth clearfix" id="change-ul-{$vo1['type_id']}">
+{maccms:vod num="24" type="'.$vo1['type_id'].'" year="2021"order="desc" by="time"}
+    <li><a href="{:mac_url_vod_detail($vo)}" title="{$vo.vod_name}"><article><img src="{:mac_url_img($vo.vod_pic)}" alt="{$vo.vod_name}"><span class="s1"><i class="icon-play" style="top:0.07rem;position:relative;padding-right:3px;"></i>{if condition="$vo.vod_remarks neq ''"}{$vo.vod_remarks}{elseif condition="$vo.vod_serial gt 0"}第{$vo.vod_serial}集{else /}已完结{/if}</span><span class="s2">{$vo.vod_score}</span></article>
+<h3><b>{$vo.vod_name}</b></h3>
+<p>{$vo.vod_year} / {$vo.vod_area} / {$vo.vod_class}</p>
+</a></li>
+    {/maccms:vod}
+    <div style="clear:both;"></div>
+    </ul>
+</div>
+{/maccms:type}	

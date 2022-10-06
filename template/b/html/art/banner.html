@@ -1,0 +1,139 @@
+<div class="banner4_container">
+    <div style="position: relative;background: none;margin-top: 10px;" >
+        <!--轮播banner-->
+        <div class="b03_banner" id="b03">
+            <ul id="slider_banner_ul" >
+                {maccms:art num="3" type="current" order="desc" by="time" level="5"}
+                <li>
+                    <a href="{:mac_url_art_detail($vo)}" title="{$vo.art_name}" target="_blank">
+                        <img src="{$vo.art_pic_slide|mac_default=$vo.art_pic|mac_url_img}" alt="{$vo.art_name}" id="slider_img_1" width="745" height="300"/>
+                    <span class="txt">{$vo.art_name} | {$vo.art_remarks|mac_default='内详'}</span>
+                    </a>
+                </li>
+		        {/maccms:art}
+            </ul>
+        </div>
+        <!--end 轮播-->
+    </div>
+</div>
+<style>
+    .b03_banner { position: relative; overflow: auto; text-align: center;}
+    .b03_banner li { list-style: none; }
+    .b03_banner ul li { float: left; }
+    #b03 { width: 100%;}
+    #b03 .dots { position: absolute; right: 5%; bottom: 5px;}
+    #b03 .dots li
+    {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin: 0 4px;
+        text-indent: -999em;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: .4;
+        -webkit-transition: background .5s, opacity .5s;
+        -moz-transition: background .5s, opacity .5s;
+        transition: background .5s, opacity .5s;
+    }
+    #b03 a {
+        display: block;
+        position: relative;
+    }
+    #b03 .dots li.active
+    {
+        background: #fff;
+        opacity: 1;
+    }
+    #b03 li span{
+        color: #fff;
+        padding: 26px 0 0 0;
+        position: absolute;
+        bottom: 0;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+        text-align: center;
+        max-width: 100%;
+        width: 100%;
+        height: 20px;
+        left:0;right:0;
+        background: url('//www.dongman.fm/Public/v2/img/gradient.png') repeat-x;
+    }
+    #b03 li span{
+        font-size: 16px;
+        padding-bottom: 5px;
+    }
+    .banner4_container{
+        position: relative;width: 100%;height: 310px;overflow: hidden;
+    }
+    .banner4_container .main_container{
+        padding-top:15px;margin-bottom: 0px;height: 300px;position: relative;
+    }
+    .banner4_container .texture{
+        background-image: url('/Public/v2/img/indexSlidersBlur.png');
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+    .banner4_bg{
+        opacity: 1; background-image: url('');
+        overflow: hidden;
+        background-size: cover;
+        -webkit-transition: opacity false false,.5s false false;
+        -moz-transition: opacity false false false,.5s false false false;
+        -o-transition: opacity false false false,.5s false false false;
+        transition: opacity .5s;
+        -webkit-filter: blur(15px);
+        -moz-filter: blur(15px);
+        filter: blur(15px);
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .banner4{
+        top:15px;
+        right:0;
+        position: absolute;
+        width: 650px;
+        height:286px;
+    }
+    .banner4 li{
+        float: left;
+        position: relative;
+        margin-right: 1%;
+    }
+    .banner4 li img{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    .banner4 li span{
+        color: #fff;
+        padding: 26px 0 0 0;
+        position: absolute;
+        bottom: 0;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+        text-align: center;
+        max-width: 100%;
+        width: 100%;
+        height: 20px;
+        background: url('//www.dongman.fm/Public/v2/img/gradient.png') repeat-x;
+    }
+    .banner4 li{
+        width: 206px;
+        height: 138px;
+        margin-bottom: 10px;
+        margin-left:6px;
+    }
+    .banner4 li:nth-of-type(3),
+    .banner4 li:nth-of-type(6){
+        margin-right: 0;
+    }
+</style>

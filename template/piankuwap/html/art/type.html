@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <title>{$obj.type_title} - {$maccms.site_name}</title>
+    <meta name="keywords" content="{$obj.type_key}"/>
+    <meta name="description" content="{$obj.type_des}"/>
+    {include file="public/include"} 
+</head>
+<body>
+{include file="public/head"}
+<div class="content">
+	<div class="row">
+	  <div class="list-box wap-list-box">    
+	  <dl class="c6">
+    <dd>
+        <a href="{:mac_url_type($vo)}" {if condition="($vo.type_id eq $GLOBALS['type_id'])"}class="current6"{/if} >全部</a>
+         {maccms:type num="10" order="asc" by="sort" ids="child" flag="art"}
+         <a href="{:mac_url_type($vo)}" class="{if condition="($vo.type_id eq $GLOBALS['type_id'] || $vo.type_id eq $GLOBALS['type_pid'])"}current6{/if}">{$vo.type_name}</a>
+         {/maccms:type}
+</dd>
+</dl>
+</div>  
+<div class="padd10">
+<div class="channel"><a href="{:mac_url_type($obj)}" class="cname">{$obj.type_name}</a></div>
+	</div>
+<div class="newlist2"><ul>
+{maccms:art num="20" type="current" order="desc" by="time" pageurl="art/type" paging="yes" }   
+<li>
+<div class="list_img2">
+<a href="{:mac_url_art_detail($vo)}" target="_blank">
+<img src="{:mac_url_img($vo.art_pic)}"></a></div>
+<div class="list_cont">
+<div class="list_title2">
+<a href="{:mac_url_art_detail($vo)}" target="_blank">{$vo.art_name}</a>
+<div class="tag">来源：{$vo.art_from|mac_default='未知'} / 人气：{$vo.art_hits}</div>
+</div>
+</div>
+
+</li>
+{/maccms:art}
+</ul>
+</div>
+ {include file="public/page"}
+</div>
+</div>
+{include file="public/foot"}
+</body>
+</html>

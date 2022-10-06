@@ -1,0 +1,28 @@
+<div class="comment_head clearfix">
+     <span class="fr">共&nbsp;<font color="#68caed">{$__PAGING__.record_total}</font>&nbsp;条留言，当前第&nbsp;<font color="#68caed">{$__PAGING__.page_current}</font>&nbsp;页</span>
+     <h2 class="title fl">留言板</h2>								
+</div>
+<ul class="part_rows">
+{maccms:gbook num="10" paging="yes" half="3" order="desc" by="id"}
+<li class="comm_each line_top margin">
+<img class="comm_avat part_roun" src="{$vo.user_id|mac_get_user_portrait}" />
+<div class="comm_head">
+<strong class="text_line">{$vo.gbook_name}</strong>
+<span class="part_tips">{$vo.gbook_time|date='Y-m-d H:i',###}<span class="split_line"></span><span style="color:#fb7299">&nbsp;&nbsp;{$vo.gbook_id}楼</span></span>
+</div>
+<div class="comm_cont">
+<div class="comm_content">{$vo.gbook_content}</div>
+{if$vo.gbook_reply}
+<div class="comm_reply back_ashen comm_tops">
+<div class="comm_rp_head">
+<span class="text_line"><strong><font style="color:#fb7299">管理员: </font></strong>{$vo.gbook_reply} ／ {$vo.gbook_reply_time|date='H:i',###}</span>
+</div>
+</div>
+{/if}
+</div>
+</li>
+{/maccms:gbook}{if$__PAGING__.record_total==0}
+<li class="text_center text_black">还没有人留言哎！</li>
+{/if}
+</ul>
+{include file="public/paging"}

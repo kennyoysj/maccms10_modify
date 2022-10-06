@@ -1,0 +1,50 @@
+
+<div id="show" style="display: none;">
+    <div class="co-cg">
+       <p>耶～～复制成功</p>
+    </div>
+</div>
+<script>
+	$(".face").imageUpload({
+		formAction: "{:url('user/portrait')}",
+		inputFileName:'file',
+		browseButtonValue: '<i class="iconfont xiazai">&#xe63b;</i>',
+		browseButtonClass:'btn btn-default btn-xs face-upload',
+		automaticUpload: true,
+		hideDeleteButton: true,
+		hover:true
+	})
+	$(".face").on("imageUpload.uploadFailed", function (ev, err) {
+		alert(err);
+	});
+</script>
+<!-- // sign-content end -->
+<div class="footer">
+	<div class="layout">
+		<div class="copyright">
+			<p>
+				Copyright &copy; 2016-2019 <a class="color" href="http://{$maccms.site_url}">{$maccms.site_url}</a>
+			</p>
+		</div>
+		<!-- // maxBox End -->
+	</div>
+</div>
+<!-- // footer end -->
+<script src="{$maccms.path_tpl}js/jdyzm_m.js"></script>
+<script type="text/javascript">
+    $(".flip").click(function(){
+		$(".panel").slideToggle("slow");
+		$(".xs1").toggle();
+		$(".xs2").toggle();
+    });
+</script>
+
+<script type="text/javascript">
+	$(".lazyload").lazyload({
+	effect: "fadeIn",
+	threshold: 200,
+	failurelimit: 15,
+	skip_invisible: !1
+	})
+
+</script>

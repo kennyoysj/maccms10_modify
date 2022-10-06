@@ -1,0 +1,61 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{$obj.type_title} - {$maccms.site_name}</title>
+    <meta name="keywords" content="{$obj.type_key}" />
+    <meta name="description" content="{$obj.type_des}" />
+    {include file="public/include"}
+	<style>
+	.banner{border-radius: .14133rem;}
+	.banner .slide{height: 6.69333rem;}
+	.b-yzm-banner{display: none;}
+	.slider-nav{left: 85%!important;background-color: rgba(0, 0, 0, 0)!important}
+	</style>
+</head>
+<body>
+    {include file="jdyzm/head-art"}
+	 {if condition="$obj.type_id neq 17"}
+		<div class="banner">
+			<ul class="banner-slides">
+
+			{maccms:art num="6" paging="no" type="current" order="desc" by="hits_week"}
+				<li class="slide"><a class="box"href="{:mac_url_art_detail($vo)}"><div class="lazy-thumb" data-original="{$vo.art_pic}"></div><div class="title">{$vo.art_name}</div></a></li>
+			{/maccms:art}
+
+			</ul>
+		</div>
+	{/if}
+<section class="main">
+    <div class="main-head">
+		<div class="title"><p>{$obj.type_name}</p></div>
+	</div>
+    <div class="main-body">
+		{maccms:art num="24" paging="yes" half="3" type="current" order="desc" by="sort"}
+		{if condition="$vo.art_pic eq ''"}
+		<li class="artlist_item no_pic">  
+    		<div class="artlist_txt">	
+	 		    <h4 class="artlist_title"><a href="{:mac_url_art_detail($vo)}">{$vo.art_name}</a></h4>
+	  	   <p class="artty"><span class="name_text28 pic_text text_right">{$vo.type.type_name}</span><span>{$vo.art_time|mac_friend_date}</span><span class="artyd">{$vo.art_hits}阅读</span></p>
+    	</div> 		
+		</li>
+		{else}
+		<li class="artlist_item">  
+    		<div class="artlist_txt">	
+	 		    <h4 class="artlist_title"><a href="{:mac_url_art_detail($vo)}">{$vo.art_name}</a></h4>
+	  	   <p class="artty"><span class="name_text28 pic_text text_right">{$vo.type.type_name}</span><span>{$vo.art_time|mac_friend_date}</span><span class="artyd">{$vo.art_hits}阅读</span></p>
+    	</div>
+		<div class="artlist_img">
+			<a class="artlist_thumb lazy-thumb" href="{:mac_url_art_detail($vo)}" title="{$vo.art_name}" data-original="{$vo.art_pic|mac_url_img}">						
+	   	 </a>
+		</div> 		
+		</li>
+		{/if}
+		{/maccms:art}
+<div class="pagebox">{include file="public/paging"}</div> 
+
+	</div>
+</section>
+    {include file="public/foot"}
+
+ </body>
+</html>

@@ -1,0 +1,78 @@
+<div class="partBox">
+
+    <div class="pagesContainer" id="ord_list_9">
+
+        <div class="swiper-wrapper" id="1mytab_h1_1">
+
+			{maccms:type ids="current" order="asc" by="sort" id="vo1" key="key1" flag="vod"}
+
+            <a class="swiper-slide tab-h"  href="#{$key1}"><p>{$vo1.type_name}</p></a>
+
+			{/maccms:type}
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="head-top1"></div>
+
+<!--瀑布流显示-->
+
+<div id="container">
+
+{maccms:type ids="current" order="asc" by="sort" id="vo1" key="key1" flag="vod"}						
+
+<section class="main type-{$key1}" name="{$vo1.type_name}" js-move="true">
+
+    <div class="main-head">
+
+		<div class="title"><p>热门{$vo1.type_name}</p></div>
+
+		<a class="more-link" href="{:mac_url_type($vo1)}"><svg class="more-icon" aria-hidden="true"> <use  xlink:href="#icon-gengduo"></use></svg><div class="word"><p>查看更多</p></div></a>
+
+	</div>
+
+    <div class="main-body">
+
+		{maccms:vod num="12" type="'.$vo1['type_id'].'" order="desc" by="time" id="vo2" key="key2"}
+
+		<div class="item-content">
+
+			<a class="item-link" href="{:mac_url_vod_detail($vo2)}">
+
+				<div class="item-imgContainer lazy-thumb" data-original="{$vo2.vod_pic|mac_url_img}">
+
+					<div class="info">
+
+						<div class="playicon"><svg aria-hidden="true"> <use  xlink:href="#icon-bofangshu"></use></svg></div>
+
+						<div class="play"><p>{$vo2.vod_hits}</p></div>
+
+						<div class="danmuicon"><svg aria-hidden="true"> <use  xlink:href="#icon-danmushu"></use></svg></div>
+
+						<div class="view"><p>{$vo2.vod_time|date='m-d',###}</p></div>
+
+					</div>
+
+				</div>
+
+				<div class="title"><p>【{if condition="$vo2.vod_serial gt 0"}更新至 第{$vo2.vod_serial}集{else/}{$vo2.vod_remarks}{/if}】{$vo2.vod_name}</p></div>
+
+			</a>
+
+		</div>
+
+		{/maccms:vod}
+
+	</div>
+
+</section>
+
+{/maccms:type}
+
+</div>
+
+
+

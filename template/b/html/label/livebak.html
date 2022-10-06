@@ -1,0 +1,65 @@
+﻿<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>{$maccms.site_name}</title>
+    {include file="public/include"}
+    <style type="text/css">
+    table {
+        border-collapse: collapse;
+        border-spacing: 0
+    }
+
+    fieldset,
+    img {
+        border: 0
+    }
+
+    ol,
+    ul {
+        list-style: none
+    }
+
+    .bingdoutv {
+        width: 100%;
+        height: 100%;
+        margin-top: 25px
+    }
+
+    .player {
+        width: 80%;
+        height: 100%;
+        float: left;
+        margin: 0;
+        padding: 0
+    }
+
+    .list {
+        width: 20%;
+        height: 100%;
+        float: right;
+    }
+    </style>
+</head>
+
+<body>
+    {include file="public/head"}
+    <!-- 冰豆直播 -->
+    <div id="container">
+        <div class="container" id="content">
+            <!--div class="favbox clearfix"><img src="//ww3.sinaimg.cn/large/87c01ec7gy1fn4tu6jxsij21hc0501gh.jpg" width="100%"> </div-->
+                <!--div class="bingdoutv">
+<iframe width="100%" scrolling="no" height="600" align="middle" frameborder="no" src="//zhibo.97bike.com/live.html" hspace="0" vspace="0" marginheight="0" marginwidth="0" name="tv"></iframe>                </div>
+            </div-->
+<script>
+var w = '100%'; //宽度
+var h = '720'; //高度
+document.write('<iframe src="http://jdyzm.cn/live" width="'+w+'" height="'+h+'" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" border="0"></iframe>');
+</script>
+
+       </div>
+    {include file="public/foot"}
+</body>
+
+</html>

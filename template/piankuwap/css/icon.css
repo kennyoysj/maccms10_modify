@@ -1,0 +1,79 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../font/icomoon.eot');
+  src:  url('../font/icomoon.eot#iefix') format('embedded-opentype'),
+    url('../font/icomoon.ttf') format('truetype'),
+    url('../font/icomoon.woff') format('woff'),
+    url('../font/icomoon.svg#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-chevron-thin-up:before {
+  content: "\e90e";
+}
+.icon-chevron-thin-down:before {
+  content: "\e90f";
+}
+.icon-chevron-forward:before {
+  content: "\e901";
+}
+.icon-chevron-back:before {
+  content: "\e90d";
+}
+.icon-heart2:before {
+  content: "\e90b";
+}
+.icon-heart:before {
+  content: "\e90c";
+}
+.icon-play:before {
+  content: "\e900";
+}
+.icon-sync:before {
+  content: "\e902";
+}
+.icon-qrcode:before {
+  content: "\e905";
+}
+.icon-search:before {
+  content: "\e906";
+}
+.icon-search2:before {
+  content: "\e907";
+}
+.icon-moon:before {
+  content: "\e908";
+}
+.icon-time:before {
+  content: "\e909";
+}
+.icon-sunny:before {
+  content: "\e90a";
+}
+.icon-user:before {
+  content: "\f10f";
+}
+.icon-content_copy:before {
+  content: "\e14d";
+}
+.icon-menu:before {
+  content: "\e903";
+}
+.icon-reply:before {
+  content: "\e904";
+}

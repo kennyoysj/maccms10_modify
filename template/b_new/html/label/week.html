@@ -1,0 +1,59 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>周播表 - 最新更新 - {$maccms.site_name}</title>
+    <meta name="keywords" content="{$maccms.site_keywords}" />
+    <meta name="description" content="{$maccms.site_description}" />
+    {include file="public/include"}
+</head>
+<body>
+    {include file="jdyzm/head"}
+    {include file="jdyzm/banner"}
+	<div class="weeks">
+						<ul class="weekItem" id="weektab">
+				<li id="week1">周一</li><li id="week2">周二</li><li id="week3">周三</li><li id="week4">周四</li><li id="week5">周五</li><li id="week6">周六</li><li id="week0">周日</li>			</ul>
+			<div class="weekbox">
+				<div class="box01_c" id="weekcon">
+					<div style="position:relative;">
+						<dl><dt class="week-day-1">周一</dt>
+						{maccms:vod num="12" type="all" by="time" order="desc" weekday="一"}
+						<div class="item-week"><a class="item-link" href="{:mac_url_vod_play($vo)}"><div class="item-imgContainer lazy-thumb" data-original="{$vo.vod_pic}"></div><div class="title"><p>{$vo.vod_name}</p><e>{if condition="$vo.vod_serial gt 0"}更新至 <t {if condition="date( 'd',$vo.vod_time) eq date( 'd',time()) "}style="color: #ff8eb3;font-weight: bold;"{/if}>{$vo.vod_serial}话</t>{else/}{$vo.vod_remarks}{/if}</e></div></a></div>
+						{/maccms:vod}
+						</dl>
+						<dl><dt class="week-day-2">周二</dt>
+						{maccms:vod num="12" type="all" by="time" order="desc" weekday="二"}
+						<div class="item-week"><a class="item-link" href="{:mac_url_vod_play($vo)}"><div class="item-imgContainer lazy-thumb" data-original="{$vo.vod_pic}"></div><div class="title"><p>{$vo.vod_name}</p><e>{if condition="$vo.vod_serial gt 0"}更新至 <t {if condition="date( 'd',$vo.vod_time) eq date( 'd',time()) "}style="color: #ff8eb3;font-weight: bold;"{/if}>{$vo.vod_serial}话</t>{else/}{$vo.vod_remarks}{/if}</e></div></a></div>
+						{/maccms:vod}
+						</dl>
+						<dl><dt class="week-day-3">周三</dt>
+						{maccms:vod num="12" type="all" by="time" order="desc" weekday="三"}
+						<div class="item-week"><a class="item-link" href="{:mac_url_vod_play($vo)}"><div class="item-imgContainer lazy-thumb" data-original="{$vo.vod_pic}"></div><div class="title"><p>{$vo.vod_name}</p><e>{if condition="$vo.vod_serial gt 0"}更新至 <t {if condition="date( 'd',$vo.vod_time) eq date( 'd',time()) "}style="color: #ff8eb3;font-weight: bold;"{/if}>{$vo.vod_serial}话</t>{else/}{$vo.vod_remarks}{/if}</e></div></a></div>
+						{/maccms:vod}
+						</dl>
+						<dl><dt  class="week-day-4">周四</dt>
+						{maccms:vod num="12" type="all" by="time" order="desc" weekday="四"}
+						<div class="item-week"><a class="item-link" href="{:mac_url_vod_play($vo)}"><div class="item-imgContainer lazy-thumb" data-original="{$vo.vod_pic}"></div><div class="title"><p>{$vo.vod_name}</p><e>{if condition="$vo.vod_serial gt 0"}更新至 <t {if condition="date( 'd',$vo.vod_time) eq date( 'd',time()) "}style="color: #ff8eb3;font-weight: bold;"{/if}>{$vo.vod_serial}话</t>{else/}{$vo.vod_remarks}{/if}</e></div></a></div>
+						{/maccms:vod}
+						</dl>
+						<dl><dt class="week-day-5">周五</dt>
+						{maccms:vod num="12" type="all" by="time" order="desc" weekday="五"}
+						<div class="item-week"><a class="item-link" href="{:mac_url_vod_play($vo)}"><div class="item-imgContainer lazy-thumb" data-original="{$vo.vod_pic}"></div><div class="title"><p>{$vo.vod_name}</p><e>{if condition="$vo.vod_serial gt 0"}更新至 <t {if condition="date( 'd',$vo.vod_time) eq date( 'd',time()) "}style="color: #ff8eb3;font-weight: bold;"{/if}>{$vo.vod_serial}话</t>{else/}{$vo.vod_remarks}{/if}</e></div></a></div>
+						{/maccms:vod}
+						</dl>
+						<dl><dt class="week-day-6">周六</dt>
+						{maccms:vod num="12" type="all" by="time" order="desc" weekday="六"}
+						<div class="item-week"><a class="item-link" href="{:mac_url_vod_play($vo)}"><div class="item-imgContainer lazy-thumb" data-original="{$vo.vod_pic}"></div><div class="title"><p>{$vo.vod_name}</p><e>{if condition="$vo.vod_serial gt 0"}更新至 <t {if condition="date( 'd',$vo.vod_time) eq date( 'd',time()) "}style="color: #ff8eb3;font-weight: bold;"{/if}>{$vo.vod_serial}话</t>{else/}{$vo.vod_remarks}{/if}</e></div></a></div>
+						{/maccms:vod}
+						</dl>
+						<dl><dt class="week-day-0">周日</dt>
+						{maccms:vod num="12" type="all" by="time" order="desc" weekday="日"}
+						<div class="item-week"><a class="item-link" href="{:mac_url_vod_play($vo)}"><div class="item-imgContainer lazy-thumb" data-original="{$vo.vod_pic}"></div><div class="title"><p>{$vo.vod_name}</p><e>{if condition="$vo.vod_serial gt 0"}更新至 <t {if condition="date( 'd',$vo.vod_time) eq date( 'd',time()) "}style="color: #ff8eb3;font-weight: bold;"{/if}>{$vo.vod_serial}话</t>{else/}{$vo.vod_remarks}{/if}</e></div></a></div>
+						{/maccms:vod}
+						</dl>
+					</div>
+				</div>
+			</div>
+		</div>
+    {include file="public/foot"}
+ </body>
+</html>

@@ -1,0 +1,36 @@
+            <!-- 热播综艺 -->
+            <section class="section" name="【3】<?php echo $yzm['home']['show3']['title']?>+榜单" id="3">
+                <div class="column-rgt">
+                    <div class="section_aside_tit sort_nav">
+                        <h3><?php echo $yzm['home']['show3']['title']?>热播榜</h3>
+                        <div class="module-tab pull-right" id="mytabs4r"><span class="active">日榜</span><span>周榜</span><span>总榜</span></div>
+                    </div>
+                    <div class="module-box" id="mytab4r">
+                        <ul>{maccms:vod num="6" type="'.$yzm['home']['show3']['type'].'" order="desc" by="hits_day"}
+                           {include file="list/lists2"}{/maccms:vod}
+                        </ul>
+                        <ul class="dn">{maccms:vod num="8" type="'.$yzm['home']['show3']['type'].'" order="desc" by="hits_week"}
+                            {include file="list/lists1"}{/maccms:vod}
+                        </ul>
+                        <ul class="dn">{maccms:vod num="8" type="'.$yzm['home']['show3']['type'].'" order="desc" by="hits"}
+                            {include file="list/lists1"}{/maccms:vod}
+                        </ul>
+                         {maccms:type ids="'.$yzm['home']['show3']['type'].'" order="asc" by="sort"}{include file="jdyzm/more"}</a>{/maccms:type}
+                    </div>
+                    <div class="module-bottom clearfix"><?php echo $yzm['home']['ad']['ad_2']?></div>
+                </div>
+                <div class="column-lft">
+                    <div class="sort_nav">
+                        <h3 class="sort_nav_tit"><i class="icon icon_t icon-evbox"></i><span><?php echo $yzm['home']['show3']['title']?></span></h3>
+                        <div class="sort_nav_bx">
+                            <div class="module-tab pull-left" id="mytabs"><span class="active">最新更新</span>{maccms:vod num="3" type="'.$yzm['home']['show3']['type'].'" order="desc" by="hits_week"}<em><a href="{:mac_url_vod_detail($vo)}" target="_blank" title="{$vo.vod_name} {$vo.vod_remarks}">{$vo.vod_name}</a></em>{/maccms:vod}</div>
+                            <div class="module-tab">{maccms:type ids="'.$yzm['home']['show3']['type'].'" order="asc" by="sort"}<a class="aMore" href="{:mac_url_type($vo)}">{/maccms:type}<span class="update">今日更新<b>{:mac_data_count(''.$yzm['home']['show3']['type'].'','today','vod')}</b>部</span><span class="more">更多<i class="icon"></i></span></a></div>
+                        </div>
+                    </div>
+                    <div class="sort_lst_bx" id="mytab">
+                        <ul class="sort_lst">{maccms:vod num="10" type="'.$yzm['home']['show3']['type'].'" order="desc" by="'.$yzm['home']['show3']['by'].'"}
+                             {include file="list/lists"}{/maccms:vod}
+                      </ul>
+                    </div>
+                </div>
+            </section>

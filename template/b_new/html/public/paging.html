@@ -1,0 +1,18 @@
+<div class="pagebox">
+<ul>
+{if condition="$__PAGING__.record_total gt 0"}
+ <script> $(".data p").html("视频总数：{$__PAGING__.record_total}<sl></sl>今日更新：{:mac_data_count($obj.type_id,'today','vod')}")</script>
+{if condition="$__PAGING__.page_total eq 1"}
+{else /}
+<a class="pagelink_b" href="{$__PAGING__.page_url|mac_url_page=1}" title="首页">首页</a>
+<a class="pagelink_b" href="{$__PAGING__.page_url|mac_url_page=$__PAGING__.page_prev}" title="上一页">上页</a> {maccms:foreach name="$__PAGING__.page_num" id="num"} {if condition="$__PAGING__['page_current'] eq $num"}
+<em>{$num}</em> {else}
+<a class="pagelink_b" href="{$__PAGING__.page_url|mac_url_page=$num}" title="第{$num}页">{$num}</a> {/if} {/maccms:foreach}
+
+<a class="pagelink_b" href="{$__PAGING__.page_url|mac_url_page=$__PAGING__.page_total}" title="尾页"style="float: right;">尾页</a>
+<a class="pagelink_b" href="{$__PAGING__.page_url|mac_url_page=$__PAGING__.page_next}" title="下一页"style="float: right;">下页</a>
+{/if} {else/}
+<div class="notdata"><img src="{$maccms.path_tpl}img/noTFound.png"><p>什么都没有找到啊 T_T</p></div>{/if}
+
+</ul>
+</div> 

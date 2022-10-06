@@ -1,0 +1,25 @@
+			{if condition="$maccms.aid eq 1"}
+		<div class="banner">
+			<ul class="banner-slides">
+			{maccms:vod num="8" level="9" order="desc" by="time"}
+				<li class="slide"><a class="box"href="{:mac_url_vod_detail($vo)}"><div class="lazy-thumb" data-original="{$vo.vod_pic_slide}"></div></a></li>
+			{/maccms:vod}
+			</ul>
+		</div>
+			{elseif condition="$maccms.aid eq 4"}
+		<div class="banner">
+			<ul class="banner-slides">
+			{maccms:vod num="8" level="9" type="4" order="desc" by="time"}
+				<li class="slide"><a class="box"href="{:mac_url_vod_detail($vo)}"><div class="lazy-thumb" data-original="{$vo.vod_pic_slide}"></div></a></li>
+			{/maccms:vod}
+			</ul>
+		</div>
+			{else}
+		<div class="banner">
+			<ul class="banner-slides">
+			{maccms:vod num="8" level="9" type="current" order="desc" by="time"}
+				<li class="slide"><a class="box"href="{:mac_url_vod_detail($vo)}"><div class="lazy-thumb" data-original="{$vo.vod_pic_slide}"></div></a></li>
+			{/maccms:vod}
+			</ul>
+		</div>
+		{/if}
