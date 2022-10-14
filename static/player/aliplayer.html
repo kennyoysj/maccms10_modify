@@ -45,12 +45,27 @@
 <script>
     let url = parent.MacPlayer.PlayUrl;
     url = url.replace("http:","https:")
-    console.log(parent)
+    console.log(parent.player_aaaa.urls)
+    console.log(parent.player_aaaa.urls[30])
+    let html = '<div class="player-olympic-player-next" id="player_next_button"><div class="player-olympic-player-next-tip">Next</div></div>'
+    html = $(html)
     let clickHandle = function() {
-        if(parent.MacPlayer.PlayLinkNext!=''){
-            top.location.href = parent.MacPlayer.PlayLinkNext;
+        let nid = parent.player_aaaa.nid;
+        let urls = parent.player_aaaa.urls;
+        let next_url = urls[nid+1]["url"];
+        if(next_url != undefined) {
+            parent.player_aaaa.nid += 1;
+            console.log(player)
+            console.log(player.loadByUrl)
+            player.loadByUrl(next_url);
+        } else {
+            $("#player_next_button").remove();
         }
+        // if(parent.MacPlayer.PlayLinkNext!=''){
+        //     top.location.href = parent.MacPlayer.PlayLinkNext;
+        // }
     }
+    html.click(clickHandle);
     let option = {
         "id": "player-con",
         "source": url,
@@ -78,14 +93,14 @@
     }
     var player = new Aliplayer(option, function (player) {
             console.log("The player is created");
-            let html = '<div class="player-olympic-player-next"><div class="player-olympic-player-next-tip">Next</div></div>'
-            html = $(html)
-            html.click(clickHandle)
             let notify = '<p class="prism-info-display prism-info-left-bottom" id="custom_notify" style="float: left; margin-left: 0px; margin-top: 0px; display: none;"></p>'
             notify = $(notify)
             $('#player-con').find('.prism-tooltip').after(notify)
             try {
-                if(parent.MacPlayer.PlayLinkNext!='') {
+                let nid = parent.player_aaaa.nid;
+                let urls = parent.player_aaaa.urls;
+                let next_url = urls[nid+1];
+                if(next_url != undefined) {
                     $('#player-con').find('.prism-play-btn').after(html)
                 }
             } catch (error) {
@@ -95,7 +110,7 @@
         }
     );
     player.on('ended',function(){
-       clickHandle();
+       clickHandle(player);
     })
     let notify = function (msg) {
         let a = $('#custom_notify')

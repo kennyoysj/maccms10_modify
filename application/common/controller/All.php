@@ -539,6 +539,7 @@ class All extends Controller
         $player_info['id'] = $param['id'];
         $player_info['sid'] = $param['sid'];
         $player_info['nid'] = $param['nid'];
+        $player_info['urls'] = $info[$listfun][$param['sid']]['urls'];
         $info['player_info'] = $player_info;
         $this->assign('obj',$info);
 
