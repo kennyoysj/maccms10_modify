@@ -17,9 +17,9 @@ return array (
   ),
   'site' => 
   array (
-    'site_name' => '免费短视频分享大全 - 大中国',
-    'site_url' => 'www.test.cn',
-    'site_wapurl' => 'wap.test.cn',
+    'site_name' => '一个兴趣使然的网站',
+    'site_url' => 'moviesite.kennyoysj.site',
+    'site_wapurl' => 'moviesite.kennyoysj.site',
     'site_keywords' => '短视频,搞笑视频,视频分享,免费视频,在线视频,预告片',
     'site_description' => '提供最新最快的视频分享数据',
     'site_icp' => 'icp123',

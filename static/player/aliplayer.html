@@ -43,69 +43,74 @@
 <body>
 <div class="prism-player" id="player-con" style="position: absolute;"></div>
 <script>
-let url = parent.MacPlayer.PlayUrl;
-url = url.replace("http:","https:")
-console.log(url)
-let clickHandle = function() {
-    if(parent.MacPlayer.PlayLinkNext!=''){
-        top.location.href = parent.MacPlayer.PlayLinkNext;
-    }
-}
-let option = {
-    "id": "player-con",
-    "source": url,
-    "width": "100%",
-    "height": "100%",
-    "autoplay": true,
-    "isLive": false,
-    "rePlay": false,
-    "playsinline": true,
-    "preload": true,
-    "controlBarVisibility": "hover",
-    "useH5Prism": true,
-    "keyShortCuts": true,
-    components: [{
-      name: 'MemoryPlayComponent',
-      type: AliPlayerComponent.MemoryPlayComponent,
-      /* Set the first parameter to true to enable auto play. The default is false. */
-      args: [true]
-    }]
-    // components: [{
-    //     name: 'playerNextComponent',
-    //     type: AliPlayerComponent.playerNextComponent,
-    //     args: [clickHandle]
-    // }]
-}
-var player = new Aliplayer(option, function (player) {
-        console.log("The player is created");
-        let html = '<div class="player-olympic-player-next"><div class="player-olympic-player-next-tip">Next</div></div>'
-        html = $(html)
-        html.click(clickHandle)
-        let notify = '<p class="prism-info-display prism-info-left-bottom" id="custom_notify" style="float: left; margin-left: 0px; margin-top: 0px; display: none;"></p>'
-        notify = $(notify)
-        $('#player-con').find('.prism-tooltip').after(notify)
-        if(parent.MacPlayer.PlayLinkNext!='') {
-            $('#player-con').find('.prism-play-btn').after(html)
+    let url = parent.MacPlayer.PlayUrl;
+    url = url.replace("http:","https:")
+    console.log(parent)
+    let clickHandle = function() {
+        if(parent.MacPlayer.PlayLinkNext!=''){
+            top.location.href = parent.MacPlayer.PlayLinkNext;
         }
     }
-);
-player.on('ended',function(){
-   clickHandle();
-})
-let notify = function (msg) {
-    let a = $('#custom_notify')
-    a.text(""+msg)
-    a.css("display","block")
-}
-
-let end_notify = function () {
-    setTimeout(function() {
+    let option = {
+        "id": "player-con",
+        "source": url,
+        "width": "100%",
+        "height": "100%",
+        "autoplay": true,
+        "isLive": false,
+        "rePlay": false,
+        "playsinline": true,
+        "preload": true,
+        "controlBarVisibility": "hover",
+        "useH5Prism": true,
+        "keyShortCuts": true,
+        components: [{
+          name: 'MemoryPlayComponent',
+          type: AliPlayerComponent.MemoryPlayComponent,
+          /* Set the first parameter to true to enable auto play. The default is false. */
+          args: [true]
+        }]
+        // components: [{
+        //     name: 'playerNextComponent',
+        //     type: AliPlayerComponent.playerNextComponent,
+        //     args: [clickHandle]
+        // }]
+    }
+    var player = new Aliplayer(option, function (player) {
+            console.log("The player is created");
+            let html = '<div class="player-olympic-player-next"><div class="player-olympic-player-next-tip">Next</div></div>'
+            html = $(html)
+            html.click(clickHandle)
+            let notify = '<p class="prism-info-display prism-info-left-bottom" id="custom_notify" style="float: left; margin-left: 0px; margin-top: 0px; display: none;"></p>'
+            notify = $(notify)
+            $('#player-con').find('.prism-tooltip').after(notify)
+            try {
+                if(parent.MacPlayer.PlayLinkNext!='') {
+                    $('#player-con').find('.prism-play-btn').after(html)
+                }
+            } catch (error) {
+            }
+            // let fullscreen_btn = $(".prism-fullscreen-btn")[0];
+            // fullscreen_btn.click();
+        }
+    );
+    player.on('ended',function(){
+       clickHandle();
+    })
+    let notify = function (msg) {
         let a = $('#custom_notify')
-        a.css("display","none")
-    },1000)
-}
+        a.text(""+msg)
+        a.css("display","block")
+    }
+    
+    let end_notify = function () {
+        setTimeout(function() {
+            let a = $('#custom_notify')
+            a.css("display","none")
+        },1000)
+    }
 
-var videoStatus = document.querySelector("video");
+    var videoStatus = document.querySelector("video");
     
     $body = $("body");
     var time_change = 0;
